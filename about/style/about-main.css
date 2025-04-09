@@ -1,0 +1,225 @@
+/* ======================= about-main.css - Upgraded for Light/Dark Mode ======================= */
+
+/* ======================= 공통 카드 그리드 레이아웃: 모든 섹션에서 사용 ======================= */
+body {
+  font-family: 'Pretendard', sans-serif;
+  color: var(--text-primary-color);
+}
+
+.meaning-chunk {
+  display: inline-block;
+  cursor: var(--cursor-grab2);
+  transition: text-decoration 0.18s, background 0.14s;
+  border-radius: 3px;
+  outline: none;
+}
+.meaning-chunk:hover,
+.meaning-chunk:focus {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  outline: none;
+}
+
+/* 섹션 레이아웃 및 간격 */
+.about-skills,
+.about-values,
+.about-process {
+  padding-left: clamp(0.7rem, 8vw, 10rem);
+  padding-right: clamp(0.7rem, 8vw, 10rem);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  position: relative;
+  box-sizing: border-box;
+}
+.about-funfacts {
+  margin-bottom: 2rem;
+  padding-left: clamp(0.7rem, 8vw, 10rem);
+  padding-right: clamp(0.7rem, 8vw, 10rem);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  position: relative;
+  box-sizing: border-box;
+}
+.about-section-gap2 {
+  height: 1rem;
+  width: 100%;
+}
+
+/* 섹션 타이틀 */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 4rem;
+  text-align: left;
+  background: linear-gradient(45deg, #24243e, #414145);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  padding-left: 2rem;
+  transition: background 0.3s ease;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.5rem;
+  height: 2.5rem;
+  background: linear-gradient(45deg, #24243e, #414145);
+  border-radius: 0.25rem;
+  transition: background 0.3s ease;
+}
+
+body[data-theme="dark"] .section-title {
+  background: linear-gradient(45deg, var(--color-gray-100), var(--color-gray-300));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+body[data-theme="dark"] .section-title::before {
+  background: linear-gradient(45deg, var(--color-gray-100), var(--color-gray-300));
+}
+
+/* ======================= 한지+그레인 배경 (공통) ======================= */
+.section-background-active {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.section-background-active::before,
+.section-background-active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(.33,1.02,.45,.98);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.section-background-active.background-active::before {
+  background: var(--color-gray-100) url('./hanji.png') repeat center center/auto 520px;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  transition-delay: 0.3s;
+}
+.section-background-active.background-active::after {
+  background: url('https://grainy-gradients.vercel.app/noise.svg');
+  background-size: cover;
+  background-repeat: repeat;
+  opacity: 0.29;
+  mix-blend-mode: multiply;
+  transition-delay: 0.2s;
+}
+
+body[data-theme="dark"] .section-background-active.background-active::before {
+  opacity: 0.1;
+  mix-blend-mode: screen;
+}
+body[data-theme="dark"] .section-background-active.background-active::after {
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+}
+
+/* ==========================================================================
+   ABOUT FIXED HEADER STYLES
+   ========================================================================== */
+.about-header {
+    position: fixed;
+    top: 10px;
+    z-index: 999;
+    width: 100%;
+    background-color: transparent;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.about-header.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+}
+
+.about-header:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.about-header .about-header-inner {
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.about-header .theme-toggle-button {
+    padding: 0.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    transition: opacity 0.3s;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+    scale: 1.2;
+}
+
+.about-header .theme-toggle-button:hover {
+    opacity: 0.7;
+}
+
+.about-header .theme-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s, opacity 0.3s, stroke 0.3s ease;
+    stroke: var(--text-primary-color);
+}
+
+.about-header .theme-icon.hidden {
+    transform: translate(-50%, -50%) rotate(-90deg);
+    opacity: 0;
+}
+
+
+/* [모바일 수정] 768px 이하 화면에 대한 공통 스타일 조정 */
+@media (max-width: 768px) {
+  .about-skills,
+  .about-values,
+  .about-process,
+  .about-funfacts {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem; /* 제목 폰트 크기 축소 */
+    margin-bottom: 2.5rem; /* 제목 하단 마진 축소 */
+    padding-left: 1.5rem;
+  }
+
+  .section-title::before {
+    width: 0.35rem;
+    height: 2rem;
+  }
+
+  .about-section-gap2 {
+    height: 0.5rem;
+  }
+}

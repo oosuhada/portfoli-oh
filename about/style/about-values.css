@@ -1,0 +1,323 @@
+/* ======================= VALUES SECTION - Upgraded for Light/Dark Mode & Responsive ======================= */
+.value-title {
+  margin-block-end: 0;
+  margin-block-start: 2em;
+}
+
+/* 기본 스타일: 대형 화면 (961px 이상) - 1x4 행 레이아웃 */
+.about-values-cols {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(1rem, 2vw, 3rem); /* 카드 사이의 반응형 간격 */
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+/* 중형 화면 (621px ~ 960px): 2x2 그리드 레이아웃 */
+@media (max-width: 960px) and (min-width: 621px) {
+  .about-values-cols {
+    flex-wrap: wrap; /* 카드를 다음 줄로 넘겨 그리드 형성 */
+    justify-content: center;
+    gap: 2rem; /* 그리드에 맞는 고정 간격 */
+  }
+  .value-card {
+    /* 각 카드가 컨테이너 너비의 절반을 차지하도록 설정 (간격 제외) */
+    flex-basis: calc(50% - 2rem);
+    max-width: 350px;
+  }
+}
+
+/* 소형 화면 (620px 이하): 4x1 열 레이아웃 */
+@media (max-width: 620px) {
+  .about-values-cols {
+    flex-direction: column; /* 카드를 수직으로 쌓음 */
+    align-items: center; /* 열 중앙 정렬 */
+    width: 90%;
+    gap: 2rem; /* 카드 사이의 수직 간격 */
+  }
+  .value-card {
+    width: 100%;
+    max-width: 350px;
+    /* 수직 정렬을 위해 flex 속성 리셋 */
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+}
+
+.value-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 1rem;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease, transform 0.5s ease, background 0.3s ease;
+  min-height: auto;
+  /* 대형 화면 및 기본 flex 속성 */
+  flex-basis: 250px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  max-width: 300px;
+  min-width: 180px;
+}
+
+.value-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.value-ink-blot {
+  width: 200px;
+  height: 80px; /* 초기 높이 */
+  position: relative;
+  cursor: var(--cursor-grab2);
+  z-index: 2;
+  flex-shrink: 0;
+  overflow: visible;
+  transition: height 0.4s cubic-bezier(.23,1.12,.67,1.08); /* 높이 전환 효과 */
+}
+
+/* .show-hanja 클래스가 활성화되면 (모바일에서는 기본) 블롯이 확장됨 */
+.value-card.show-hanja .value-ink-blot {
+  height: 180px; /* 확장된 높이 */
+}
+
+.value-ink-shape {
+  position: absolute;
+  width: 120%;
+  height: 150%;
+  top: -25%;
+  left: -10%;
+  background: radial-gradient(ellipse at center, #2D2D33 0%, #18181B 100%);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25), 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 60% 40% 70% 30% / 30% 70% 40% 60%;
+  transform: rotate(-5deg) scaleY(0.9);
+  filter: url(#classicWetInk);
+  transition:
+    background 0.6s cubic-bezier(.23,1.12,.67,1.08),
+    box-shadow 0.6s cubic-bezier(.23,1.12,.67,1.08),
+    transform 0.6s cubic-bezier(.23,1.12,.67,1.08),
+    border-radius 0.6s cubic-bezier(.23,1.12,.67,1.08);
+}
+
+.value-ink-shape::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  width: 90%;
+  height: 70%;
+  background: linear-gradient(90deg, rgba(194, 180, 180, 0.05) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.05) 100%);
+  border-radius: 50% 50% 50% 50% / 10% 90% 10% 90%;
+  transform: rotate(2deg);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  filter: url(#heavyBleed);
+}
+
+.value-ink-blot:hover .value-ink-shape {
+  transform: rotate(-7deg) scaleY(0.85);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3), 0 3px 12px rgba(0,0,0,0.22);
+}
+body[data-theme="dark"] .value-ink-blot:hover .value-ink-shape {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5), 0 3px 12px rgba(0,0,0,0.4);
+}
+
+.value-ink-blot:hover .value-ink-shape::before {
+  opacity: 0.8;
+  transform: rotate(0deg) scaleY(1);
+}
+
+.value-blot-content-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.value-icon {
+  font-size: 2.8rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  opacity: 1;
+  z-index: 10;
+  filter: blur(0.7px);
+  transition: opacity 0.4s ease, transform 0.4s ease, font-size 0.2s ease, color 0.2s ease, filter 0.2s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.value-icon i {
+  color: #d9d9d9;
+}
+
+body[data-theme="dark"] .value-icon i {
+  color: var(--text-secondary-color);
+}
+
+.value-hanja {
+  font-family: 'LXGW WenKai TC', 'Noto Serif TC', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #d9d9d9;
+  line-height: 1;
+  text-shadow: 0 0 4px rgba(0,0,0,0.25);
+  opacity: 0;
+  z-index: 9;
+  filter: blur(0.6px);
+  position: absolute;
+  white-space: nowrap;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: opacity 0.4s ease, transform 0.4s ease, top 0.4s cubic-bezier(.23,1.12,.67,1.08);
+}
+
+body[data-theme="dark"] .value-hanja {
+  color: var(--text-primary-color);
+}
+
+.value-reading {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  transition: opacity 0.3s ease 0.1s, bottom 0.4s cubic-bezier(.23,1.12,.67,1.08);
+}
+
+.value-hangul {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 0.8rem;
+  color: #c0c0c0;
+  font-weight: 500;
+}
+
+body[data-theme="dark"] .value-hangul {
+  color: var(--text-tertiary-color);
+}
+
+.value-roma {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 0.7rem;
+  color: #999;
+  font-style: italic;
+}
+
+body[data-theme="dark"] .value-roma {
+  color: var(--text-tertiary-color);
+}
+
+.value-card.show-hanja .value-icon {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.value-card.show-hanja .value-hanja {
+  opacity: 1;
+  top: 42%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.value-card.show-hanja .value-reading {
+  opacity: 1;
+  bottom: 12%;
+}
+
+.value-title {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 1.13rem;
+  font-weight: 600;
+  color: var(--text-primary-color);
+  line-height: 1.25;
+  position: relative;
+  text-align: center;
+  transition: color 0.3s ease;
+  min-height: 2.6em;
+  word-break: keep-all;
+}
+
+.value-card:hover .value-title {
+  color: var(--brand-secondary);
+}
+
+.value-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: var(--brand-secondary);
+  border-radius: 1.5px;
+  margin: 0.3em auto 0 auto;
+  opacity: 0.8;
+  transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.value-card:hover .value-title::after {
+  transform: scaleX(1.2);
+  opacity: 1;
+}
+
+.value-description {
+  font-family: 'Pretendard', sans-serif;
+  font-size: clamp(0.7rem, 2vw, 1rem);
+  color: var(--text-secondary-color);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.value-description .meaning-chunk {
+  display: inline-block;
+}
+
+.ink-splash-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0;
+}
+
+.ink-splash-drop {
+  position: absolute;
+  border-radius: 55% 40% 50% 45% / 50% 50% 45% 50%;
+  opacity: 0;
+  background-color: var(--text-primary-color);
+  animation: valueInkSplashAnimation 0.65s cubic-bezier(.25,.46,.45,.94) forwards;
+  transform-origin: center;
+  filter: url(#classicWetInk);
+}
+
+@keyframes valueInkSplashAnimation {
+  0% { opacity: 0.8; transform: scale(0.15); }
+  50% { opacity: 0.5; transform: scale(1.1); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+
+.value-card .meaning-chunk {
+  display: inline;
+  line-height: inherit;
+}
