@@ -1,0 +1,203 @@
+/* timeline.css */
+/* Layout for sections (Desktop horizontal, Mobile vertical) */
+.section-row {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  min-height: calc(100vh - var(--nav-header-height, 0px)); /* 원본 변수명(--nav-header-height) 유지 */
+  overflow: hidden;
+}
+
+/* Section Title styling */
+.section-title {
+  flex: 0 0 8.3333%;
+  max-width: 8.3333vw;
+  min-width: 80px;
+  font-weight: bold;
+  font-size: 1.4em;
+  letter-spacing: 0rem;
+  cursor: var(--cursor-grab2);
+  position: sticky;
+  bottom: 0;
+  user-select: none;
+  transition: background 0.2s, color 0.2s;
+  z-index: 1;
+  box-sizing: border-box;
+  height: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding-bottom: 0px; /* 0x -> 0px 오타 수정 */
+  padding-top: 0px;
+  position: relative;
+  /* THEME-AWARE: 변수 사용 */
+  background: var(--dark-section-title-inactive-bg);
+}
+body[data-theme="light"] .section-title {
+  background: var(--light-section-title-inactive-bg);
+}
+
+.section-title.active {
+  cursor: var(--cursor-default2);
+  z-index: 2;
+  box-shadow: 2px 0 16px 0 rgba(0, 0, 0, 0.10);
+  /* THEME-AWARE: 변수 사용 */
+  background: var(--dark-section-title-active-bg);
+}
+body[data-theme="light"] .section-title.active {
+  background: var(--light-section-title-active-bg);
+}
+
+.section-title .section-title-text {
+  font-size: 3.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  text-align: left;
+  position: absolute;
+  left: 10px;
+  bottom: -500px;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  transform: none;
+  background: inherit;
+  z-index: 2;
+  word-spacing: 0.3em;
+  /* THEME-AWARE: 변수 사용 */
+  color: var(--dark-section-title-inactive-text);
+}
+body[data-theme="light"] .section-title .section-title-text {
+  color: var(--light-section-title-inactive-text);
+}
+
+.section-title.active .section-title-text {
+  color: var(--dark-section-title-active-text);
+}
+body[data-theme="light"] .section-title.active .section-title-text {
+  color: var(--light-section-title-active-text);
+}
+
+/* Section Content Area styling */
+.section-content-area {
+  flex: 1 1 75%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 40px;
+  padding-bottom: 48px;
+  padding-left: clamp(16px, 2vw, 48px);
+  padding-right: clamp(16px, 2vw, 48px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: opacity 0.5s, flex-basis 0.5s;
+  opacity: 1;
+  z-index: 1;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  min-height: calc(100vh - var(--nav-header-height, 0px));
+  /* THEME-AWARE: 변수 사용 */
+  background: var(--dark-timeline-content-bg);
+  color: var(--dark-timeline-content-text);
+  scrollbar-color: #888 var(--dark-timeline-content-bg);
+}
+body[data-theme="light"] .section-content-area {
+  background: var(--light-timeline-content-bg);
+  color: var(--light-timeline-content-text);
+  scrollbar-color: #888 var(--light-timeline-content-bg);
+}
+
+.section-content-area::-webkit-scrollbar {
+  width: 8px;
+}
+.section-content-area::-webkit-scrollbar-track {
+  background: var(--dark-timeline-content-bg);
+}
+body[data-theme="light"] .section-content-area::-webkit-scrollbar-track {
+  background: var(--light-timeline-content-bg);
+}
+.section-content-area::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.section-content-area::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  width: 100%;
+  gap: 22px;
+  box-sizing: border-box;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .section-row {
+    flex-direction: column;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: auto;
+  }
+  .section-title {
+    flex: none;
+    max-width: none;
+    min-width: unset;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: none;
+    position: static;
+    padding-bottom: 0;
+    padding-right: 0;
+    cursor: var(--cursor-grab2);
+    overflow-y: hidden;
+  }
+  .section-title .section-title-text {
+    writing-mode: horizontal-tb;
+    font-size: 2.5em;
+    letter-spacing: -0.02em;
+    padding: 0;
+    margin: 0;
+    position: static;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    top: auto;
+    transform: translateX(-20px);
+  }
+  .section-title.active {
+    box-shadow: none;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .section-content-area {
+    flex: none;
+    min-width: unset;
+    width: 100%;
+    height: auto;
+    min-height: 50vh;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow-y: visible;
+    opacity: 1;
+    transition: none;
+    min-height: auto;
+  }
+  .section-content {
+    gap: 16px;
+  }
+}
