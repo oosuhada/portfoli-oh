@@ -1,0 +1,150 @@
+/* Hero 섹션 전체 레이아웃 */
+.hero-section {
+    width: 100vw;
+    position: relative;
+    overflow: hidden; /* 자식 요소가 넘치는 것을 방지 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 0;
+    padding-right: 0;
+    height: 100vh; /* 화면 전체 높이를 차지하도록 설정 */
+}
+
+/* 캐러셀 컨테이너 스타일 */
+.hero-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex; /* 슬라이드를 수평으로 나열 */
+    will-change: transform; /* 애니메이션 성능 최적화 */
+    z-index: 1; /* 텍스트보다 뒤에 위치 */
+}
+
+/* 개별 슬라이드 스타일 */
+.hero-slide {
+    height: 100%;
+    flex-shrink: 0; /* 슬라이드가 부모 너비에 맞춰 줄어들지 않도록 설정 */
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 슬라이드 영역을 가득 채우도록 설정 */
+    filter: brightness(0.8); /* 텍스트 가독성을 위해 이미지를 약간 어둡게 처리 */
+}
+
+/* 상단 작은 텍스트 스타일 */
+.small-text-load2 {
+    position: absolute;
+    z-index: 2; /* 캐러셀보다 위에 위치 */
+    color: #fff;
+    text-shadow: 0 4px 32px rgba(0,0,0,0.4);
+    font-family: 'Albert Sans', sans-serif !important;
+    top: 18%;
+    left: 8vw;
+    font-size: 1.1em;
+}
+
+/* h1 제목을 감싸는 Wrapper 스타일 */
+/* h1의 위치를 잡고, 넘치는 부분을 숨기는 역할 */
+.cover-head-vid-wrapper {
+    position: absolute;
+    top: 55%;
+    right: 8vw;
+    z-index: 2; /* 캐러셀보다 위에 위치 */
+    overflow: hidden; /* 핵심: 아래에 숨겨진 h1을 가려줍니다. */
+}
+
+/* h1 제목 스타일 */
+/* 이제 위치는 Wrapper가 담당하므로, 폰트와 텍스트 관련 스타일만 남깁니다. */
+.cover-head-vid {
+    font-size: 3em;
+    font-family: 'Albert Sans', sans-serif;
+    color: #fff;
+    text-shadow: 0 4px 32px rgba(0,0,0,0.4);
+}
+
+/* --- 새로 추가되는 스크롤 유도 화살표 및 스크롤 비활성화 CSS --- */
+
+/* 스크롤 다운 화살표 컨테이너 */
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 50px; /* 화면 하단에서 띄울 위치 */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* 다른 콘텐츠 위에 표시 */
+    color: #fff; /* 화살표 색상 */
+    font-size: 2em; /* 화살표 크기 */
+    opacity: 0; /* 초기에는 숨김 */
+    /* opacity 애니메이션을 JavaScript에서 GSAP으로 직접 제어하므로, transition은 필요없습니다. */
+    /* transition: opacity 0.5s ease-out; */
+    cursor: pointer;
+    text-align: center;
+    pointer-events: none; /* 초기에는 클릭 비활성화 */
+}
+
+.scroll-down-indicator.active {
+    /* opacity는 JS에서 GSAP으로 제어 */
+    pointer-events: auto; /* 활성화되면 클릭 가능 */
+}
+
+.scroll-down-indicator .arrow-icon {
+    display: block;
+    animation: bounce 2s infinite; /* 통통 튀는 애니메이션 */
+}
+
+.scroll-down-indicator .scroll-text {
+    font-size: 0.5em; /* 'Scroll Down' 텍스트 크기 */
+    margin-top: 5px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* 스크롤을 막기 위한 body 스타일 (임시 적용) */
+body.no-scroll {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+/* --- 반응형 스타일 (기존 + 추가된 요소) --- */
+@media (max-width: 768px) {
+    .cover-head-vid-wrapper {
+        right: 4vw;
+    }
+    .cover-head-vid {
+        font-size: 3em;
+    }
+    .small-text-load2 {
+        font-size: 1.1em;
+        left: 4vw;
+    }
+
+    /* 모바일에서 스크롤 다운 인디케이터 위치 및 크기 조정 */
+    .scroll-down-indicator {
+        bottom: 30px;
+        font-size: 1.5em;
+    }
+    .scroll-down-indicator .scroll-text {
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 480px) {
+    .cover-head-vid {
+        font-size: 3em;
+    }
+}

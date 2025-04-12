@@ -1,0 +1,429 @@
+/* ==================================================
+DESIGN & DELIVER 섹션 - 통합 스타일 (분리된 파일)
+================================================== */
+/* 1. 섹션 기본 레이아웃 */
+.design-section-1, .design-section-2,
+.deliver-section-1, .deliver-section-2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--current-bg);
+    color: var(--current-text);
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 2. 스크롤 애니메이션을 위한 최소 높이 */
+.design-section-1 { min-height: 400vh; }
+.deliver-section-1 { min-height: 400vh; }
+.design-section-2 { min-height: 100vh; }
+.deliver-section-2 { min-height: 100vh; }
+
+/* 3. 화면에 고정될 컨테이너 */
+.pin-wrapper {
+    width: 100%;
+    height: 100vh; /* 높이 상속 체인의 시작점 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* ==================================================
+DESIGN, DELIVER 헤더 스타일 (변경 없음)
+================================================== */
+.design-header-1-content { position: relative; }
+.design-container { position: relative; display: inline-block; font-family: 'Albert Sans', sans-serif; font-weight: 800; font-size: clamp(80px, 12vw, 150px); letter-spacing: 0.05em; }
+.design-shadow-group, .design-main { position: absolute; top: 0; left: 0; font-family: inherit; font-weight: inherit; font-size: inherit; letter-spacing: inherit; }
+.design-shadow-group { display: flex; position: relative; z-index: 1; }
+.design-shadow { display: inline-block; position: relative; color: transparent; font-family: inherit; font-weight: inherit; font-size: inherit; letter-spacing: inherit; }
+.design-main { z-index: 2; color: var(--current-text-secondary); }
+.design-header-2, .deliver-header-2 { position: absolute; top: 50px; left: 50%; transform: translateX(-50%); font-family: 'Albert Sans', sans-serif; font-weight: 800; font-size: clamp(60px, 8vw, 100px); letter-spacing: 0.05em; color: var(--text-tertiary-color); text-shadow: 0px 2px 10px rgba(0,0,0,0.1); white-space: nowrap; z-index: 5; opacity: 1; will-change: auto; visibility: hidden !important; }
+
+/* ==================================================
+content-slide 컨테이너 스타일 (공통) - Used by Design-1/Deliver-1 pinned sections
+================================================== */
+.design-section-1 .content-slide,
+.deliver-section-1 .content-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* JS 스크롤 애니메이션을 위해 기본적으로 숨김 */
+    will-change: opacity, transform;
+    text-align: center;
+    width: 90%;
+    max-width: 1000px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    pointer-events: none; /* JS 스크롤 애니메이션을 위해 기본적으로 비활성화 */
+    color: var(--current-text);
+}
+
+/* design-1/deliver-1의 하위 요소들은 기존 스타일 유지 */
+.design-section-1 .content-slide.empty-slide,
+.deliver-section-1 .content-slide.empty-slide { opacity: 0; pointer-events: none; transition: opacity 0.3s; min-height: 60vh; width: 100vw; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 2px dashed var(--current-border); color: var(--current-text-secondary); }
+.design-section-1 .after-pin-buffer,
+.deliver-section-1 .after-pin-buffer { height: 20vh; width: 100vw; background: transparent; }
+.design-section-1 .content-slide.combined-header-intro,
+.deliver-section-1 .content-slide.combined-header-intro { flex-direction: row; align-items: center; justify-content: center; gap: 40px; padding-top: 20px; pointer-events: auto; }
+.design-section-1 .content-slide.combined-header-intro .design-header-1-content,
+.deliver-section-1 .content-slide.combined-header-intro .design-header-1-content { flex-shrink: 0; width: 40%; display: flex; align-items: center; justify-content: center; }
+.design-section-1 .content-slide.combined-header-intro .section-intro-text,
+.deliver-section-1 .content-slide.combined-header-intro .section-intro-text { max-width: 50%; text-align: left; color: var(--current-text); }
+.design-section-1 .content-slide.overview-features-slide,
+.deliver-section-1 .content-slide.overview-features-slide { flex-direction: row; align-items: flex-start; justify-content: center; gap: 40px; pointer-events: auto; }
+.design-section-1 .content-slide.overview-features-slide .text-block,
+.deliver-section-1 .content-slide.overview-features-slide .text-block { width: 45%; margin-bottom: 0; }
+.design-section-1 .content-slide.overview-features-slide .features-summary,
+.deliver-section-1 .content-slide.overview-features-slide .features-summary { width: 50%; text-align: left; }
+.design-section-1 .content-slide .text-block,
+.deliver-section-1 .content-slide .text-block { width: 100%; max-width: 600px; margin-bottom: 20px; text-align: left; font-size: clamp(1rem, 1.3vw, 1.1rem); line-height: 1.8; color: var(--current-text); }
+.design-section-1 .content-slide .text-block h4,
+.deliver-section-1 .content-slide .text-block h4 { font-size: clamp(1.4rem, 2vw, 1.8rem); margin-bottom: 15px; color: var(--current-text); }
+.design-section-1 .content-slide .image-wrapper,
+.deliver-section-1 .content-slide .image-wrapper { width: 100%; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+.design-section-1 .content-slide img,
+.deliver-section-1 .content-slide img { width: 100%; height: auto; object-fit: contain; border-radius: 10px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); max-width: 100%; }
+.design-section-1 .image-caption,
+.deliver-section-1 .image-caption { display: block; width: 100%; margin-top: 10px; font-size: clamp(0.7rem, 0.9vw, 0.9rem); color: var(--text-secondary-color); line-height: 1.5; font-style: italic; opacity: 0.9; text-align: center; }
+.design-section-1 .content-slide.image-text-right, .design-section-1 .content-slide.image-text-left,
+.deliver-section-1 .content-slide.image-text-right, .deliver-section-1 .content-slide.image-text-left { flex-direction: row; gap: 40px; justify-content: space-between; pointer-events: auto; }
+.design-section-1 .content-slide.image-text-right .text-block,
+.deliver-section-1 .content-slide.image-text-right .text-block { width: 45%; order: 1; }
+.design-section-1 .content-slide.image-text-right .image-wrapper,
+.deliver-section-1 .content-slide.image-text-right .image-wrapper { width: 50%; order: 2; }
+.design-section-1 .content-slide.image-text-left .text-block,
+.deliver-section-1 .content-slide.image-text-left .text-block { width: 45%; order: 2; }
+.design-section-1 .content-slide.image-text-left .image-wrapper,
+.deliver-section-1 .content-slide.image-text-left .image-wrapper { width: 50%; order: 1; }
+.design-section-1 .content-slide.horizontal-two .image-wrapper,
+.deliver-section-1 .content-slide.horizontal-two .image-wrapper { width: 48%; }
+.design-section-1 .content-slide.horizontal-three .image-wrapper,
+.deliver-section-1 .content-slide.horizontal-three .image-wrapper { width: 31%; }
+.design-section-1 .content-slide.horizontal-two, .design-section-1 .content-slide.horizontal-three,
+.deliver-section-1 .content-slide.horizontal-two, .deliver-section-1 .content-slide.horizontal-three { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.design-section-1 .content-slide.image-with-caption,
+.deliver-section-1 .content-slide.image-with-caption { width: 60vw; max-width: 900px; }
+.design-section-1 .content-slide.image-with-caption .image-wrapper,
+.deliver-section-1 .content-slide.image-with-caption .image-wrapper { width: 100%; }
+.features-summary { max-width: 800px; text-align: left; background: var(--background-card); padding: clamp(1.5rem, 4vw, 2.5rem); border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid var(--border-primary-color); box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
+.features-summary h4 { margin-top: 0; margin-bottom: 1.5rem; font-size: clamp(1.2rem, 2vw, 1.5rem); color: var(--current-text); }
+.features-summary ul { list-style: none; padding-left: 0; }
+.features-summary li { display: list-item !important; margin-bottom: 1rem; font-size: clamp(0.9rem, 1.2vw, 1rem); line-height: 1.6; color: var(--current-text); }
+.features-summary b { color: var(--text-primary-color); }
+
+/* ==================================================
+Carousel Specific Styles for design-2 and deliver-2 (FINAL VERSION)
+================================================== */
+
+/* ★★★ 1. 높이 상속 체인 및 기본 구조 확립 ★★★ */
+.design-section-2 .gallery-carousel-container,
+.design-section-2 .gallery-carousel,
+.design-section-2 .carousel-slide-content,
+.deliver-section-2 .gallery-carousel-container,
+.deliver-section-2 .gallery-carousel,
+.deliver-section-2 .carousel-slide-content {
+    height: 100%;
+    min-height: 0;
+}
+
+.design-section-2 .gallery-carousel-container,
+.deliver-section-2 .gallery-carousel-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden; 
+    box-sizing: border-box;
+    padding: 0 60px;
+}
+
+.design-section-2 .gallery-carousel,
+.deliver-section-2 .gallery-carousel {
+    display: flex; 
+    margin: 0; 
+    padding: 0; 
+    list-style: none;
+    height: 100%;
+}
+
+.design-section-2 .carousel-slide-content,
+.deliver-section-2 .carousel-slide-content {
+    flex-shrink: 0;
+    display: flex;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+}
+.design-section-2 .carousel-slide-content:first-child,
+.deliver-section-2 .carousel-slide-content:first-child { padding-left: 0; }
+.design-section-2 .carousel-slide-content:last-child,
+.deliver-section-2 .carousel-slide-content:last-child { padding-right: 0; }
+
+
+/* ★★★ 2. 슬라이드 내부 레이아웃 최종 수정 (핵심 패턴) ★★★ */
+.design-section-2 .carousel-inner-slide,
+.deliver-section-2 .carousel-inner-slide {
+    display: flex;
+    flex-direction: column; /* 기본 방향은 수직 */
+    height: 100%;
+    width: 100%;
+    min-height: 0;
+    box-sizing: border-box;
+    padding: 20px 0;
+    justify-content: center;
+}
+
+.design-section-2 .carousel-inner-slide .image-wrapper,
+.deliver-section-2 .carousel-inner-slide .image-wrapper {
+    flex: 1 1 0;
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.design-section-2 .carousel-inner-slide img,
+.deliver-section-2 .carousel-inner-slide img {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.design-section-2 .carousel-inner-slide .image-caption,
+.deliver-section-2 .carousel-inner-slide .image-caption {
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: 12px;
+    min-height: 1.5em;
+    text-align: center;
+    font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+    color: var(--text-secondary-color);
+    line-height: 1.5;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* ★★★ 3. (추가 개선) 특정 슬라이드 레이아웃 오버라이드 ★★★ */
+/* 텍스트와 이미지가 함께 있는 슬라이드는 수평(row)으로 배열 */
+.design-section-2 .carousel-inner-slide.image-text-left,
+.design-section-2 .carousel-inner-slide.image-text-right,
+.deliver-section-2 .carousel-inner-slide.image-text-left,
+.deliver-section-2 .carousel-inner-slide.image-text-right {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+}
+
+/* ★★★ 수정: 텍스트/이미지 슬라이드 내부 요소들의 너비와 순서 지정 ★★★ */
+.design-section-2 .carousel-inner-slide.image-text-right .text-block,
+.deliver-section-2 .carousel-inner-slide.image-text-right .text-block {
+    width: 45%;
+    flex: 0 0 45%;
+    order: 1;
+}
+
+.design-section-2 .carousel-inner-slide.image-text-right .image-wrapper,
+.deliver-section-2 .carousel-inner-slide.image-text-right .image-wrapper {
+    width: 50%;
+    flex: 1 1 50%;
+    order: 2;
+    height: 100%;
+}
+
+.design-section-2 .carousel-inner-slide.image-text-left .text-block,
+.deliver-section-2 .carousel-inner-slide.image-text-left .text-block {
+    width: 45%;
+    flex: 0 0 45%;
+    order: 2;
+}
+
+.design-section-2 .carousel-inner-slide.image-text-left .image-wrapper,
+.deliver-section-2 .carousel-inner-slide.image-text-left .image-wrapper {
+    width: 50%;
+    flex: 1 1 50%;
+    order: 1;
+    height: 100%;
+}
+
+/* 여러 이미지가 있는 슬라이드도 수평(row)으로 배열 */
+.design-section-2 .carousel-slide-content.horizontal-two-container .carousel-inner-slide,
+.design-section-2 .carousel-slide-content.horizontal-three-container .carousel-inner-slide,
+.deliver-section-2 .carousel-slide-content.horizontal-two-container .carousel-inner-slide,
+.deliver-section-2 .carousel-slide-content.horizontal-three-container .carousel-inner-slide {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    overflow: auto;
+    align-items: stretch;
+}
+
+.design-section-2 .carousel-slide-content.horizontal-two-container .image-wrapper,
+.design-section-2 .carousel-slide-content.horizontal-three-container .image-wrapper,
+.deliver-section-2 .carousel-slide-content.horizontal-two-container .image-wrapper,
+.deliver-section-2 .carousel-slide-content.horizontal-three-container .image-wrapper {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.design-section-2 .carousel-slide-content.horizontal-two-container .image-wrapper,
+.deliver-section-2 .carousel-slide-content.horizontal-two-container .image-wrapper {
+    flex-basis: calc((100% - 20px) / 2);
+}
+.design-section-2 .carousel-slide-content.horizontal-three-container .image-wrapper,
+.deliver-section-2 .carousel-slide-content.horizontal-three-container .image-wrapper {
+    flex-basis: calc((100% - 40px) / 3);
+}
+
+
+/* Nav Buttons */
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: black;
+    border: none;
+    padding: 15px 10px;
+    font-size: 2em;
+    cursor: var(--cursor-default);
+    z-index: 1000;
+    border-radius: 5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    pointer-events: auto;
+    user-select: none;
+}
+.nav-button:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+body[data-theme="dark"] .nav-button {
+    color: white;
+}
+.nav-button.prev-button { left: 0; }
+.nav-button.next-button { right: 0; }
+
+/* ==================================================
+반응형 (모바일) 설정 
+================================================== */
+@media (min-width: 769px) {
+    .design-shadow-group,
+    .design-main {
+        margin-bottom: 100px;
+        margin-left: 50px;
+        transform: translateY(-100px);
+    }
+    .content-slide.combined-header-intro .section-intro-text {
+        margin-top: 100px;
+        transform: translateY(100px);
+    }
+}
+@media (max-width: 768px) {
+    .design-section-1, .design-section-2, .deliver-section-1, .deliver-section-2 {
+        min-height: auto;
+        padding: 10vh 5vw;
+    }
+    .pin-wrapper {
+        height: auto;
+        position: static !important;
+        flex-direction: column;
+    }
+    .design-header-1-content, .design-header-2, .deliver-header-2 {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        opacity: 1;
+        margin-bottom: 5vh;
+        width: 100%;
+        text-align: center;
+    }
+    .design-header-2, .deliver-header-2 {
+        color: var(--current-text);
+        text-shadow: none;
+    }
+    .design-container { font-size: 3rem; }
+    .design-main {
+        position: relative;
+        text-shadow: none;
+        color: var(--current-text);
+    }
+    .design-shadow-group { display: none; }
+    .design-section-1 .content-slide,
+    .deliver-section-1 .content-slide {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        margin-bottom: 8vh;
+        width: 100% !important;
+        flex-direction: column;
+        padding: 0;
+        pointer-events: auto !important;
+        height: auto !important;
+    }
+    .content-slide.empty-slide { display: none !important; }
+    .content-slide.combined-header-intro,
+    .content-slide.overview-features-slide,
+    .content-slide.image-text-right,
+    .content-slide.image-text-left,
+    .content-slide.horizontal-two,
+    .content-slide.horizontal-three {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .content-slide.combined-header-intro .design-header-1-content,
+    .content-slide.overview-features-slide .text-block,
+    .content-slide.overview-features-slide .features-summary,
+    .content-slide.image-text-right .text-block,
+    .content-slide.image-text-left .text-block,
+    .content-slide.image-text-right .image-wrapper,
+    .content-slide.image-text-left .image-wrapper,
+    .content-slide.horizontal-two .image-wrapper,
+    .content-slide.horizontal-three .image-wrapper {
+        width: 100%;
+        max-width: 100%;
+        order: unset;
+        text-align: center;
+    }
+    /* .content-slide .text-block h4,
+    .content-slide.overview-features-slide .features-summary h4 {
+        text-align: center;
+    } */
+    .nav-button { display: none !important; }
+    .gallery-carousel-container {
+        height: auto;
+        padding: 0;
+    }
+    .carousel-slide-content {
+        flex-direction: column;
+        padding: 0;
+        margin: 0 0 40px 0;
+        width: 100%;
+        height: auto;
+    }
+    .carousel-inner-slide {
+        padding: 0 10px;
+        height: auto;
+    }
+}

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uncorked - Digitalizing My Wine Bar Journey - Interactive Portfolio Case Study</title>
+<link rel="icon" href="https://placehold.co/32x32/000000/FFFFFF/png?text=U" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Monda:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+<!-- Swiper.js CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="css/project-detail.css">
+<link rel="stylesheet" href="css/project-detail-hero.css">
+<link rel="stylesheet" href="css/project-detail-project-details.css">
+<link rel="stylesheet" href="css/project-detail-discover.css">
+<link rel="stylesheet" href="css/project-detail-define.css">
+<link rel="stylesheet" href="css/project-detail-design.css">
+<link rel="stylesheet" href="css/project-detail-deliver.css">
+<link rel="stylesheet" href="css/project-detail-footer.css">
+<link rel="stylesheet" href="../common/common.css">
+<link rel="stylesheet" href="../common/fixed_icons.css">
+</head>
+<body data-theme="light" class="lang-ko"> <noscript>You need to enable JavaScript to run this site.</noscript>
+<div id="scroll-progress-indicator" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+<svg class="progress-circle" viewBox="0 0 100 100" width="50" height="50">
+<circle class="bg-circle" cx="50" cy="50" r="45" fill="none" stroke="#eee" stroke-width="5"/>
+<circle class="progress-circle-fill" cx="50" cy="50" r="45" fill="none" stroke="#666" stroke-width="5" stroke-dasharray="282.7" stroke-dashoffset="282.7" transform="rotate(-90 50 50)"/>
+</svg>
+</div>
+<div class="top-navigation">
+<a href="../project/project.html" class="back-to-portfolio">
+<span class="arrow">←</span>
+<span class="nav-text" data-lang-ko="돌아가기" data-lang-en="Back to Portfolio"></span>
+</a>
+<div class="header-right-controls">
+<div class="language-toggle">
+<button id="lang-ko" class="lang-button active" data-lang="ko">한국어</button>
+<button id="lang-en" class="lang-button" data-lang="en">English</button>
+</div>
+<button class="theme-toggle theme-toggle-button" aria-label="Toggle theme">
+<svg id="sun-icon" class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" y1="1" x2="12" y2="3"></line>
+<line x1="12" y1="21" x2="12" y2="23"></line>
+<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+<line x1="1" y1="12" x2="3" y2="12"></line>
+<line x1="21" y1="12" x2="23" y2="12"></line>
+<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+<svg id="moon-icon" class="theme-icon hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+<span class="sr-only">Toggle theme</span>
+</button>
+</div>
+</div>
+<div id="loader" class="loader-container">
+<p class="load-head">Uncorked</p>
+<span class="small-text-load1">Five years of Seoul wine bar stories, tastefully poured into a digital prototype</span>
+</div>
+<main class="App" data-scroll-container>
+<section id="hero" class="section-wrapper hero-section">
+<div class="hero-carousel">
+<div class="hero-slide">
+<img src="../project/projects/project3-cover.png" alt="Uncorked Hero Image 1">
+</div>
+<div class="hero-slide">
+<img src="https://placehold.co/800x600/2a2a2a/fff?text=Uncorked+Hero+2" alt="Uncorked Hero Image 2">
+</div>
+<div class="hero-slide">
+<img src="../project/projects/project3-cover.png" alt="Uncorked Hero Image 3">
+</div>
+<div class="hero-slide">
+<img src="https://placehold.co/800x600/222/fff?text=Uncorked+Hero+4" alt="Uncorked Hero Image 4">
+</div>
+<div class="hero-slide">
+<img src="../project/projects/project3-cover.png" alt="Uncorked Hero Image 5">
+</div>
+</div>
+<p class="small-text-load2" data-lang-ko="브랜딩, 스토리텔링, 디자인 사고를 디지털로 풀어내다." data-lang-en="Serving up branding, storytelling, and design thinking—digitally uncorked."></p>
+<div class="cover-head-vid-wrapper">
+<h1 class="cover-head-vid" data-lang-ko="언코크드" data-lang-en="Uncorked"></h1>
+</div>
+ <div class="scroll-down-indicator">
+        <i class="fas fa-chevron-down arrow-icon"></i>
+        <span class="scroll-text" data-lang-ko="스크롤 다운" data-lang-en="SCROLL DOWN"></span>
+    </div>
+</section>
+<section id="project-details" class="section-wrapper project-details-section">
+<div class="pin-wrapper">
+<div class="details-content section-main-content">
+<div class="top-content">
+<div class="top-main">
+<div class="header">
+<div class="project-title" data-lang-ko="언코크드" data-lang-en="Uncorked"></div>
+<div class="project-subtitle" data-lang-ko="5년의 와인바 여정을 디지털로" data-lang-en="Digitalizing My Wine Bar Journey"></div>
+</div>
+<div class="insights">
+<h3 data-lang-ko="핵심 인사이트" data-lang-en="Key Insights"></h3>
+<ul>
+<li data-lang-ko="‘분위기’를 디지털로 옮기는 일은 쉽지 않았습니다. 스톡 사진과 실제 매장 사진을 모두 시도해봤지만, 결국 화질이 조금 부족해도 진짜 매장 이미지를 사용해 진정성을 살렸습니다." data-lang-en="How do you capture “atmosphere” online? I tested both stock and real photos, ultimately choosing real bar images for authenticity"></li>
+<li data-lang-ko="가독성 높은 산세리프(san-serif)체 대신, 브랜드의 감성을 살리는 KoPubBatang 세리프체 선택" data-lang-en="Instead of pure readability, I chose KoPubBatang serif font: trading a bit of legibility for “vibe”—the font most true to the brand’s feel."></li>
+<li data-lang-ko="색상은 실제 매장, 와인, 조명, 자개에서 따와 “Midnight Black, Merlot Red, Cherry Flash, Shadow Ember, Toasted Bronze, Pearl Cement” 등 직접 팔레트를 조합했습니다." data-lang-en="The color palette was handpicked from real-life inspirations: midnight black, merlot red, shadow, pearl, toasted bronze, and cherry."></li>
+<li data-lang-ko="정보 구조도 실제 방문자의 여정에 맞춰 “소개 → 갤러리 → 후기 → 메뉴 → 방문안내” 순으로 설계했습니다." data-lang-en="The site flow matches a visitor’s real decision journey: About → Gallery → Reviews → Menu → Visit."></li>
+</ul>
+</div>
+<div class="skills-values">
+<h3 data-lang-ko="주요 도구 및 역량" data-lang-en="Key Tools & Competencies"></h3>
+<div class="tags">
+<span class="tag">Figma (UI/UX prototyping)</span>
+<span class="tag">Visual Storytelling</span>
+<span class="tag">High-res imagery</span>
+<span class="tag">Brand-first UX</span>
+<span class="tag">Color System Design</span>
+<span class="tag">Hospitality-driven UX</span>
+</div>
+</div>
+</div>
+<div class="top-sidebar">
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="날짜" data-lang-en="Date"></span><br>
+<div class="sidebar-value">Apr 2025 - May 2025</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="과정" data-lang-en="Course"></span><br>
+<div class="sidebar-value">Boot Camp</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="사용 도구" data-lang-en="Tools Used"></span><br>
+<div class="sidebar-value">
+Figma<br>
+Framer
+</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="배포" data-lang-en="Deployment"></span><br>
+<div class="sidebar-value">
+N/A (Prototype Only)
+</div>
+</div>
+<div class="sidebar-section">
+<a href="#">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://github.com" alt="QR Code for Figma Prototype"><br>
+<div class="qr-caption" data-lang-ko="프로토타입 (곧 공개 예정)" data-lang-en="Prototype (Coming Soon)"></div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="discover" class="section-wrapper discover-section">
+<div class="pin-wrapper">
+<p class="discover-header" data-lang-ko="개요" data-lang-en="Overview"></p>
+<div class="discover-content-left section-main-content hide-scrollbar" data-lang-ko="5년 동안 만들어온 와인바의 철학과 분위기를 온라인에 옮기는 일은 ‘현장감’이 핵심이었습니다. “직접 가봐야 아는 곳”이라는 말을 많이 들었지만, 이제 온라인에서도 브랜드의 따뜻함, 스토리, 그리고 세심한 배려가 느껴지도록 구현하고자 했습니다." data-lang-en="How do you translate a warm, five-year philosophy into a digital space? “You have to be there to feel it” was my brand’s reputation. Uncorked bottles up the atmosphere, story, and hospitality of Oosu Salon Yeonnam so that even first-time online visitors sense the “real place” behind the pixels.">
+</div>
+</div>
+</section>
+<section id="define" class="section-wrapper define-section">
+<div class="pin-wrapper">
+<div class="define-header" data-lang-ko="문제 정의" data-lang-en="CLARIFYING THE ISSUE"></div>
+<div class="define-container section-main-content hide-scrollbar">
+<div class="define-box issue-box">
+<h4 data-lang-ko="핵심 문제" data-lang-en="Core Issue"></h4>
+<p class="meaning-chunk" data-lang-ko="와인바 브랜드의 매력과 스토리가 여러 플랫폼에 흩어져 있어, ‘방문해야 할 이유’를 통합적으로 전달하지 못하는 문제" data-lang-en="The unique vibe of the bar was scattered (or lost) across platforms. No single site could deliver the real “why visit?” feeling."></p>
+</div>
+<div class="define-main-text">
+<p class="meaning-chunk" data-lang-ko="그래서 스토리텔링, 이미지, 정보 구조를 모두 활용해 하나의 몰입형 사이트를 만들고자 했습니다. 목표는 ‘직접 방문하지 않아도, 이 곳이 왜 특별한지 느끼게 하는 것’이었습니다." data-lang-en="I set out to build a single immersive site—using storytelling, images, and layout—to bring the brand’s essence online. The goal: users should feel why regulars loved the place, even before visiting."></p>
+</div>
+<div class="define-box success-box">
+<h4 data-lang-ko="성공 지표" data-lang-en="Success Measure"></h4>
+<p class="meaning-chunk" data-lang-ko="성공의 기준은, 온라인 경험만으로도 오프라인 공간의 온기와 스토리를 느끼고, 방문하고 싶게 만드는 것입니다." data-lang-en="Success = “If visitors feel the real space’s warmth, and want to visit after seeing the site.”"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="design-1" class="section-wrapper design-section-1">
+<div class="pin-wrapper">
+<div class="content-slide combined-header-intro">
+<div class="design-header-1-content">
+<div class="design-container">
+<div class="design-shadow-group">
+<span class="design-shadow" data-color="#FFD600">D</span>
+<span class="design-shadow" data-color="#FF7A29">E</span>
+<span class="design-shadow" data-color="#FFBCBC">S</span>
+<span class="design-shadow" data-color="#FFD600">I</span>
+<span class="design-shadow" data-color="#21D3F3">G</span>
+<span class="design-shadow" data-color="#16A56B">N</span>
+</div>
+<div class="design-main" data-lang-ko="DESIGN" data-lang-en="DESIGN"></div>
+</div>
+</div>
+<p class="section-intro-text" data-lang-ko="다양한 이미지 소스를 검토했으나, 최종적으로 실제 매장 사진이 주는 진정성을 선택. 일부 저화질 이미지는 업스케일링 기술로 보완. 폰트도 san-serif 대신 KoPubBatang으로 감성을 살렸고, 색상도 매장 조명과 와인, 자개에서 직접 영감을 얻었습니다." data-lang-en="I tried many image sources but ultimately used authentic (even if lower-res) photos from my own bar, upscaling where possible. Instead of a web-standard sans serif, I went with KoPubBatang for its personality. The color palette draws on the bar’s real-life inspiration (midnight, merlot, pearl, bronze, shadow, cherry)."></p>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="디자인 프로세스" data-lang-en="Design Process"></h4>
+<p class="meaning-chunk" data-lang-ko="- 스톡 이미지와 매장 이미지를 모두 시도, 진정성에 집중" data-lang-en="- Tried both stock & real images; authenticity > perfection."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/222/fff?text=Uncorked+Branding+Imagery" alt="Uncorked Branding Imagery">
+<span class="image-caption" data-lang-ko="와인 바의 따뜻하고 독특한 분위기를 전달하기 위해 사용된 고해상도 브랜딩 이미지." data-lang-en="High-resolution branding images used to convey the warm and unique atmosphere of the wine bar."></span>
+</div>
+</div>
+<div class="content-slide image-text-left">
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/2a2a2a/fff?text=Uncorked+Storytelling+Layouts" alt="Uncorked Storytelling Layouts">
+<span class="image-caption" data-lang-ko="메뉴 및 '소개' 페이지에서 바의 이야기를 효과적으로 전달하기 위한 시각적 스토리텔링 레이아웃." data-lang-en="Visual storytelling layouts designed to effectively convey the bar's narrative on menu and about pages."></span>
+</div>
+<div class="text-block">
+<h4 data-lang-ko="디자인 프로세스" data-lang-en="Design Process"></h4>
+<p class="meaning-chunk" data-lang-ko="- san-serif 대신 KoPubBatang 세리프체 선택(감성 우선)<br>- 실제 경험에서 영감을 얻은 컬러 시스템" data-lang-en="- Used KoPubBatang for warmth, despite the web norm for sans-serif.<br>- Created color system from real-world sources."></p>
+</div>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="디자인 프로세스" data-lang-en="Design Process"></h4>
+<p class="meaning-chunk" data-lang-ko="- 정보 구조도 방문자의 실제 탐색 여정에 맞춰 “소개-갤러리-후기-메뉴-방문안내”로 설계<br>- “감성이 잘 느껴진다”는 피드백을 받고 추가 개선" data-lang-en="- Carefully mapped the user flow to real visitor steps (About, Gallery, Review, Menu, Visit).<br>- Responded to feedback—“The vibe comes through!”—and iterated."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/333/fff?text=Uncorked+Responsive+Prototype" alt="Uncorked Responsive Prototype">
+<span class="image-caption" data-lang-ko="모바일과 데스크톱 환경에서 최적의 사용자 경험을 제공하기 위한 반응형 프로토타입 화면." data-lang-en="Responsive prototype screens optimized for seamless user experience across mobile and desktop environments."></span>
+</div>
+</div>
+</section>
+<section id="design-2" class="section-wrapper design-section-2">
+<div class="pin-wrapper">
+<div class="design-header-2" data-lang-ko="시각적 요소 탐색" data-lang-en="VISUAL EXPLORATION"></div>
+<!-- Swiper Structure for Design Carousel -->
+<div class="gallery-carousel-container swiper">
+<div class="gallery-carousel swiper-wrapper">
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/222/fff?text=Uncorked+Figma+Design+System" alt="Uncorked Figma Design System">
+<span class="image-caption" data-lang-ko="재사용 가능한 확장 가능한 구성 요소 시스템을 갖춘 Figma 디자인 시스템." data-lang-en="Figma design system with reusable, scalable component system."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/2a2a2a/fff?text=Uncorked+Auto-layout+Grids" alt="Uncorked Auto-layout Grids">
+<span class="image-caption" data-lang-ko="Figma에서 자동 레이아웃 및 유동 그리드를 적용하여 반응형 디자인 구현." data-lang-en="Applying auto-layout and fluid grids in Figma for responsive design."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-two-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-two">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/333/fff?text=Uncorked+Menu+Design" alt="Uncorked Menu Design">
+<span class="image-caption" data-lang-ko="메뉴 페이지 디자인으로 시각적 스토리텔링과 깔끔한 레이아웃을 강조합니다." data-lang-en="Menu page design highlighting visual storytelling and clean layouts."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/3a3a3a/fff?text=Uncorked+About+Page+Design" alt="Uncorked About Page Design">
+<span class="image-caption" data-lang-ko="바의 스토리를 효과적으로 전달하도록 설계된 '소개' 페이지 디자인." data-lang-en="About page design specifically designed to effectively convey the bar's story."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/444/fff?text=Uncorked+Moodboard" alt="Uncorked Moodboard">
+<span class="image-caption" data-lang-ko="와인 바의 따뜻하고 현대적인 시각적 분위기와 미학에 영향을 미치는 큐레이션된 무드보드." data-lang-en="Curated moodboard influencing the warm and modern visual tone and aesthetic of the wine bar."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-three-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-three">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/555/fff?text=Uncorked+Wireframes" alt="Uncorked Wireframes">
+<span class="image-caption" data-lang-ko="초기 와이어프레임부터 최종 고정 목업까지의 디자인 진행 과정을 보여주는 스케치." data-lang-en="Sketches illustrating the design progression from initial wireframes to high-fidelity mockups."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/5a5a5a/fff?text=Uncorked+Typography+Palette" alt="Uncorked Typography Palette">
+<span class="image-caption" data-lang-ko="프로젝트의 독특한 브랜딩을 강화하기 위해 사용된 타이포그래피 및 색상 팔레트." data-lang-en="Typography and color palette used to enhance the unique branding of the project."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/666/fff?text=Uncorked+User+Flow" alt="Uncorked User Flow">
+<span class="image-caption" data-lang-ko="사용자가 브랜드를 쉽게 탐색할 수 있도록 설계된 간소화된 사용자 흐름도." data-lang-en="Simplified user flow diagram designed to allow users to easily explore the brand."></span>
+</div>
+</div>
+</div>
+</div>
+<!-- If we need navigation buttons -->
+<div class="nav-button swiper-button-prev design-prev"></div>
+<div class="nav-button swiper-button-next design-next"></div>
+<!-- If we need pagination -->
+<div class="swiper-pagination design-pagination"></div>
+</div>
+</div>
+</section>
+<section id="deliver-1" class="section-wrapper deliver-section-1">
+<div class="pin-wrapper">
+<div class="content-slide overview-features-slide">
+<div class="text-block">
+<h4 data-lang-ko="제작: 와인 바의 본질을 디지털화하다" data-lang-en="Deliver: Digitalizing the Essence of a Wine Bar"></h4>
+<p class="meaning-chunk" data-lang-ko="Figma로 유연한 디자인 시스템과 반응형 레이아웃을 갖춘 상세 프로토타입을 구축했습니다. 모든 콘텐츠는 브랜드 경험 여정에 맞게 구성했습니다." data-lang-en="Built a detailed Figma prototype: flexible design system, responsive layouts, and all content mapped to the “brand experience” funnel."></p>
+</div>
+<div class="features-summary">
+<h4 data-lang-ko="주요 기능 및 기술 구현" data-lang-en="Key Features & Technical Implementation"></h4>
+<ul>
+<li class="meaning-chunk" data-lang-ko="<b>브랜드 스토리텔링:</b> 모든 페이지에 시각적 내러티브" data-lang-en="<b>Brand Storytelling:</b> Visual narratives across all pages."></li>
+<li class="meaning-chunk" data-lang-ko="<b>고화질 이미지:</b> 매장 실제 사진으로 분위기 전달" data-lang-en="<b>High-Resolution Imagery:</b> Real bar photos set the tone."></li>
+<li class="meaning-chunk" data-lang-ko="<b>반응형 프로토타입:</b> 모바일/데스크톱 최적화" data-lang-en="<b>Responsive Prototype:</b> Mobile/desktop optimized."></li>
+<li class="meaning-chunk" data-lang-ko="<b>직관적 네비게이션:</b> 실제 고객 경험을 반영한 흐름" data-lang-en="<b>Intuitive Navigation:</b> Follows the actual customer journey."></li>
+<li class="meaning-chunk" data-lang-ko="<b>커스텀 컬러 팔레트:</b> 와인, 조명, 자개 등에서 영감" data-lang-en="<b>Custom Color Palette:</b> Inspired by wine, lights, mother-of-pearl."></li>
+<li class="meaning-chunk" data-lang-ko="<b>피드백 기반 개선:</b> “감성이 잘 느껴진다”는 실제 평가에 따라 개선" data-lang-en="<b>Feedback Driven:</b> Iterated on “authentic, emotional” feedback."></li>
+</ul>
+</div>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="디자인 시스템 개발" data-lang-en="Developing the Design System"></h4>
+<p class="meaning-chunk" data-lang-ko="일관성을 위해 재사용 가능하고 확장 가능한 구성 요소 시스템을 만들었습니다.<br>이는 Figma에서 디자인의 일관성과 효율성을 보장하는 데 도움이 됩니다." data-lang-en="Created a reusable, scalable component system for consistency.<br>This helped ensure consistency and efficiency in the design within Figma."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/222/fff?text=Uncorked+Design+System+Details" alt="Uncorked Design System Details">
+<span class="image-caption" data-lang-ko="프로젝트의 디자인 일관성과 효율성을 보장하는 상세 디자인 시스템 구성 요소." data-lang-en="Detailed design system components ensuring design consistency and efficiency for the project."></span>
+</div>
+</div>
+<div class="content-slide image-text-left">
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/333/fff?text=Uncorked+Responsive+Figma+Screens" alt="Uncorked Responsive Figma Screens">
+<span class="image-caption" data-lang-ko="다양한 기기 크기에 걸쳐 Figma에서 반응형 디자인을 보여주는 화면." data-lang-en="Screens showcasing responsive design in Figma across various device sizes."></span>
+</div>
+<div class="text-block">
+<h4 data-lang-ko="Figma를 사용한 반응형 디자인" data-lang-en="Responsive Design with Figma"></h4>
+<p class="meaning-chunk" data-lang-ko="Figma에서 자동 레이아웃과 유동 그리드를 적용하여<br>모바일 및 데스크톱 보기에 최적화된 반응형 프로토타입을 만들었습니다." data-lang-en="Applied auto-layout and fluid grids in Figma to create a responsive prototype<br>optimized for mobile and desktop viewing."></p>
+</div>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="무형의 분위기를 디지털화하는 도전" data-lang-en="Challenges: Digitalizing Intangible Ambiance"></h4>
+<p class="meaning-chunk" data-lang-ko="가장 큰 도전은 직접 경험하는 무형의 분위기를 디지털로 번역하는 것이었습니다.<br>또한 프로토타입 속도를 위해 이미지 품질과 성능의 균형을 맞추는 것이 중요했습니다." data-lang-en="The biggest challenge was translating the intangible, in-person ambiance into a digital format.<br>It was also crucial to balance image quality and performance for prototype speed."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/444/fff?text=Uncorked+Challenge+Image" alt="Uncorked Challenge Image">
+<span class="image-caption" data-lang-ko="와인 바의 독특한 무형의 분위기를 디지털로 구현하는 디자인 과정의 어려움." data-lang-en="Challenges faced in the design process to digitally capture the unique, intangible ambiance of the wine bar."></span>
+</div>
+</div>
+</section>
+<section id="deliver-2" class="section-wrapper deliver-section-2">
+<div class="pin-wrapper">
+<div class="deliver-header-2" data-lang-ko="작동 중인 기능" data-lang-en="FEATURES IN ACTION"></div>
+<!-- Swiper Structure for Deliver Carousel -->
+<div class="gallery-carousel-container swiper">
+<div class="gallery-carousel swiper-wrapper">
+<div class="carousel-slide-content image-text-right-container swiper-slide">
+<div class="content-slide carousel-inner-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="몰입형 브랜드 스토리 섹션" data-lang-en="Immersive Brand Story Section"></h4>
+<p class="meaning-chunk" data-lang-ko="메뉴부터 '소개' 페이지까지 모든 섹션은 시각적 스토리텔링을 사용하여<br>바의 독특한 따뜻함과 특징을 전달합니다.<br>이를 통해 사용자는 바의 본질을 느낄 수 있습니다." data-lang-en="Every section, from the menu to the about page, uses visual storytelling to communicate<br>the unique warmth and character of the bar.<br>This allows users to feel the essence of the bar."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/222/fff?text=Live+demo+of+Brand+Storytelling" alt="Live demo of Brand Storytelling (GIF)">
+<span class="image-caption" data-lang-ko="와인 바의 분위기와 스토리를 생생하게 전달하는 브랜드 스토리텔링 라이브 데모." data-lang-en="Live demo showcasing the brand storytelling to vividly convey the wine bar's atmosphere and narrative."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content image-text-left-container swiper-slide">
+<div class="content-slide carousel-inner-slide image-text-left">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/333/fff?text=High-Resolution+Imagery+Showcase" alt="High-Resolution Imagery Showcase">
+<span class="image-caption" data-lang-ko="와인 바의 고급스러운 분위기를 연출하는 고해상도 이미지 쇼케이스." data-lang-en="Showcase of high-resolution imagery used to create the refined atmosphere of the wine bar."></span>
+</div>
+<div class="text-block">
+<h4 data-lang-ko="고해상도 이미지 활용" data-lang-en="Utilization of High-Resolution Imagery"></h4>
+<p class="meaning-chunk" data-lang-ko="실제 바 사진을 배경 및 주요 이미지로 사용하여 사용자에게 몰입감 있는 분위기를 제공합니다." data-lang-en="Real bar photos are used as backgrounds and feature images to provide users with an immersive atmosphere."></p>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-two-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-two">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/444/fff?text=Responsive+Prototype+Demo" alt="Responsive Prototype Demo">
+<span class="image-caption" data-lang-ko="다양한 기기에서 일관되고 최적화된 경험을 제공하는 반응형 프로토타입 데모." data-lang-en="Demonstration of the responsive prototype providing a consistent and optimized experience across various devices."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/555/fff?text=Intuitive+Navigation+Demo" alt="Intuitive Navigation Demo">
+<span class="image-caption" data-lang-ko="사용자가 브랜드 스토리, 메뉴, 공간을 쉽게 탐색할 수 있는 직관적인 탐색 데모." data-lang-en="Demonstration of intuitive navigation allowing users to easily explore brand story, menu, and space."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-three-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-three">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/666/fff?text=Responsive+Design+Check+on+Multiple+Devices" alt="Responsive Design Check on Multiple Devices">
+<span class="image-caption" data-lang-ko="스마트폰, 태블릿 등 다양한 장치 중단점에서 반응형 디자인 테스트 결과." data-lang-en="Results of responsive design testing across various device breakpoints, including smartphones and tablets."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/777/fff?text=Git+Version+Control+History" alt="Git Version Control History">
+<span class="image-caption" data-lang-ko="프로젝트의 체계적인 개발 과정을 보여주는 Git 버전 관리 기록." data-lang-en="Git version control history illustrating the systematic development process of the project."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/888/fff?text=Figma+Prototype+Walkthrough" alt="Figma Prototype Walkthrough">
+<span class="image-caption" data-lang-ko="부트캠프에서 멘토와 동료들에게 선보인 Figma 프로토타입 라이브 워크스루." data-lang-en="Live Figma prototype walkthrough presented to mentors and peers at the bootcamp."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/999/fff?text=Uncorked+Final+UI" alt="Uncorked Final UI">
+<span class="image-caption" data-lang-ko="와인 바의 정체성을 완벽하게 반영한 '언코크드' 프로토타입의 최종 사용자 인터페이스." data-lang-en="The final user interface of the 'Uncorked' prototype, perfectly reflecting the wine bar's identity."></span>
+</div>
+</div>
+</div>
+</div>
+<!-- If we need navigation buttons -->
+<div class="nav-button swiper-button-prev deliver-prev"></div>
+<div class="nav-button swiper-button-next deliver-next"></div>
+<!-- If we need pagination -->
+<div class="swiper-pagination deliver-pagination"></div>
+</div>
+</div>
+</section>
+<section id="footer" class="section-wrapper footer-section">
+    <div class="logo-container">
+        <h3 data-lang-ko="언코크드" data-lang-en="Uncorked"></h3>
+    </div>
+
+    <div class="bottom-nav-container">
+        <div class="nav-item prev-item">
+            <div class="nav-circle prev-circle">
+                <a href="EZ Air.html"> <span class="arrow">←</span>
+                    <span class="nav-text hidden-nav-text" data-lang-ko="PREV" data-lang-en="PREV"></span>
+                </a>
+            </div>
+            <span class="project-title-under-circle" id="prev-project-name"></span>
+        </div>
+
+        <div class="nav-item next-item">
+            <div class="nav-circle next-circle">
+                <a href="Onjung.html"> <span class="arrow">→</span>
+                    <span class="nav-text hidden-nav-text" data-lang-ko="NEXT" data-lang-en="NEXT"></span>
+                </a>
+            </div>
+            <span class="project-title-under-circle" id="next-project-name"></span>
+        </div>
+    </div>
+
+    <div class="footer-bottom-credits">
+        <span class="footer-copyright" id="footer-copyright-text" 
+              data-lang-ko="© 2025. 언코크드" 
+              data-lang-en="© 2025. Uncorked">
+        </span>
+        <span class="designer-name" id="footer-designer-name" 
+              data-lang-ko="디자인 by Oosu" 
+              data-lang-en="Designed by Oosu">
+        </span>
+    </div>
+</section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="../common/common.js"></script>
+<script src="../common/highlighter.js"></script>
+<script src="../common/navigation.js"></script>
+<script src="../common/theme-manager.js"></script>
+<script src="../common/ui-components.js"></script>
+<script src="../common/visual-effects.js"></script>
+
+<script src="js/project-detail-hero.js"></script>
+<script src="js/project-detail-project-details.js"></script>
+<script src="js/project-detail-discover.js"></script>
+<script src="js/project-detail-define.js"></script>
+<script src="js/project-detail-design.js"></script>
+<script src="js/project-detail-deliver.js"></script>
+<script src="js/project-detail-footer.js"></script>
+
+<script src="js/footer-directory.js"></script> <script src="js/project-detail.js"></script>
+</body>
+</html>

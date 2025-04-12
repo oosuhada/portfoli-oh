@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onjung - Life Events, Thoughtfully Managed</title>
+<link rel="icon" href="https://placehold.co/32x32/000000/FFFFFF/png?text=O" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Monda:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+<!-- Swiper.js CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="css/project-detail.css">
+<link rel="stylesheet" href="css/project-detail-hero.css">
+<link rel="stylesheet" href="css/project-detail-project-details.css">
+<link rel="stylesheet" href="css/project-detail-discover.css">
+<link rel="stylesheet" href="css/project-detail-define.css">
+<link rel="stylesheet" href="css/project-detail-design.css">
+<link rel="stylesheet" href="css/project-detail-deliver.css">
+<link rel="stylesheet" href="css/project-detail-footer.css">
+<link rel="stylesheet" href="../common/common.css">
+<link rel="stylesheet" href="../common/fixed_icons.css">
+</head>
+<body data-theme="light" class="lang-ko"> <noscript>You need to enable JavaScript to run this site.</noscript>
+<div id="scroll-progress-indicator" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+<svg class="progress-circle" viewBox="0 0 100 100" width="50" height="50">
+<circle class="bg-circle" cx="50" cy="50" r="45" fill="none" stroke="#eee" stroke-width="5"/>
+<circle class="progress-circle-fill" cx="50" cy="50" r="45" fill="none" stroke="#666" stroke-width="5" stroke-dasharray="282.7" stroke-dashoffset="282.7" transform="rotate(-90 50 50)"/>
+</svg>
+</div>
+<div class="top-navigation">
+<a href="../project/project.html" class="back-to-portfolio">
+<span class="arrow">←</span>
+<span class="nav-text" data-lang-ko="돌아가기" data-lang-en="Back to Portfolio"></span>
+</a>
+<div class="header-right-controls">
+<div class="language-toggle">
+<button id="lang-ko" class="lang-button active" data-lang="ko">한국어</button>
+<button id="lang-en" class="lang-button" data-lang="en">English</button>
+</div>
+<button class="theme-toggle theme-toggle-button" aria-label="Toggle theme">
+<svg id="sun-icon" class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" y1="1" x2="12" y2="3"></line>
+<line x1="12" y1="21" x2="12" y2="23"></line>
+<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+<line x1="1" y1="12" x2="3" y2="12"></line>
+<line x1="21" y1="12" x2="23" y2="12"></line>
+<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+<svg id="moon-icon" class="theme-icon hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+<span class="sr-only">Toggle theme</span>
+</button>
+</div>
+</div>
+<div id="loader" class="loader-container">
+<p class="load-head">Onjung</p>
+<span class="small-text-load1">Life Events, Thoughtfully Managed</span>
+</div>
+<main class="App" data-scroll-container>
+<section id="hero" class="section-wrapper hero-section">
+<div class="hero-carousel">
+<div class="hero-slide">
+<img src="../project/projects/project4-cover.png" alt="Onjung App Mockup 1">
+</div>
+<div class="hero-slide">
+<img src="https://placehold.co/800x600/2a2a2a/fff?text=Onjung+App+Mockup+2" alt="Onjung App Mockup 2">
+</div>
+<div class="hero-slide">
+<img src="../project/projects/project4-cover.png" alt="Onjung App Mockup 3">
+</div>
+<div class="hero-slide">
+<img src="https://placehold.co/800x600/222/fff?text=Onjung+App+Mockup+4" alt="Onjung App Mockup 4">
+</div>
+<div class="hero-slide">
+<img src="../project/projects/project4-cover.png" alt="Onjung App Mockup 5">
+</div>
+</div>
+<p class="small-text-load2" data-lang-ko="세대를 아우르는 축의금 관리의 새로운 기준." data-lang-en="A modern solution for managing ceremonial cash gifts, across generations."></p>
+<div class="cover-head-vid-wrapper">
+<h1 class="cover-head-vid" data-lang-ko="온정" data-lang-en="Onjung"></h1>
+</div>
+ <div class="scroll-down-indicator">
+        <i class="fas fa-chevron-down arrow-icon"></i>
+        <span class="scroll-text" data-lang-ko="스크롤 다운" data-lang-en="SCROLL DOWN"></span>
+    </div>
+</section>
+<section id="project-details" class="section-wrapper project-details-section">
+<div class="pin-wrapper">
+<div class="details-content section-main-content">
+<div class="top-content">
+<div class="top-main">
+<div class="header">
+<div class="project-title" data-lang-ko="온정" data-lang-en="Onjung"></div>
+<div class="project-subtitle" data-lang-ko="경조사의 따뜻한 정을 관리하다" data-lang-en="Life Events, Thoughtfully Managed"></div>
+</div>
+<div class="insights">
+<h3 data-lang-ko="핵심 인사이트" data-lang-en="Key Insights"></h3>
+<ul>
+<li data-lang-ko="다양한 연령대가 쉽게 쓸 수 있도록 UI를 직관적으로 구성했습니다." data-lang-en="Users span multiple generations, so the UI needed to be instantly intuitive."></li>
+<li data-lang-ko="누구나 익숙한 캘린더 뷰를 활용하고, 폰트 사이즈도 살짝 키워 가독성을 높였습니다." data-lang-en="Used a familiar calendar view, larger font sizes, and simplified screens to reduce friction."></li>
+<li data-lang-ko="한 번의 탭으로 입력하고 시각적으로 요약된 화면만 제공해, 디지털 경험이 없는 분도 바로 적응할 수 있게 했습니다." data-lang-en="Focused on one-tap input and visual summaries—no digital expertise required."></li>
+<li data-lang-ko="Riverpod를 적극적으로 활용해 상태 관리를 체계적으로 하고, 앱의 확장성과 안정성을 높였습니다." data-lang-en="Riverpod was key for managing state cleanly and making the app scalable and robust."></li>
+</ul>
+</div>
+<div class="skills-values">
+<h3 data-lang-ko="기술 및 가치" data-lang-en="Skills & Values"></h3>
+<div class="tags">
+<span class="tag">Flutter</span>
+<span class="tag">Figma</span>
+<span class="tag">Firebase</span>
+<span class="tag">Riverpod (state management)</span>
+<span class="tag">UX for all ages</span>
+<span class="tag">Cross-platform development</span>
+</div>
+</div>
+</div>
+<div class="top-sidebar">
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="날짜" data-lang-en="Date"></span><br>
+<div class="sidebar-value">Jan 2024 - Feb 2025</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="역할" data-lang-en="Roles"></span><br>
+<div class="sidebar-value" data-lang-ko="UX/UI 디자인<br>앱 개발<br>백엔드 통합" data-lang-en="UX/UI Design<br>App Development<br>Backend Integration">
+</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="사용 도구" data-lang-en="Tools Used"></span><br>
+<div class="sidebar-value">
+Figma<br>
+Flutter<br>
+Firebase<br>
+Riverpod
+</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="분류" data-lang-en="Category"></span><br>
+<div class="sidebar-value">
+Bootcamp Project
+</div>
+</div>
+<div class="sidebar-section">
+<a href="#">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://github.com" alt="QR Code for Live Project"><br>
+<div class="qr-caption" data-lang-ko="프로젝트 (곧 공개 예정)" data-lang-en="Project (Coming Soon)"></div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="discover" class="section-wrapper discover-section">
+<div class="pin-wrapper">
+<p class="discover-header" data-lang-ko="온정의 시작" data-lang-en="THE BEGINNING OF ONJUNG"></p>
+<div class="discover-content-left section-main-content hide-scrollbar" data-lang-ko="가족 행사에서 손으로 선물 내역을 적으며 불편함을 느낀 것이 온정의 시작입니다. 부모님은 수기로, 체계적인 분도 결국 엑셀을 쓰는 현실에서, 진짜 필요한 건 쉽고 스마트한 디지털 솔루션이었습니다." data-lang-en="Started from a simple struggle: tracking family gifts with pen and paper. Saw parents using notebooks, the most organized using Excel, and realized a digital solution was overdue.">
+</div>
+</div>
+</section>
+<section id="define" class="section-wrapper define-section">
+<div class="pin-wrapper">
+<div class="define-header" data-lang-ko="문제 정의" data-lang-en="CLARIFYING THE ISSUE"></div>
+<div class="define-container section-main-content hide-scrollbar">
+<div class="define-box issue-box">
+<h4 data-lang-ko="핵심 문제" data-lang-en="Core Issue"></h4>
+<p data-lang-ko="수기로 하는 축의금 관리는 오류도 많고, 스트레스도 크며, 현대적인 삶에 맞지 않습니다." data-lang-en="Manual processes are error-prone, stressful, and inefficient for today’s life."></p>
+</div>
+<div class="define-main-text">
+<p data-lang-ko="온정은 나이, 디지털 경험에 상관없이 누구나 ‘바로 쓸 수 있는’ 예단·축의금 관리 앱을 목표로 설계되었습니다." data-lang-en="Onjung was designed for anyone—regardless of age or tech experience—to record and recall gifts effortlessly, with no learning curve."></p>
+</div>
+<div class="define-box success-box">
+<h4 data-lang-ko="성공 지표" data-lang-en="Success Measure"></h4>
+<p data-lang-ko="성공의 기준은 ‘누구나 빠르게 입력, 정리, 추적할 수 있는’ UX, 전 세대를 아우르는 쉬운 사용성입니다." data-lang-en="Success: anyone can quickly log, sort, and reflect on family gifts, with stress-free UX for every generation."></p>
+</div>
+</div>
+</div>
+</section>
+<section id="design-1" class="section-wrapper design-section-1">
+<div class="pin-wrapper">
+<div class="content-slide combined-header-intro">
+<div class="design-header-1-content">
+<div class="design-container">
+<div class="design-shadow-group">
+<span class="design-shadow" data-color="#FFD600">D</span>
+<span class="design-shadow" data-color="#FF7A29">E</span>
+<span class="design-shadow" data-color="#FFBCBC">S</span>
+<span class="design-shadow" data-color="#FFD600">I</span>
+<span class="design-shadow" data-color="#21D3F3">G</span>
+<span class="design-shadow" data-color="#16A56B">N</span>
+</div>
+<div class="design-main" data-lang-ko="DESIGN" data-lang-en="DESIGN"></div>
+</div>
+</div>
+<p class="section-intro-text" data-lang-ko="명확한 시각화에 집중—캘린더 뷰, 큼직한 글씨, 한 번의 탭으로 입력, 한눈에 보이는 요약 화면" data-lang-en="Focused on clear visuals—calendar view, large readable fonts, one-tap entry, and instantly graspable summaries."></p>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="디자인 프로세스" data-lang-en="Design Process"></h4>
+<p data-lang-ko="- 다양한 연령층의 피드백을 받아 디지털 진입장벽을 파악<br>- 모두에게 익숙한 ‘캘린더 뷰’로 정보 구조 설계" data-lang-en="- Interviewed users across age groups to identify their digital hurdles.<br>- Chose a calendar view for intuitive navigation—something everyone recognizes."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/222/fff?text=Onjung+Wireframe+to+Mockup" alt="Onjung Wireframe to mockup comparison">
+<span class="image-caption" data-lang-ko="초기 와이어프레임에서 최종 고사양 목업으로의 디자인 발전 과정." data-lang-en="Design evolution from early wireframes to final high-fidelity mockups."></span>
+</div>
+</div>
+<div class="content-slide image-text-left">
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/2a2a2a/fff?text=Onjung+Style+Guide" alt="Onjung Style Guide for typography and colors">
+<span class="image-caption" data-lang-ko="앱 전반의 통일된 미학을 위한 타이포그래피, 색상 팔레트, 컴포넌트 간격 스타일 가이드." data-lang-en="Comprehensive style guide outlining typography, color palette, and component spacing for a unified aesthetic across the app."></span>
+</div>
+<div class="text-block">
+<h4 data-lang-ko="디자인 프로세스" data-lang-en="Design Process"></h4>
+<p data-lang-ko="- 접근성을 위해 폰트 크기 확대<br>- 화면을 최대한 간결하게 구성, 불필요한 단계 제거" data-lang-en="- Increased font size for accessibility and readability.<br>- Streamlined screens to remove unnecessary steps."></p>
+</div>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="디자인 프로세스" data-lang-en="Design Process"></h4>
+<p data-lang-ko="- Riverpod로 상태 관리, 앱 속도와 신뢰성 강화<br>- 디지털 초보자 대상으로 테스트·개선 반복" data-lang-en="- Used Riverpod to manage state, improving app speed and reliability for all devices.<br>- Tested with non-digital-native users to refine friction points."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/333/fff?text=Onjung+UI+Components" alt="Onjung UI component design, including button states and tag styles">
+<span class="image-caption" data-lang-ko="사용자 경험을 향상시키는 버튼 상태 및 태그 스타일을 포함한 인터랙티브 UI 컴포넌트 상세 디자인." data-lang-en="Detailed design of interactive UI components, including button states and tag styles, to enhance user experience."></span>
+</div>
+</div>
+</section>
+<section id="design-2" class="section-wrapper design-section-2">
+<div class="pin-wrapper">
+<div class="design-header-2" data-lang-ko="시각적 요소 탐색" data-lang-en="VISUAL EXPLORATION"></div>
+<!-- Swiper Structure for Design Carousel -->
+<div class="gallery-carousel-container swiper">
+<div class="gallery-carousel swiper-wrapper">
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/222/fff?text=Onjung+Prototype+Flow" alt="Onjung Figma prototype showing interactive flows">
+<span class="image-caption" data-lang-ko="주요 상호작용 흐름과 마이크로 애니메이션을 시각화한 Figma 프로토타입." data-lang-en="Figma prototype visualizing key interactive flows and micro-animations."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/2a2a2a/fff?text=Onjung+User+Flow" alt="Onjung User flow diagram">
+<span class="image-caption" data-lang-ko="온정 앱의 핵심 기능으로 이어지는 사용자 흐름도." data-lang-en="User flow diagram illustrating the paths to key functionalities within the Onjung app."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-two-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-two">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/333/fff?text=Onjung+Layout+Variations" alt="Onjung Layout variations for app sections">
+<span class="image-caption" data-lang-ko="앱 내 다양한 섹션 및 콘텐츠 표시를 위한 레이아웃 구조 탐색." data-lang-en="Exploring different layout structures for various app sections and content display."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/3a3a3a/fff?text=Onjung+Mobile+Desktop+UI" alt="Onjung Mobile and Desktop UI comparison">
+<span class="image-caption" data-lang-ko="모바일 및 데스크톱 환경에서 사용자 경험의 시각적 조화 및 일관성." data-lang-en="Showcasing the visual harmony and consistency of user experience across mobile and desktop UI designs."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/444/fff?text=Onjung+Mobile+Responsive" alt="Onjung Mobile responsive design mockup">
+<span class="image-caption" data-lang-ko="다양한 모바일 장치에서 최적의 사용성을 위한 반응형 디자인 목업." data-lang-en="Mockup demonstrating the adaptive design for optimal usability across various mobile devices."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-three-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-three">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/555/fff?text=Onjung+User+Journey" alt="Onjung User journey mapping">
+<span class="image-caption" data-lang-ko="온정 앱을 통한 핵심 상호작용 경로를 매핑한 간소화된 사용자 여정." data-lang-en="Simplified user journey mapping key interaction paths through the Onjung app."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/5a5a5a/fff?text=Onjung+Moodboard" alt="Onjung Moodboard for visual direction">
+<span class="image-caption" data-lang-ko="앱의 전반적인 시각적 분위기와 미학에 영향을 준 큐레이션된 무드보드." data-lang-en="Curated moodboard influencing the overall visual tone and aesthetic of the app."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/666/fff?text=Onjung+Early+Sketches" alt="Onjung Early sketches of main screens">
+<span class="image-caption" data-lang-ko="메인 페이지 및 주요 화면에 대한 다양한 구조적 아이디어를 탐색하는 초기 손으로 그린 스케치." data-lang-en="Initial hand-drawn sketches exploring different structural ideas for main pages and key screens."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/6a6a6a/fff?text=Onjung+Typography" alt="Onjung Typography exploration and selection">
+<span class="image-caption" data-lang-ko="다양한 콘텐츠 계층 구조에서 글꼴 페어링 및 적용에 대한 상세 탐색." data-lang-en="Detailed exploration of font pairings and their application across different content hierarchies."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-two-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-two">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/777/fff?text=Onjung+Accessibility" alt="Onjung Accessibility contrast check for color palette">
+<span class="image-caption" data-lang-ko="텍스트 및 UI 요소에 대한 충분한 대비 비율을 보장하는 접근성 검사 결과." data-lang-en="Accessibility checks to ensure sufficient contrast ratios for text and UI elements."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/888/fff?text=Onjung+Additional+Concepts" alt="Onjung Additional UI concepts">
+<span class="image-caption" data-lang-ko="다양한 섹션에 대한 대체 UI 개념 및 시각적 처리 탐색." data-lang-en="Exploring alternative UI concepts and visual treatments for various sections."></span>
+</div>
+</div>
+</div>
+</div>
+<!-- If we need navigation buttons -->
+<div class="nav-button swiper-button-prev design-prev swiper-button-prev-design"></div>
+<div class="nav-button swiper-button-next design-next swiper-button-next-design"></div>
+<!-- If we need pagination -->
+<div class="swiper-pagination design-pagination"></div>
+</div>
+</div>
+</section>
+<section id="deliver-1" class="section-wrapper deliver-section-1">
+<div class="pin-wrapper">
+<div class="content-slide overview-features-slide">
+<div class="text-block">
+<h4 data-lang-ko="개요: 기능 구현 및 기술 통합" data-lang-en="Overview: Feature Implementation & Technical Integration"></h4>
+<p class="meaning-chunk" data-lang-ko="Flutter로 앱(모바일/데스크톱) 개발, Riverpod로 상태 관리, Firebase 백엔드, Figma·Framer로 프로토타입. 부트캠프에서 시연 후 긍정적 피드백을 받았습니다." data-lang-en="Built a Flutter app (cross-platform), using Riverpod for state, Firebase for backend, and Figma/Framer for design. Demoed at bootcamp with strong feedback."></p>
+</div>
+<div class="features-summary">
+<h4 data-lang-ko="주요 기능 및 기술 구현" data-lang-en="Key Features & Technical Implementation"></h4>
+<ul>
+<li class="meaning-chunk" data-lang-ko="<b>빠른 입력:</b> 캘린더 뷰에서 한 번의 탭으로 기록" data-lang-en="<b>Quick Entry:</b> One-tap logging via calendar view."></li>
+<li class="meaning-chunk" data-lang-ko="<b>시각적 요약:</b> 차트/리스트로 한눈에 정리" data-lang-en="<b>Visual Summaries:</b> Charts/lists for at-a-glance review."></li>
+<li class="meaning-chunk" data-lang-ko="<b>이벤트/관계별 정렬:</b> 필요한 기준으로 기록 필터링" data-lang-en="<b>Event/Relationship Sorting:</b> Filter records as needed."></li>
+<li class="meaning-chunk" data-lang-ko="<b>교차 플랫폼:</b> 모바일/데스크톱에서 동일 UX" data-lang-en="<b>Cross-Platform:</b> Flutter for seamless use on mobile/desktop."></li>
+<li class="meaning-chunk" data-lang-ko="<b>Riverpod 상태 관리:</b> 체계적이고 확장성 높은 구조" data-lang-en="<b>Riverpod State Management:</b> Robust, scalable logic."></li>
+<li class="meaning-chunk" data-lang-ko="<b>접근성:</b> 큰 글씨, 최소한의 화면으로 누구나 사용" data-lang-en="<b>Accessibility:</b> Large text and minimal screens for every age."></li>
+<li class="meaning-chunk" data-lang-ko="<b>알림:</b> 행사 전 미리 알림(푸시 알림 선택)" data-lang-en="<b>Stress-Free Reminders:</b> Optional push notifications for events."></li>
+</ul>
+</div>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="빠른 입력 작동" data-lang-en="Quick Entry in Action"></h4>
+<p class="meaning-chunk" data-lang-ko="온정은 행사 현장에서 현금 선물을 신속하게 기록할 수 있는 간소화된 입력 흐름을 제공합니다.<br>이 기능은 사용자가 번거로움 없이 중요한 세부 정보를 바로 입력할 수 있도록 설계되었습니다." data-lang-en="Onjung offers a streamlined input flow for quickly logging ceremonial cash gifts at events.<br>This feature is designed to allow users to enter crucial details on the spot, without hassle."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/222/fff?text=Onjung+Quick+Entry+UI" alt="Onjung Quick Entry UI demonstrating fast logging">
+<span class="image-caption" data-lang-ko="이벤트 현장에서 빠르고 효율적인 기록을 위한 깔끔한 입력 인터페이스 및 UI." data-lang-en="Clean input interface and UI for quick and efficient logging at events."></span>
+</div>
+</div>
+<div class="content-slide image-text-left">
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/333/fff?text=Onjung+Firebase+Integration" alt="Onjung Firebase Integration Code">
+<span class="image-caption" data-lang-ko="사용자 데이터의 안전한 관리를 위한 Firebase 통합 코드 스니펫." data-lang-en="Code snippet illustrating Firebase integration for secure management of user data."></span>
+</div>
+<div class="text-block">
+<h4 data-lang-ko="데이터 관리를 위한 Firebase" data-lang-en="Firebase for Data Management"></h4>
+<p class="meaning-chunk" data-lang-ko="데이터 저장 및 사용자 인증을 위해 Firebase를 통합했습니다.<br>이를 통해 신뢰할 수 있고 확장 가능한 백엔드 솔루션을 제공하여<br>사용자 데이터가 안전하게 관리되고 쉽게 접근할 수 있도록 보장했습니다." data-lang-en="Firebase was integrated for data storage and user authentication.<br>This provided a reliable and scalable backend solution,<br>ensuring user data was securely managed and easily accessible."></p>
+</div>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="성능 최적화: 핵심 결과물" data-lang-en="Performance Optimization: A Core Deliverable"></h4>
+<p class="meaning-chunk" data-lang-ko="복잡한 기능과 교차 플랫폼 개발에도 불구하고 성능은 최우선 과제였습니다.<br>정기적인 테스트와 최적화를 통해 앱이 빠르고 효율적으로 작동하도록 보장하여,<br>고품질 소프트웨어 엔지니어링에 대한 약속을 입증했습니다." data-lang-en="Despite complex features and cross-platform development, performance was a top priority.<br>Regular testing and optimization ensured the app remained fast and efficient,<br>demonstrating a commitment to high-quality software engineering."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/444/fff?text=Onjung+Performance+Report" alt="Onjung Performance Optimization Report">
+<span class="image-caption" data-lang-ko="앱의 반응성과 효율성을 보여주는 성능 최적화 보고서." data-lang-en="Performance optimization report showcasing the app's responsiveness and efficiency."></span>
+</div>
+</div>
+</section>
+<section id="deliver-2" class="section-wrapper deliver-section-2">
+<div class="pin-wrapper">
+<div class="deliver-header-2" data-lang-ko="작동 중인 기능" data-lang-en="FEATURES IN ACTION"></div>
+<!-- Swiper Structure for Deliver Carousel -->
+<div class="gallery-carousel-container swiper">
+<div class="gallery-carousel swiper-wrapper">
+<div class="carousel-slide-content image-text-right-container swiper-slide">
+<div class="content-slide carousel-inner-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="시각적 요약: 데이터 통찰력" data-lang-en="Visual Summaries: Data Insights"></h4>
+<p class="meaning-chunk" data-lang-ko="사용자가 주고받은 기록을 한눈에 볼 수 있도록 직관적인 차트와 목록을 구현했습니다.<br>이를 통해 선물 패턴을 쉽게 파악하고 재정 상태를 추적할 수 있습니다." data-lang-en="Intuitive charts and lists were implemented to give users at-a-glance summaries of their giving and receiving.<br>This allows for easy insights into gift patterns and tracking of financial standings."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/222/fff?text=Onjung+Visual+Summaries" alt="Onjung Visual Summaries UI">
+<span class="image-caption" data-lang-ko="선물 기록의 시각적 요약과 데이터 통찰력을 제공하는 UI 화면." data-lang-en="UI screen providing visual summaries and data insights for gift records."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content image-text-left-container swiper-slide">
+<div class="content-slide carousel-inner-slide image-text-left">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/333/fff?fff?text=Onjung+Riverpod+Code" alt="Onjung Riverpod State Management Code">
+<span class="image-caption" data-lang-ko="Flutter 앱에서 효율적인 상태 관리를 위한 Riverpod 구현 코드 스니펫." data-lang-en="Code snippet illustrating Riverpod implementation for efficient state management in the Flutter app."></span>
+</div>
+<div class="text-block">
+<h4 data-lang-ko="Riverpod을 이용한 상태 관리" data-lang-en="State Management with Riverpod"></h4>
+<p class="meaning-chunk" data-lang-ko="Flutter 앱에서 확장 가능하고 예측 가능한 상태 관리를 위해 Riverpod을 사용했습니다.<br>이를 통해 데이터 흐름을 간소화하고 컴포넌트 간의 종속성을 줄여<br>앱의 유지보수성과 성능을 향상시켰습니다." data-lang-en="Riverpod was utilized for scalable and predictable state management within the Flutter app.<br>This streamlined data flow and reduced dependencies between components,<br>improving the app's maintainability and performance."></p>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-two-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-two">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/444/fff?text=Onjung+Cross+Platform" alt="Onjung Cross Platform UI showing adaptive design">
+<span class="image-caption" data-lang-ko="모바일과 데스크톱 등 다양한 장치에서 앱의 적응형 디자인을 보여줍니다." data-lang-en="Showcasing the app's adaptive design across various devices, including mobile and desktop."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/555/fff?text=Onjung+Architecture" alt="Onjung Architecture Diagram for scalability">
+<span class="image-caption" data-lang-ko="향후 확장성을 고려하여 설계된 온정 앱의 모듈형 아키텍처 개요." data-lang-en="Overview of the Onjung app's modular architecture, designed with future scalability in mind."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-three-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-three">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/666/fff?text=Onjung+Responsive+Check" alt="Onjung Responsive design check on multiple devices">
+<span class="image-caption" data-lang-ko="스마트폰, 태블릿 등 여러 장치 유형에서 반응형 디자인이 올바르게 작동하는지 테스트." data-lang-en="Testing responsive design across multiple device types, including smartphones and tablets, to ensure proper functionality."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/777/fff?text=Onjung+Git+History" alt="Onjung Git version control history for organized development">
+<span class="image-caption" data-lang-ko="정리된 기능 개발 및 병합 과정을 보여주는 Git 버전 관리 기록." data-lang-en="Git version control history demonstrating organized feature development and merge processes."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/888/fff?text=Onjung+Deployment" alt="Onjung Deployment process diagram">
+<span class="image-caption" data-lang-ko="효율적인 배포 워크플로우를 보여주는 다이어그램." data-lang-en="Diagram illustrating the streamlined deployment workflow."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/999/fff?text=Onjung+Final+UI" alt="Onjung Final UI of the delivered project home page">
+<span class="image-caption" data-lang-ko="사용자 중심 디자인을 반영하는 '온정' 앱의 최종 사용자 인터페이스." data-lang-en="The final user interface of the 'Onjung' app, reflecting a user-centric design."></span>
+</div>
+</div>
+</div>
+</div>
+<!-- If we need navigation buttons -->
+<div class="nav-button swiper-button-prev deliver-prev swiper-button-prev-deliver"></div>
+<div class="nav-button swiper-button-next deliver-next swiper-button-next-deliver"></div>
+<!-- If we need pagination -->
+<div class="swiper-pagination deliver-pagination"></div>
+</div>
+</div>
+</section>
+<section id="footer" class="section-wrapper footer-section">
+    <div class="logo-container">
+        <h3 data-lang-ko="온정" data-lang-en="Onjung"></h3>
+    </div>
+
+    <div class="bottom-nav-container">
+        <div class="nav-item prev-item">
+            <div class="nav-circle prev-circle">
+                <a href="Uncorked.html"> <span class="arrow">←</span>
+                    <span class="nav-text hidden-nav-text" data-lang-ko="PREV" data-lang-en="PREV"></span>
+                </a>
+            </div>
+            <span class="project-title-under-circle" id="prev-project-name"></span>
+        </div>
+
+        <div class="nav-item next-item">
+            <div class="nav-circle next-circle">
+                <a href="NomadMarket.html"> <span class="arrow">→</span>
+                    <span class="nav-text hidden-nav-text" data-lang-ko="NEXT" data-lang-en="NEXT"></span>
+                </a>
+            </div>
+            <span class="project-title-under-circle" id="next-project-name"></span>
+        </div>
+    </div>
+
+    <div class="footer-bottom-credits">
+        <span class="footer-copyright" id="footer-copyright-text" 
+              data-lang-ko="© 2025. 온정" 
+              data-lang-en="© 2025. Onjung">
+        </span>
+        <span class="designer-name" id="footer-designer-name" 
+              data-lang-ko="디자인 by Oosu" 
+              data-lang-en="Designed by Oosu">
+        </span>
+    </div>
+</section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="../common/common.js"></script>
+<script src="../common/highlighter.js"></script>
+<script src="../common/navigation.js"></script>
+<script src="../common/theme-manager.js"></script>
+<script src="../common/ui-components.js"></script>
+<script src="../common/visual-effects.js"></script>
+
+<script src="js/project-detail-hero.js"></script>
+<script src="js/project-detail-project-details.js"></script>
+<script src="js/project-detail-discover.js"></script>
+<script src="js/project-detail-define.js"></script>
+<script src="js/project-detail-design.js"></script>
+<script src="js/project-detail-deliver.js"></script>
+<script src="js/project-detail-footer.js"></script>
+
+<script src="js/footer-directory.js"></script> <script src="js/project-detail.js"></script>
+</body>
+</html>

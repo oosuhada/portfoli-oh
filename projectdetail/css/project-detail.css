@@ -1,0 +1,405 @@
+/* project-detail.css */
+
+/* FONT & BASIC SETUP */
+@font-face {
+    font-family: 'Albert Sans', sans-serif;
+    /* font-spring url은 로컬 환경에서 정확한 동작을 위해 직접 폰트 파일을 포함하는 것이 좋습니다. */
+    /* src: url(https://cdna.fontspring.com/css/webfont.css?projectid=32A07519-2597-4299-9408-2A2733A0349A&ver=2.6.2); */
+}
+
+*, *::before, *::after, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Albert Sans", sans-serif;
+    /* Use global variables for background and text color */
+    background-color: var(--current-bg);
+    color: var(--current-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-family: "Albert Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.7;
+    color: var(--current-text); /* Ensure headers use current text color */
+}
+
+p {
+    line-height: 2;
+    color: var(--current-text); /* Ensure paragraphs use current text color */
+}
+
+/* UTILITIES */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* COMMON COMPONENTS */
+#scroll-progress-indicator {
+    pointer-events: none;
+}
+.progress-circle {
+    transform-origin: center;
+    transition: stroke 0.3s ease;
+}
+.bg-circle {
+    /* Use appropriate global variable, e.g., a lighter border color */
+    stroke: var(--current-border); /* Or a specific lighter gray for background circle */
+    opacity: 0.5; /* Slightly muted */
+}
+.progress-circle-fill {
+    transition: stroke 0.3s ease-out;
+    /* Use a color that stands out against both light and dark mode backgrounds */
+    stroke: var(--current-text); /* Use brand primary color for the fill to be consistent */
+}
+
+/* Main .top-navigation container styling */
+.top-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    /* Use a current header background variable from common.css */
+    background-color: transparent; /* Assuming this remains transparent to let content show through */
+    /* If you want a border, uncomment these lines. Using common.css border variables for consistency. */
+    /* border-bottom-width: 1px; */
+    /* border-bottom-style: solid; */
+    /* border-bottom-color: var(--current-header-border); */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.back-to-portfolio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Albert Sans', sans-serif;
+    font-size: 1em;
+    color: var(--current-text); /* Use current text color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.back-to-portfolio .arrow {
+    font-size: 1.5em;
+    transition: transform 0.3s ease;
+}
+.back-to-portfolio .nav-text {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    color: var(--current-header-nav-text); /* Use specific nav text color */
+}
+.back-to-portfolio:hover .arrow {
+    transform: translateX(-5px);
+}
+.back-to-portfolio:hover .nav-text {
+    opacity: 1;
+    color: var(--current-header-nav-text-active); /* Active nav text color */
+}
+
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    touch-action: none;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--current-bg); /* Use global variable */
+    color: var(--current-text); /* Use global variable */
+    transition: opacity 2s ease-out, visibility 2s ease-out;
+}
+.loader-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.load-head {
+    font-size: 2em;
+    position: relative;
+     font-family: 'Albert Sans', sans-serif;
+    margin-bottom: 10px;
+    color: var(--current-text);
+}
+.small-text-load1 {
+    text-align: center;
+     font-family: 'Albert Sans', sans-serif;
+    font-size: 1.2rem;
+    position: relative;
+    width: 100%;
+    color: var(--current-text-secondary);
+}
+
+.section-wrapper {
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    color: var(--current-text); /* Use global variable */
+    font-family: 'Albert Sans', sans-serif;
+    background-color: var(--current-bg); /* Use global variable */
+    z-index: 2;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Common responsive styles (if any apply to all sections) */
+@media (max-width: 768px) {
+    .section-main-content {
+        max-height: none;
+        overflow-y: visible;
+        margin-top: 5vh;
+    }
+}
+
+/* --- Language Specific Content Hiding --- */
+/* By default, hide English content */
+body.lang-ko [data-lang-en] {
+    display: none;
+}
+
+/* When English is active, hide Korean content */
+body.lang-en [data-lang-ko] {
+    display: none;
+}
+
+/* Ensure that content that is meant to be translated has appropriate display properties */
+/* For elements that are naturally inline (like spans in paragraphs), use initial */
+body.lang-ko [data-lang-ko],
+body.lang-en [data-lang-en] {
+    display: initial; /* Fallback for general inline elements */
+    visibility: visible;
+}
+
+/* Explicit display rules for block/flex/list items with translation attributes */
+.small-text-load2[data-lang-ko],
+.small-text-load2[data-lang-en] {
+    display: block; /* Example, adjust as per your layout */
+}
+
+.cover-head-vid[data-lang-ko],
+.cover-head-vid[data-lang-en],
+.project-title[data-lang-ko],
+.project-title[data-lang-en],
+.project-subtitle[data-lang-ko],
+.project-subtitle[data-lang-en],
+.insights h3[data-lang-ko],
+.insights h3[data-lang-en],
+.skills-values h3[data-lang-ko],
+.skills-values h3[data-lang-en],
+.sidebar-label[data-lang-ko],
+.sidebar-label[data-lang-en],
+.discover-header[data-lang-ko],
+.discover-header[data-lang-en],
+.define-header[data-lang-ko],
+.define-header[data-lang-en],
+.define-box h4[data-lang-ko],
+.define-box h4[data-lang-en],
+.design-main[data-lang-ko],
+.design-main[data-lang-en],
+.text-block h4[data-lang-ko],
+.text-block h4[data-lang-en],
+.deliver-header-2[data-lang-ko],
+.deliver-header-2[data-lang-en],
+.footer-section h3[data-lang-ko],
+.footer-section h3[data-lang-en] {
+    display: block; /* Or flex, or grid, depending on its natural layout */
+}
+
+.discover-content-left[data-lang-ko],
+.discover-content-left[data-lang-en],
+.define-box p[data-lang-ko],
+.define-box p[data-lang-en],
+.define-main-text p[data-lang-ko],
+.define-main-text[data-lang-en],
+.section-intro-text[data-lang-ko],
+.section-intro-text[data-lang-en],
+.text-block p[data-lang-ko],
+.text-block p[data-lang-en] {
+    display: block; /* Paragraphs are typically block */
+}
+
+li[data-lang-ko],
+li[data-lang-en] {
+    display: list-item !important;
+}
+
+/* For spans that are part of text and need to be explicitly set inline-block if they contain block-like translated content, e.g. .nav-text */
+.nav-text[data-lang-ko],
+.nav-text[data-lang-en] {
+    display: inline; /* Keep as inline as it's part of an anchor */
+}
+
+.image-caption[data-lang-ko],
+.image-caption[data-lang-en],
+.qr-caption[data-lang-ko],
+.qr-caption[data-lang-en],
+.credit[data-lang-ko],
+.credit[data-lang-en],
+.link-ig[data-lang-ko],
+.link-ig[data-lang-en] {
+    display: inline; /* Or block depending on its parent flex/grid context */
+}
+
+
+/* Styling for the language and theme toggle buttons */
+.header-right-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between language toggle and theme toggle */
+}
+
+/* Language Toggle Styling */
+.language-toggle {
+    display: flex;
+    /* Explicitly set border properties */
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--current-border); /* Use global border variable */
+    border-radius: 5px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.lang-button {
+    padding: 8px 12px;
+    background-color: transparent;
+    border: none;
+    cursor: var(--cursor-default); /* Use global cursor */
+    font-size: 14px;
+    color: var(--text-tertiary-color); /* Use a more subtle text color for non-active from global vars */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lang-button.active {
+    /* MODIFIED: Use --brand-primary for consistent active color, or similar accent */
+    background-color: var(--text-tertiary-color); /* Uses Google Blue */
+    color: var(--ai-text-inverted); /* Ensures text is white on brand color */
+}
+
+.lang-button:hover:not(.active) {
+    background-color: var(--text-tertiary-color); /* Use a secondary background on hover from common.css */
+   color: var(--ai-text-inverted); /* Use primary text color on hover from common.css */
+}
+
+/* Theme Toggle Styling - Adjusted to match Lab header's intended look using global variables */
+.theme-toggle-button {
+    padding: 0.5rem;
+    border: none;
+    background: none;
+    cursor: var(--cursor-default); /* Use global cursor variable */
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    scale: 1.2;
+    transition: background-color var(--transition-duration) ease; /* Add transition for hover effect */
+    outline: none;
+    border-radius: 50%;
+    display: flex; /* Ensure flex for centering SVG */
+    align-items: center; /* Center SVG */
+    justify-content: center; /* Center SVG */
+}
+
+.theme-toggle-button:hover {
+    /* Use primary-content-color for hover background */
+    background-color: var(--background-tertiary); /* Using a neutral tertiary background for hover */
+}
+
+.theme-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    /* Use the variable explicitly defined for primary content in the header */
+    stroke: var(--current-text); /* This variable is set by data-theme in common.css */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform var(--transition-duration) ease, opacity var(--transition-duration) ease;
+}
+
+.theme-icon.hidden {
+    transform: translate(-50%, -50%) rotate(-90deg);
+    opacity: 0;
+}
+
+
+/* QR Code specific styling for dark mode */
+.qr-caption + img { /* Selects the img directly following .qr-caption */
+    filter: none; /* Default state for light mode */
+    transition: filter 0.3s ease;
+}
+
+body[data-theme="dark"] .qr-caption + img {
+    filter: invert(100%); /* Invert for dark mode */
+}
+
+
+/* Elements that should use global color variables */
+.project-title,
+.project-subtitle,
+.insights h3,
+.skills-values h3,
+.sidebar-label,
+.sidebar-value,
+.discover-header,
+.discover-content-left,
+.define-header,
+.define-box h4,
+.define-box p,
+.define-main-text p,
+.section-intro-text,
+.text-block h4,
+.text-block p,
+.image-caption,
+.design-main,
+.deliver-header-2,
+.features-summary li,
+.footer-section h3, /* Assuming footer h3 also follows this */
+.credit,
+.link-ig {
+    color: var(--current-text); /* Default text color */
+}
+
+design-main
+
+
+/* Specific elements that might need different text shades */
+.sidebar-label {
+    color: var(--current-text-secondary); /* Use secondary for labels from global vars */
+}
+
+.tag {
+    background-color: var(--background-secondary); /* Use secondary background for tags from global vars */
+    color: var(--text-primary-color); /* Primary text for tags from global vars */
+    /* Explicitly set border properties */
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--border-primary-color); /* Primary border for tags from global vars */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Ensure the text inside the tag is explicitly current-text */
+/* If `tag` itself sets color, children will inherit, but can be explicit for safety */
+.tag span {
+    color: var(--text-primary-color);
+}

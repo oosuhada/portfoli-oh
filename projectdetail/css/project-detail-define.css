@@ -1,0 +1,145 @@
+/* project-detail-define.css */
+.define-section {
+    background-color: var(--current-bg);
+    color: var(--current-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5vh 5vw;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.define-section .pin-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding-top: 0;
+}
+
+.define-header {
+    font-family: domaine;
+    text-transform: uppercase;
+    font-size: 3em;
+    color: var(--text-tertiary-color);
+    width: 100%;
+    text-align: right;
+    padding: 0 5vw;
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(80px);
+    will-change: opacity, transform;
+    transition: color 0.3s ease;
+}
+
+.define-container {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 2rem 1rem;
+    align-items: start;
+    overflow-y: visible;
+    min-height: 90vh;
+    margin-top: 20vh;
+}
+
+.define-box {
+    background-color: var(--background-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    /* Explicitly set border properties if you want a border to appear */
+    border-width: 1px; /* Example: add a border */
+    border-style: solid;
+    border-color: var(--border-primary-color); /* Use a primary border color */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Consider a dark mode specific shadow for consistency */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth theme transition */
+}
+
+.define-box h4 {
+    font-family: 'Albert Sans', sans-serif;
+    font-weight: 800;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    color: var(--current-text);
+    transition: color 0.3s ease;
+}
+
+.define-box p {
+    font-family: 'Albert Sans', sans-serif;
+    line-height: 1.8;
+    font-size: 0.95em;
+    color: var(--current-text);
+    transition: color 0.3s ease;
+}
+
+.issue-box {
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+    justify-self: start;
+}
+
+.success-box {
+    grid-column: 2 / 6;
+    grid-row: 5 / 6;
+    justify-self: end;
+    /* transform: translateY(-60px); */
+}
+
+.define-main-text {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+    width: 150%;
+    margin: 0 0;
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 2;
+    color: var(--current-text);
+    /* transform: translateY(60px); */
+    margin-right: -20px;
+    margin-left: 50px;
+    transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .define-container.section-main-content { margin-top: 5vh; }
+    .define-header {
+        font-size: 3em;
+        left: 4vw;
+        text-align: left;
+        position: relative;
+        top: auto;
+        transform: none !important;
+        opacity: 1 !important;
+        margin-top: 20px;
+        padding: 0;
+    }
+    .define-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .issue-box,
+    .success-box,
+    .define-main-text {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+    }
+    .define-main-text {
+        max-width: 100%;
+        margin: 2rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .define-header { font-size: 2.5em; }
+}

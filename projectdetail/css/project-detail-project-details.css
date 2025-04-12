@@ -1,0 +1,193 @@
+/* project-detail-project-details.css */
+.project-details-section {
+    background-color: var(--background-secondary); /* From common.css */
+    color: var(--current-text); /* From common.css */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh 5vw 10vh 5vw;
+}
+
+.project-details-section .details-content {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.project-details-section .top-content {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    max-width: 1200px;
+}
+
+.project-details-section .top-sidebar {
+    flex: 0 0 200px;
+    padding-left: 20px;
+    /* Explicitly set border properties */
+    border-left-width: 3px;
+    border-left-style: solid;
+    border-left-color: var(--current-text); /* From common.css - primary text color for lines */
+    order: 2;
+}
+
+.project-details-section .top-main {
+    flex: 1;
+    order: 1;
+}
+
+.project-details-section .header {
+    display: flex;
+    flex-direction: column;    /* 세로 정렬 */
+    /* Explicitly set border properties */
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: var(--current-text); /* From common.css - primary text color for lines */
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.project-details-section .project-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--current-text); /* From common.css - primary text color */
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+}
+
+.project-details-section .project-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--current-text); /* Changed to primary text color for stronger visibility */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 3px 0;
+}
+
+.project-details-section .sidebar-section {
+    margin-bottom: 30px;
+}
+
+.project-details-section .sidebar-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--current-text-secondary); /* Changed to secondary text color for better readability/contrast than tertiary */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.project-details-section .sidebar-value {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--current-text); /* From common.css - primary text color */
+    line-height: 1.4;
+}
+
+.project-details-section .qr-section img {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    margin: 0 auto 8px;
+    display: block;
+}
+
+.project-details-section .qr-caption {
+    font-size: 10px;
+    color: var(--current-text-secondary); /* Changed to secondary text color */
+    margin-top: 8px;
+}
+
+.project-details-section .insights {
+    margin-bottom: 40px;
+}
+
+.project-details-section .insights h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--current-text); /* From common.css - primary text color */
+    margin-bottom: 16px;
+}
+
+.project-details-section .insights ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-details-section .insights li {
+    font-size: 16px;
+    color: var(--current-text); /* From common.css - primary text color */
+    line-height: 1.6;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.project-details-section .insights li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--current-text); /* From common.css - primary text color */
+    font-size: 18px;
+}
+
+.project-details-section .skills-values h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--current-text); /* From common.css - primary text color */
+    margin-bottom: 16px;
+}
+
+.project-details-section .tags {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.project-details-section .tag {
+    background: var(--background-secondary); /* From common.css */
+    color: var(--current-text); /* Changed to primary text color for better contrast */
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    font-family: 'Monda', sans-serif;
+    font-size: 0.9em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    /* --- MODIFIED: Explicitly set border for visibility and prominence --- */
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--border-secondary-color); /* Use a more prominent border color by default */
+}
+
+.project-details-section .tag:hover {
+    background: var(--current-border); /* From common.css */
+    color: var(--current-text); /* From common.css */
+    /* --- MODIFIED: Ensure border color is clearly visible on hover --- */
+    border-color: var(--current-text); /* Keep brand primary for a distinct hover effect */
+}
+
+@media (max-width: 768px) {
+    .project-details-section .top-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;  /* 2열 그리드 */
+        gap: 24px;                      /* 그리드 사이 간격, 원하는 값으로 조절 */
+        align-items: flex-start;
+    }
+    .project-details-section .top-sidebar {
+        order: unset;                   /* order 속성 해제 (grid에서는 필요 없음) */
+        border-left: none;
+        border-top-width: 3px;
+        border-top-style: solid;
+        border-top-color: var(--current-text);
+        padding-left: 0;
+        padding-top: 20px;
+        /* 필요시 grid-area 등 추가 지정 */
+    }
+    .project-details-section .tags {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .project-details-section .details-content.section-main-content {
+        margin-top: 5vh;
+    }
+}

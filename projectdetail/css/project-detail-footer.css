@@ -1,0 +1,191 @@
+/* project-detail-footer.css */
+
+.footer-section {
+    min-height: 40vh !important;
+    color: var(--current-text);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Logo - Main Nav - Bottom Credits */
+    align-items: center;
+    position: relative;
+    padding: 0 20px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.footer-section .logo-container {
+    font-family: 'Monda', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10em;
+    margin-bottom: 5em;
+    flex-shrink: 0;
+}
+
+.footer-section .logo-container h3 {
+    font-family: 'Monda', sans-serif;
+    font-size: 2em;
+    font-weight: 300;
+    color: var(--current-text);
+     margin-top: 1vh; /* 조정된 값 (예시) */
+    margin-bottom: 2vh; /* 조정된 값 (예시) */
+    visibility: hidden;
+}
+
+/* Main Navigation Container (includes prev/next buttons) */
+.footer-section .bottom-nav-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between; /* Align prev-next buttons to edges */
+    align-items: center;
+    padding: 0 10vw;
+    box-sizing: border-box;
+    margin-bottom: 10vw; /* Push down footer-bottom-credits */
+    flex-grow: 1; /* Take available space */
+}
+
+.footer-section .nav-item {
+    display: flex;
+    flex-direction: column; /* Circle, then text below */
+    align-items: center;
+    text-align: center;
+    gap: 10px; /* Space between circle and project name text */
+}
+
+.nav-circle {
+    width: 100px;
+    height: 100px;
+    background-color: var(--ai-bg-tertiary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative; /* For arrow/PREV/NEXT text positioning */
+    transition: background-color 0.3s ease;
+    opacity: 1;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin-bottom: 0; 
+}
+
+.nav-circle a {
+    display: flex;
+    flex-direction: column; /* Arrow and hidden-nav-text vertically centered */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-circle .arrow {
+    font-size: 2em;
+    color: var(--text-tertiary-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hide the PREV/NEXT text inside the circle */
+.nav-circle .hidden-nav-text {
+    display: none; /* Hide this element */
+    /* Ensure no residual space is taken by setting height/width to 0 if display:none causes layout issues */
+    /* width: 0; height: 0; overflow: hidden; */
+}
+
+/* Style for the project name underneath the circle */
+.nav-item .project-title-under-circle {
+    font-size: 1.1em; /* Larger for project name */
+    font-family: 'Monda', sans-serif;
+    color: var(--current-text); /* Theme text color */
+    /* font-weight: bold; */
+    white-space: nowrap; /* Prevent line breaks */
+    text-align: center; /* Center the text */
+    margin-top: 5px; /* Small gap between circle and text */
+}
+
+
+/* Hover effects for the circles */
+.nav-circle:hover {
+    background-color: var(--ai-bg-secondary);
+}
+.nav-circle:hover .arrow {
+    color: var(--text-inverted-color);
+    transform: translateY(-5px);
+}
+
+
+/* Final bottom credits area - Ensure they are on one line and centered */
+.footer-bottom-credits {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    /* Use gap for spacing when on one line */
+    gap: 15px; /* Adjust gap as needed */
+    /* Center both items */
+    justify-content: center; 
+    align-items: center;
+    padding: 15px 5vw;
+    box-sizing: border-box;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85em;
+    color: var(--text-color-secondary);
+    flex-shrink: 0;
+    /* Allow wrapping for very small screens, but prefer nowrap */
+    flex-wrap: wrap; 
+    text-align: center; /* Fallback for wrapped text */
+}
+
+.footer-bottom-credits .footer-copyright,
+.footer-bottom-credits .designer-name {
+    font-family: 'Monda', sans-serif !important;
+    white-space: nowrap; /* Keep on one line by default */
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 100 !important;
+
+}
+
+.nav-text {
+    visibility: hidden;
+}
+
+/* Mobile responsive (max-width: 768px) */
+@media (max-width: 768px) {
+    .footer-section .logo-container {
+        margin-top: 5em;
+        margin-bottom: 3em;
+    }
+
+    .footer-section .logo-container h3 {
+        font-size: 2em;
+    }
+
+    .footer-section .bottom-nav-container {
+        /* flex-direction: column; 
+        gap: 40px; */
+        padding: 0 20px;
+        top: 10vh
+    }
+
+    .nav-circle {
+        width: 80px;
+        height: 80px;
+    }
+    .nav-circle .arrow {
+        font-size: 1.5em;
+    }
+    /* hidden-nav-text remains hidden */
+    .nav-item .project-title-under-circle {
+        font-size: 1em; /* Adjust project name size for mobile */
+    }
+
+    .footer-bottom-credits {
+        flex-direction: column; /* Stack vertically on small screens */
+        gap: 5px;
+        font-size: 0.75em;
+        padding: 10px 20px;
+    }
+}

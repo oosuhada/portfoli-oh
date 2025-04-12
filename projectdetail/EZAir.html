@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EZ Air - Booking Made Easy (Finally) - Interactive Portfolio Case Study</title>
+<link rel="icon" href="https://placehold.co/32x32/000000/FFFFFF/png?text=E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Monda:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+<!-- Swiper.js CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="css/project-detail.css">
+<link rel="stylesheet" href="css/project-detail-hero.css">
+<link rel="stylesheet" href="css/project-detail-project-details.css">
+<link rel="stylesheet" href="css/project-detail-discover.css">
+<link rel="stylesheet" href="css/project-detail-define.css">
+<link rel="stylesheet" href="css/project-detail-design.css">
+<link rel="stylesheet" href="css/project-detail-deliver.css">
+<link rel="stylesheet" href="css/project-detail-footer.css">
+<link rel="stylesheet" href="../common/common.css">
+<link rel="stylesheet" href="../common/fixed_icons.css">
+</head>
+<body data-theme="light" class="lang-ko"> <noscript>You need to enable JavaScript to run this site.</noscript>
+<div id="scroll-progress-indicator" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+<svg class="progress-circle" viewBox="0 0 100 100" width="50" height="50">
+<circle class="bg-circle" cx="50" cy="50" r="45" fill="none" stroke="#eee" stroke-width="5"/>
+<circle class="progress-circle-fill" cx="50" cy="50" r="45" fill="none" stroke="#666" stroke-width="5" stroke-dasharray="282.7" stroke-dashoffset="282.7" transform="rotate(-90 50 50)"/>
+</svg>
+</div>
+<div class="top-navigation">
+<a href="../project/project.html" class="back-to-portfolio">
+<span class="arrow">←</span>
+<span class="nav-text" data-lang-ko="돌아가기" data-lang-en="Back to Portfolio"></span>
+</a>
+<div class="header-right-controls">
+<div class="language-toggle">
+<button id="lang-ko" class="lang-button active" data-lang="ko">한국어</button>
+<button id="lang-en" class="lang-button" data-lang="en">English</button>
+</div>
+<button class="theme-toggle theme-toggle-button" aria-label="Toggle theme">
+<svg id="sun-icon" class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" y1="1" x2="12" y2="3"></line>
+<line x1="12" y1="21" x2="12" y2="23"></line>
+<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+<line x1="1" y1="12" x2="3" y2="12"></line>
+<line x1="21" y1="12" x2="23" y2="12"></line>
+<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+<svg id="moon-icon" class="theme-icon hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+<span class="sr-only">Toggle theme</span>
+</button>
+</div>
+</div>
+<div id="loader" class="loader-container">
+<p class="load-head">EZ Air</p>
+<span class="small-text-load1">Flight booking, finally made smart and stress-free</span>
+</div>
+<main class="App" data-scroll-container>
+<section id="hero" class="section-wrapper hero-section">
+<div class="hero-carousel">
+<div class="hero-slide">
+<img src="../project/projects/project2-cover.png" alt="EZ Air Hero Image 1">
+</div>
+<div class="hero-slide">
+<img src="https://placehold.co/800x600/2a2a2a/fff?text=EZ+Air+Hero+2" alt="EZ Air Hero Image 2">
+</div>
+<div class="hero-slide">
+<img src="../project/projects/project2-cover.png" alt="EZ Air Hero Image 3">
+</div>
+<div class="hero-slide">
+<img src="https://placehold.co/800x600/222/fff?text=EZ+Air+Hero+4" alt="EZ Air Hero Image 4">
+</div>
+<div class="hero-slide">
+<img src="../project/projects/project2-cover.png" alt="EZ Air Hero Image 5">
+</div>
+</div>
+<p class="small-text-load2" data-lang-ko="항공권 예매, AI 추천으로 드디어 똑똑하고 스트레스 없이" data-lang-en="Flight booking, finally made smart and stress-free — with AI recommendations"></p>
+<div class="cover-head-vid-wrapper">
+<h1 class="cover-head-vid" data-lang-ko="이지 에어" data-lang-en="EZ Air"></h1>
+</div>
+ <div class="scroll-down-indicator">
+        <i class="fas fa-chevron-down arrow-icon"></i>
+        <span class="scroll-text" data-lang-ko="스크롤 다운" data-lang-en="SCROLL DOWN"></span>
+    </div>
+</section>
+<section id="project-details" class="section-wrapper project-details-section">
+<div class="pin-wrapper">
+<div class="details-content section-main-content">
+<div class="top-content">
+<div class="top-main">
+<div class="header">
+<div class="project-title" data-lang-ko="이지 에어" data-lang-en="EZ Air"></div>
+<div class="project-subtitle" data-lang-ko="드디어 쉬워진 항공권 예매" data-lang-en="Booking Made Easy (Finally)"></div>
+</div>
+<div class="insights">
+<h3 data-lang-ko="핵심 인사이트" data-lang-en="Key Insights"></h3>
+<ul>
+<li data-lang-ko="실제로 많은 사용자가 기존 항공권 예약 사이트의 AI 기능을 알아차리지 못함." data-lang-en="Most users don’t even realize AI features exist in booking platforms."></li>
+<li data-lang-ko="내 목표: 스마트 기능이 누구에게나 명확하게 드러나고, 쉽게 쓰이고, 재밌게 느껴지게 하는 것." data-lang-en="My goal: Make smart tools so obvious, accessible, and delightful, no one can miss them."></li>
+<li data-lang-ko="기존 서비스의 ‘틀’을 깨는 일이 쉽진 않았지만, 진짜 혁신을 위해 반드시 필요함." data-lang-en="Breaking from the “old mold” was hard, but necessary for real innovation."></li>
+<li data-lang-ko="초보 사용자도 기능을 놓치지 않도록 온보딩/인트로를 설계." data-lang-en="Built for first-time users—no more hidden features."></li>
+<li data-lang-ko="협업적으로는, git/워크플로우에 익숙하지 않은 팀원들을 멘토링하며 프로젝트 완성도를 높임." data-lang-en="Teamwork challenge: Mentoring teammates on git/workflow for smooth delivery."></li>
+</ul>
+</div>
+<div class="skills-values">
+<h3 data-lang-ko="기술 및 가치" data-lang-en="Skills & Values"></h3>
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">GSAP</span>
+<span class="tag">Lottie</span>
+<span class="tag">Gemini API</span>
+<span class="tag">Amadeus API</span>
+<span class="tag">UX Animation</span>
+<span class="tag">Git</span>
+<span class="tag">Collaboration</span>
+</div>
+</div>
+</div>
+<div class="top-sidebar">
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="날짜" data-lang-en="Date"></span><br>
+<div class="sidebar-value">May 2025 - Jun 2025</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="과정" data-lang-en="Course"></span><br>
+<div class="sidebar-value">Boot Camp</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="사용 도구" data-lang-en="Tools Used"></span><br>
+<div class="sidebar-value">
+Figma<br>
+VS Code<br>
+GSAP<br>
+Lottie<br>
+Gemini API<br>
+Amadeus API
+</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="배포" data-lang-en="Deployment"></span><br>
+<div class="sidebar-value">
+GitHub Pages / Vercel
+</div>
+</div>
+<div class="sidebar-section">
+<a href="#">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://github.com" alt="QR Code for Live Project"><br>
+<div class="qr-caption" data-lang-ko="라이브 사이트 (곧 공개 예정)" data-lang-en="Live Site (Coming Soon)"></div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="discover" class="section-wrapper discover-section">
+<div class="pin-wrapper">
+<p class="discover-header" data-lang-ko="이지 에어의 시작" data-lang-en="THE BEGINNING OF EZ AIR"></p>
+<div class="discover-content-left section-main-content hide-scrollbar" data-lang-ko="대부분의 예약 사이트가 AI를 내세우지만, 실제로는 사용자가 제대로 활용하지 못합니다. 리서치 결과, 많은 사용자가 스마트 기능의 존재조차 몰랐죠. 그래서 저는 ‘누구도 놓칠 수 없게’ AI 기능을 인트로 애니메이션과 검색/추천의 전면 배치로 적극 노출시켰습니다." data-lang-en="Most booking sites promote AI but users miss out. My research showed users didn’t even see smart features. So I decided to make AI tools impossible to ignore: animated intros, front-and-center search, and recommendations.">
+</div>
+</div>
+</section>
+<section id="define" class="section-wrapper define-section">
+<div class="pin-wrapper">
+<div class="define-header" data-lang-ko="문제 정의" data-lang-en="CLARIFYING THE ISSUE"></div>
+<div class="define-container section-main-content hide-scrollbar">
+<div class="define-box issue-box">
+<h4 data-lang-ko="핵심 문제" data-lang-en="Core Issue"></h4>
+<p data-lang-ko="대부분의 플랫폼에 AI 기능이 있지만, UX 구조상 사용자에게 잘 보이지 않아 최적의 항공편을 놓치고 좌절하게 만듭니다." data-lang-en="Booking platforms have AI, but the user experience hides it. Users end up frustrated, missing out on the best flights."></p>
+</div>
+<div class="define-main-text">
+<p data-lang-ko="그래서 자연어 검색과 AI 추천을 메인으로 내세워, 누구나 쉽게 인식·활용할 수 있게 설계했습니다. 진짜 성공은 ‘기능이 보이는 것’만이 아니라, 실제로 사용자들이 쉽게 이득을 보는 것이라고 생각했습니다." data-lang-en="I set out to make natural language search and AI recommendations the hero—always visible, always easy to use. Success means users not only notice, but actually benefit from smart features."></p>
+</div>
+<div class="define-box success-box">
+<h4 data-lang-ko="성공 지표" data-lang-en="Success Measure"></h4>
+<p data-lang-ko="성공 기준: 사용자들이 쉽게 최적의 항공편을 찾고, 스마트 기능에 호기심을 갖고 직접 시도해보는 경험을 만드는 것." data-lang-en="Success = effortless discovery of best flights, and users feeling curious (not overwhelmed) about smart features."></p>
+</div>
+</div>
+</div>
+</section>
+<section id="design-1" class="section-wrapper design-section-1">
+<div class="pin-wrapper">
+<div class="content-slide combined-header-intro">
+<div class="design-header-1-content">
+<div class="design-container">
+<div class="design-shadow-group">
+<span class="design-shadow" data-color="#FFD600">D</span>
+<span class="design-shadow" data-color="#FF7A29">E</span>
+<span class="design-shadow" data-color="#FFBCBC">S</span>
+<span class="design-shadow" data-color="#FFD600">I</span>
+<span class="design-shadow" data-color="#21D3F3">G</span>
+<span class="design-shadow" data-color="#16A56B">N</span>
+</div>
+<div class="design-main" data-lang-ko="DESIGN" data-lang-en="DESIGN"></div>
+</div>
+</div>
+<p class="section-intro-text" data-lang-ko="자연어 검색 기능을 강조하는 애니메이션 인트로(GSAP/Lottie)를 설계하고, 전체적으로 직관적이고 가벼우며 현대적인 UX를 구현했습니다. ‘숨겨진 기능’이 없는 것이 목표였습니다." data-lang-en="Designed an animated intro to highlight AI search, using GSAP/Lottie. Focused on clarity, lightness, and a modern, engaging feel—no more hidden features."></p>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="디자인 프로세스" data-lang-en="Design Process"></h4>
+<p class="meaning-chunk" data-lang-ko="- 업계 표준 UI 패턴을 분석하고, 어디서 혁신이 필요한지 파악<br>- 첫 방문자 한정 인트로 애니메이션(세션스토리지)로 AI 기능을 강조" data-lang-en="- Analyzed industry UI patterns, finding where innovation was needed.<br>- Built a first-visit only animated intro (sessionStorage) that spotlights smart features."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/222/fff?text=EZ+Air+Intro+Animation" alt="EZ Air Intro Animation">
+<span class="image-caption" data-lang-ko="자연어 검색 기능의 중요성을 시각적으로 강조하는 애니메이션 소개의 초기 스케치 및 목업." data-lang-en="Early sketches and mockups of the animated intro, visually emphasizing the importance of natural language search."></span>
+</div>
+</div>
+<div class="content-slide image-text-left">
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/2a2a2a/fff?text=EZ+Air+AI+Recommendation+UI" alt="EZ Air AI Recommendation UI">
+<span class="image-caption" data-lang-ko="AI 추천을 전면에 내세우는 UI 디자인. 사용자는 가장 좋은 선택을 즉시 볼 수 있습니다." data-lang-en="UI design putting AI recommendations front-and-center. Users see the best choices instantly."></span>
+</div>
+<div class="text-block">
+<h4 data-lang-ko="디자인 프로세스" data-lang-en="Design Process"></h4>
+<p class="meaning-chunk" data-lang-ko="- 모든 UI/애니메이션을 초보자도 바로 이해할 수 있게 설계" data-lang-en="- All UI/animation designed for instant understanding—especially for new users."></p>
+</div>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="디자인 프로세스" data-lang-en="Design Process"></h4>
+<p class="meaning-chunk" data-lang-ko="- 협업 경험이 적은 팀원들에게 git/워크플로우 멘토링 지원" data-lang-en="- Supported less experienced teammates by mentoring on git/workflow."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/333/fff?text=EZ+Air+Booking+Flow" alt="EZ Air Booking Flow showcasing simplified steps">
+<span class="image-caption" data-lang-ko="항공편 검색, 비교 및 예약 단계를 간소화하여 사용자 마찰을 최소화하는 흐름." data-lang-en="Simplified steps for searching, comparing, and booking flights—reducing user friction."></span>
+</div>
+</div>
+</section>
+<section id="design-2" class="section-wrapper design-section-2">
+<div class="pin-wrapper">
+<div class="design-header-2" data-lang-ko="시각적 요소 탐색" data-lang-en="VISUAL EXPLORATION"></div>
+<!-- Swiper Structure for Design Carousel -->
+<div class="gallery-carousel-container swiper">
+<div class="gallery-carousel swiper-wrapper">
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/222/fff?text=EZ+Air+Lottie+Animations" alt="EZ Air Lottie Animations showing interactive elements">
+<span class="image-caption" data-lang-ko="버튼 및 주요 기능에 Lottie 애니메이션을 통합하여 인터랙티브하고 즐거운 경험을 제공합니다." data-lang-en="Integrating Lottie animations for interactive buttons and key features, providing a delightful and interactive experience."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/2a2a2a/fff?text=EZ+Air+Responsive+Search+Cards" alt="EZ Air Responsive Search Cards for all devices">
+<span class="image-caption" data-lang-ko="모든 장치에서 콘텐츠가 명확하게 보이도록 최적화된 반응형 검색 카드 디자인." data-lang-en="Responsive search card designs optimized for clear content visibility on all devices."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-two-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-two">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/333/fff?text=EZ+Air+Gradient+Colors" alt="EZ Air Gradient Colors for aesthetic appeal">
+<span class="image-caption" data-lang-ko="가볍고 매력적인 미학을 위한 단순하고 부드러운 그라데이션 색상 팔레트." data-lang-en="Simple, gradient color palette for a light and engaging aesthetic."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/3a3a3a/fff?text=EZ+Air+Mobile+First+Design" alt="EZ Air Mobile First Design approach">
+<span class="image-caption" data-lang-ko="모든 레이아웃 및 기능에 대한 모바일 우선 디자인 접근 방식." data-lang-en="Mobile-first design approach applied to all layouts and functionalities."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/444/fff?text=EZ+Air+UI+Hierarchy" alt="EZ Air UI Hierarchy with intuitive navigation">
+<span class="image-caption" data-lang-ko="명확한 계층 구조와 직관적인 탐색을 갖춘 UI 디자인으로 사용자 경험을 최적화합니다." data-lang-en="UI design with clear hierarchy and intuitive navigation, optimizing user experience."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-three-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-three">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/555/fff?text=EZ+Air+User+Flow" alt="EZ Air User Flow from search to booking">
+<span class="image-caption" data-lang-ko="항공편 검색부터 예약까지의 간소화된 사용자 흐름 다이어그램." data-lang-en="User flow diagram illustrating simplified paths from flight search to booking."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/5a5a5a/fff?text=EZ+Air+Wireframes" alt="EZ Air Wireframes for design progression">
+<span class="image-caption" data-lang-ko="초기 와이어프레임부터 고사양 목업까지의 디자인 진행 과정을 보여줍니다." data-lang-en="Showcasing the design progression from initial wireframes to high-fidelity mockups."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/666/fff?text=EZ+Air+Accessibility" alt="EZ Air Accessibility compliance">
+<span class="image-caption" data-lang-ko="접근성 지침 준수 및 UI 요소의 대비 확인을 통한 포괄적인 디자인." data-lang-en="Adherence to accessibility guidelines and contrast checks for UI elements, ensuring an inclusive design."></span>
+</div>
+</div>
+</div>
+</div>
+<!-- If we need navigation buttons -->
+<div class="nav-button swiper-button-prev design-prev swiper-button-prev-design"></div>
+<div class="nav-button swiper-button-next design-next swiper-button-next-design"></div>
+<!-- If we need pagination -->
+<div class="swiper-pagination design-pagination"></div>
+</div>
+</div>
+</section>
+<section id="deliver-1" class="section-wrapper deliver-section-1">
+<div class="pin-wrapper">
+<div class="content-slide overview-features-slide">
+<div class="text-block">
+<h4 data-lang-ko="제작: AI 기능을 사용자 친화적으로 만들기" data-lang-en="Deliver: Making AI Features User-Friendly"></h4>
+<p class="meaning-chunk" data-lang-ko="HTML, CSS, JS, GSAP(애니메이션), Lottie(버튼), Gemini API(자연어 검색), Amadeus API(실시간 항공편) 등 여러 기술을 한데 모아, 부드럽고 현대적인 UX를 구현했습니다." data-lang-en="Built with HTML, CSS, JS, GSAP for animation, Lottie for buttons, Gemini API (natural language), Amadeus API (real-time flights). Orchestrated all for seamless, modern UX."></p>
+</div>
+<div class="features-summary">
+<h4 data-lang-ko="주요 기능 및 기술 구현" data-lang-en="Key Features & Technical Implementation"></h4>
+<ul>
+<li class="meaning-chunk" data-lang-ko="<b>자연어 항공권 검색:</b> 원하는 여정을 입력하거나, 대화하듯 음성으로 검색하세요." data-lang-en="<b>Natural Language Flight Search:</b> Type or “speak” your search."></li>
+<li class="meaning-chunk" data-lang-ko="<b>AI 추천:</b> 최적 옵션을 눈에 띄게 강조" data-lang-en="<b>AI Recommendations:</b> Best options highlighted, never missed."></li>
+<li class="meaning-chunk" data-lang-ko="<b>애니메이션 인트로:</b> Lottie/GSAP으로 기능을 강렬하게 소개" data-lang-en="<b>Animated Intro:</b> Lottie/GSAP make features obvious from the start."></li>
+<li class="meaning-chunk" data-lang-ko="<b>간소화된 예약:</b> 클릭/마찰 최소화, 더 즐거운 UX" data-lang-en="<b>Streamlined Booking:</b> Less clicks, less friction, more fun."></li>
+<li class="meaning-chunk" data-lang-ko="<b>반응형, 현대적 UI:</b> 모바일 우선, 명확한 구조" data-lang-en="<b>Responsive, Modern UI:</b> Mobile-first, clear navigation."></li>
+</ul>
+</div>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="Gemini API 통합" data-lang-en="Gemini API Integration"></h4>
+<p class="meaning-chunk" data-lang-ko="Gemini API를 통합하여 사용자 질의를 구문 분석하고,<br>그 결과를 Amadeus API로 전달하여 실시간 항공편 검색을 수행합니다.<br>이는 자연어 검색 기능을 가능하게 합니다." data-lang-en="Integrated Gemini API to parse user queries,<br>piped results into Amadeus for real-time search.<br>This enables the natural language search functionality."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/222/fff?text=EZ+Air+Gemini+API+Code" alt="EZ Air Gemini API Code for natural language search">
+<span class="image-caption" data-lang-ko="사용자 질의 구문 분석 및 항공편 검색을 위한 Gemini 및 Amadeus API 통합 코드 스니펫." data-lang-en="Code snippet illustrating the integration between Gemini API and Amadeus API for user query parsing and flight search."></span>
+</div>
+</div>
+<div class="content-slide image-text-left">
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/333/fff?text=EZ+Air+GSAP+Lottie+Code" alt="EZ Air GSAP Lottie Code for animations">
+<span class="image-caption" data-lang-ko="애니메이션 소개와 인터랙티브 버튼 구현을 위한 GSAP 및 Lottie 구현 코드." data-lang-en="GSAP and Lottie implementation code for intro animations and interactive buttons."></span>
+</div>
+<div class="text-block">
+<h4 data-lang-ko="GSAP 및 Lottie를 사용한 고급 애니메이션" data-lang-en="Advanced Animations with GSAP and Lottie"></h4>
+<p class="meaning-chunk" data-lang-ko="GSAP과 Lottie를 사용하여 애니메이션 소개와 인터랙티브 버튼을 구현하여<br>사용자 경험에 즐거움과 유동성을 더했습니다." data-lang-en="Leveraged GSAP and Lottie to implement intro animations and interactive buttons,<br>adding delight and fluidity to the user experience."></p>
+</div>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="성능 최적화: 핵심 결과물" data-lang-en="Performance Optimization: A Core Deliverable"></h4>
+<p class="meaning-chunk" data-lang-ko="여러 API와 애니메이션 라이브러리를 조율하여 원활한 사용자 경험을 제공하는 것이 주요 과제였습니다.<br>동시에, AI 기능의 '발견 가능성'을 위해 설계하는 데 집중했습니다." data-lang-en="Coordinating multiple APIs and animation libraries for a seamless user experience was a key challenge.<br>At the same time, I focused on designing for 'AI discoverability.'"></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/1200x675/444/fff?text=EZ+Air+Performance+Report" alt="EZ Air Performance Report showcasing site speed">
+<span class="image-caption" data-lang-ko="사이트의 빠른 로딩과 효율적인 작동을 보장하는 성능 최적화 보고서." data-lang-en="Performance optimization report showcasing the site's fast loading and efficient operation."></span>
+</div>
+</div>
+</section>
+<section id="deliver-2" class="section-wrapper deliver-section-2">
+<div class="pin-wrapper">
+<div class="deliver-header-2" data-lang-ko="작동 중인 기능" data-lang-en="FEATURES IN ACTION"></div>
+<!-- Swiper Structure for Deliver Carousel -->
+<div class="gallery-carousel-container swiper">
+<div class="gallery-carousel swiper-wrapper">
+<div class="carousel-slide-content image-text-right-container swiper-slide">
+<div class="content-slide carousel-inner-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="자연어 항공편 검색 데모" data-lang-en="Natural Language Flight Search Demo"></h4>
+<p class="meaning-chunk" data-lang-ko="AI 기반 검색 바를 통해 사용자는 홈 화면에서 마치 말하는 것처럼 요청을 입력할 수 있습니다.<br>이는 항공편 검색을 더 직관적이고 효율적으로 만듭니다." data-lang-en="The AI-powered search bar lets users type requests just like they’d speak, from the home screen.<br>This makes flight search more intuitive and efficient."></p>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/222/fff?text=Live+demo+of+Natural+Language+Search" alt="Live demo of Natural Language Search (GIF)">
+<span class="image-caption" data-lang-ko="자연어 검색 기능이 어떻게 작동하는지 보여주는 실시간 데모 애니메이션 GIF." data-lang-en="Animated GIF demonstrating how the natural language search feature works in action."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content image-text-left-container swiper-slide">
+<div class="content-slide carousel-inner-slide image-text-left">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/333/fff?text=AI+Recommendations+UI" alt="AI Recommendations UI">
+<span class="image-caption" data-lang-ko="스마트 항공편 옵션이 결과 상단에 강조 표시되어 사용자가 가장 좋은 선택을 즉시 볼 수 있습니다." data-lang-en="Smart flight options highlighted at the top of the results, so users see the best choices instantly."></span>
+</div>
+<div class="text-block">
+<h4 data-lang-ko="AI 추천 인터페이스" data-lang-en="AI Recommendations Interface"></h4>
+<p class="meaning-chunk" data-lang-ko="AI 기반 추천은 스마트 항공편 옵션을 결과 상단에 강조 표시하여<br>사용자에게 가장 관련성 높은 정보를 즉시 제공합니다." data-lang-en="AI-powered recommendations highlight smart flight options at the top of the results,<br>providing users with the most relevant information instantly."></p>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-two-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-two">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/444/fff?text=Responsive+Design+across+devices" alt="Responsive Design across devices">
+<span class="image-caption" data-lang-ko="다양한 모바일 및 데스크톱 장치에서 완벽하게 작동하는 반응형 디자인." data-lang-en="Responsive design seamlessly adapting across various mobile and desktop devices."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/555/fff?text=Simplified+Booking+Steps" alt="Simplified Booking Steps">
+<span class="image-caption" data-lang-ko="사용자 마찰을 줄이고 효율성을 높이기 위한 간소화된 예약 단계." data-lang-en="Simplified booking steps to reduce user friction and increase efficiency."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-three-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-three">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/666/fff?text=Intuitive+Navigation+Flow" alt="Intuitive Navigation Flow">
+<span class="image-caption" data-lang-ko="명확하고 직관적인 탐색 흐름으로 사용자 경험을 향상시킵니다." data-lang-en="Clear and intuitive navigation flow enhances user experience."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/777/fff?text=Front-end+Architecture+Diagram" alt="Front-end Architecture Diagram">
+<span class="image-caption" data-lang-ko="이지 에어 프로젝트의 모듈화된 프론트엔드 아키텍처 다이어그램." data-lang-en="Modular front-end architecture diagram of the EZ Air project."></span>
+</div>
+<div class="carousel-slide-content">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/888/fff?text=Deployment+Process+Overview" alt="Deployment Process Overview">
+<span class="image-caption" data-lang-ko="사이트의 효율적인 배포 워크플로우를 보여주는 다이어그램." data-lang-en="Diagram illustrating the efficient deployment workflow for the site."></span>
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/999/fff?text=EZ+Air+Final+UI" alt="EZ Air Final UI">
+<span class="image-caption" data-lang-ko="사용자 친화적인 디자인을 반영하는 이지 에어 홈페이지의 최종 사용자 인터페이스." data-lang-en="The final user interface of the EZ Air homepage, reflecting a user-friendly design."></span>
+</div>
+</div>
+</div>
+</div>
+<button class="nav-button next-button deliver-next swiper-button-next-deliver"></button>
+</div>
+</div>
+</section>
+<section id="footer" class="section-wrapper footer-section">
+    <div class="logo-container">
+        <h3 data-lang-ko="이지 에어!" data-lang-en="EZ Air!"></h3>
+    </div>
+
+    <div class="bottom-nav-container">
+        <div class="nav-item prev-item">
+            <div class="nav-circle prev-circle">
+                <a href="portfoliOh.html"> <span class="arrow">←</span>
+                    <span class="nav-text hidden-nav-text" data-lang-ko="PREV" data-lang-en="PREV"></span>
+                </a>
+            </div>
+            <span class="project-title-under-circle" id="prev-project-name"></span>
+        </div>
+
+        <div class="nav-item next-item">
+            <div class="nav-circle next-circle">
+                <a href="Uncorked.html"> <span class="arrow">→</span>
+                    <span class="nav-text hidden-nav-text" data-lang-ko="NEXT" data-lang-en="NEXT"></span>
+                </a>
+            </div>
+            <span class="project-title-under-circle" id="next-project-name"></span>
+        </div>
+    </div>
+
+    <div class="footer-bottom-credits">
+        <span class="footer-copyright" id="footer-copyright-text" 
+              data-lang-ko="© 2025. 이지 에어!" 
+              data-lang-en="© 2025. EZ Air!">
+        </span>
+        <span class="designer-name" id="footer-designer-name" 
+              data-lang-ko="디자인 by Oosu" 
+              data-lang-en="Designed by Oosu">
+        </span>
+    </div>
+</section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="../common/common.js"></script>
+<script src="../common/highlighter.js"></script>
+<script src="../common/navigation.js"></script>
+<script src="../common/theme-manager.js"></script>
+<script src="../common/ui-components.js"></script>
+<script src="../common/visual-effects.js"></script>
+
+<script src="js/project-detail-hero.js"></script>
+<script src="js/project-detail-project-details.js"></script>
+<script src="js/project-detail-discover.js"></script>
+<script src="js/project-detail-define.js"></script>
+<script src="js/project-detail-design.js"></script>
+<script src="js/project-detail-deliver.js"></script>
+<script src="js/project-detail-footer.js"></script>
+
+<script src="js/footer-directory.js"></script> <script src="js/project-detail.js"></script>
+</body>
+</html>

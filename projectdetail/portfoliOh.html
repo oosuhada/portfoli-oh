@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfoli-oh! - Interactive Portfolio Case Study</title>
+<link rel="icon" href="https://placehold.co/32x32/000000/FFFFFF/png?text=P" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Monda:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="css/project-detail.css">
+<link rel="stylesheet" href="css/project-detail-hero.css">
+<link rel="stylesheet" href="css/project-detail-project-details.css">
+<link rel="stylesheet" href="css/project-detail-discover.css">
+<link rel="stylesheet" href="css/project-detail-define.css">
+<link rel="stylesheet" href="css/project-detail-design.css">
+<link rel="stylesheet" href="css/project-detail-deliver.css">
+<link rel="stylesheet" href="css/project-detail-footer.css">
+<link rel="stylesheet" href="../common/common.css">
+<link rel="stylesheet" href="../common/fixed_icons.css">
+</head>
+<body data-theme="light" class="lang-ko"> <noscript>You need to enable JavaScript to run this site.</noscript>
+<div id="scroll-progress-indicator" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+<svg class="progress-circle" viewBox="0 0 100 100" width="50" height="50">
+<circle class="bg-circle" cx="50" cy="50" r="45" fill="none" stroke="#eee" stroke-width="5"/>
+<circle class="progress-circle-fill" cx="50" cy="50" r="45" fill="none" stroke="#666" stroke-width="5" stroke-dasharray="282.7" stroke-dashoffset="282.7" transform="rotate(-90 50 50)"/>
+</svg>
+</div>
+<div class="top-navigation">
+<a href="../project/project.html" class="back-to-portfolio">
+<span class="arrow">←</span>
+<span class="nav-text" data-lang-ko="돌아가기" data-lang-en="Back to Portfolio"></span>
+</a>
+<div class="header-right-controls">
+<div class="language-toggle">
+<button id="lang-ko" class="lang-button active" data-lang="ko">한국어</button>
+<button id="lang-en" class="lang-button" data-lang="en">English</button>
+</div>
+<button class="theme-toggle theme-toggle-button" aria-label="Toggle theme">
+<svg id="sun-icon" class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" y1="1" x2="12" y2="3"></line>
+<line x1="12" y1="21" x2="12" y2="23"></line>
+<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+<line x1="1" y1="12" x2="3" y2="12"></line>
+<line x1="21" y1="12" x2="23" y2="12"></line>
+<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+</svg>
+<svg id="moon-icon" class="theme-icon hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+<span class="sr-only">Toggle theme</span>
+</button>
+</div>
+</div>
+<div id="loader" class="loader-container">
+<p class="load-head">Portfoli-oh!</p>
+<span class="small-text-load1">Less Boring, More Exploring</span>
+</div>
+<main class="App" data-scroll-container>
+<section id="hero" class="section-wrapper hero-section">
+<div class="hero-carousel">
+<div class="hero-slide">
+<img src="./portfoliOh/portfoliocapture1.png" alt="Background Image 1">
+</div>
+<div class="hero-slide">
+<img src="./portfoliOh/portfoliocapture2.png" alt="Background Image 2">
+</div>
+<div class="hero-slide">
+<img src="./portfoliOh/portfoliocapture3.png" alt="Background Image 3">
+</div>
+<div class="hero-slide">
+<img src="./portfoliOh/portfoliocapture4.png" alt="Background Image 4">
+</div>
+<div class="hero-slide">
+<img src="./portfoliOh/portfoliocapture5.png" alt="Background Image 5">
+</div>
+<div class="hero-slide">
+<img src="./portfoliOh/portfoliocapture6.png" alt="Background Image 6">
+</div>
+<div class="hero-slide">
+<img src="./portfoliOh/portfoliocapture7.png" alt="Background Image 7">
+</div>
+<div class="hero-slide">
+<img src="./portfoliOh/portfoliocapture8.png" alt="Background Image 8">
+</div>
+<div class="hero-slide">
+<img src="./portfoliOh/portfoliocapture9.png" alt="Background Image 9">
+</div>
+</div>
+<p class="small-text-load2" data-lang-ko="문제 해결 과정과 실제 인터랙션을 결합한, 직접 “써볼 수 있는” 포트폴리오" data-lang-en="Where problem-solving meets real interaction—a portfolio you can actually use."></p>
+<div class="cover-head-vid-wrapper">
+<h1 class="cover-head-vid" data-lang-ko="포트폴리-오!" data-lang-en="Portfoli-oh!"></h1>
+</div>
+ <div class="scroll-down-indicator">
+        <i class="fas fa-chevron-down arrow-icon"></i>
+        <span class="scroll-text" data-lang-ko="스크롤 다운" data-lang-en="SCROLL DOWN"></span>
+    </div>
+</section>
+<section id="project-details" class="section-wrapper project-details-section">
+<div class="pin-wrapper">
+<div class="details-content section-main-content">
+<div class="top-content">
+<div class="top-main">
+<div class="header">
+<div class="project-title" data-lang-ko="포트폴리-오!" data-lang-en="Portfoli-oh!"></div>
+<div class="project-subtitle" data-lang-ko="반응형, AI 기반 포트폴리오 웹앱" data-lang-en="Responsive, AI-powered Portfolio Web App"></div>
+</div>
+<div class="insights">
+<h3 data-lang-ko="핵심 인사이트" data-lang-en="Key Insights"></h3>
+<ul>
+<li data-lang-ko="대부분의 포트폴리오는 정적 갤러리이거나 텍스트 위주로, 실제 문제 해결 역량을 보여주지 못함" data-lang-en="Most portfolios are either static galleries or text-heavy pages, failing to show real problem-solving."></li>
+<li data-lang-ko="포트폴리-오!는 실제 웹앱처럼 모든 기능이 동작: 반응형, 다국어, 다크/라이트 모드, AI 어시스턴트까지 직접 구현" data-lang-en="Portfoli-oh! is a fully functioning web app: responsive, multilingual, dark/light mode, real AI assistant."></li>
+<li data-lang-ko="핵심 기능(하이라이터, 온보딩, AI 메시지 드래프트)을 통해 단순 결과가 아니라 “문제해결 과정” 자체를 보여줌" data-lang-en="Designed core features (highlighter, onboarding, AI message draft) to actively demonstrate my approach to problem-solving, not just the results."></li>
+<li data-lang-ko="사용자가 직접 하이라이트하고, 저장·활용할 수 있는 UX 중심 설계" data-lang-en="Focused on user-driven interaction: users can highlight, save, and interact with content across multiple pages."></li>
+<li data-lang-ko="진짜 서비스처럼 모듈화/유지보수 가능한 구조 설계" data-lang-en="Modular, maintainable architecture—mirrors real product-level engineering."></li>
+</ul>
+</div>
+<div class="skills-values">
+<h3 data-lang-ko="기술 및 가치" data-lang-en="Skills & Values"></h3>
+<div class="tags">
+<span class="tag">HTML/CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">GSAP</span>
+<span class="tag">Three.js</span>
+<span class="tag">On-device AI, NLP</span>
+<span class="tag" data-lang-ko="모듈화 아키텍처" data-lang-en="modular architecture"></span>
+<span class="tag" data-lang-ko="UX 설계" data-lang-en="UX design"></span>
+<span class="tag" data-lang-ko="로컬라이제이션(한/영)" data-lang-en="localization (EN/KR)"></span>
+<span class="tag" data-lang-ko="확장 가능한 상태관리" data-lang-en="state management"></span>
+</div>
+</div>
+</div>
+<div class="top-sidebar">
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="날짜" data-lang-en="Date"></span><br>
+<div class="sidebar-value">Jun 2025 - Jul 2025</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="역할" data-lang-en="Roles"></span><br>
+<div class="sidebar-value" data-lang-ko="UX/UI 디자인<br>프론트엔드 개발<br>AI 통합" data-lang-en="UX/UI Design<br>Frontend Development<br>AI Integration">
+</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="사용 도구" data-lang-en="Tools Used"></span><br>
+<div class="sidebar-value">
+Figma<br>
+VS Code<br>
+GSAP<br>
+Transformers.js<br>
+Fuse.js<br>
+Compromise.js<br>
+</div>
+</div>
+<div class="sidebar-section">
+<span class="sidebar-label" data-lang-ko="배포" data-lang-en="Deployment"></span><br>
+<div class="sidebar-value">
+Vercel / GitHub Pages
+</div>
+</div>
+<div class="sidebar-section">
+<a href="#">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://github.com" alt="QR Code for Live Project"><br>
+<div class="qr-caption" data-lang-ko="라이브 사이트 (곧 공개 예정)" data-lang-en="Live Site (Coming Soon)"></div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="discover" class="section-wrapper discover-section">
+<div class="pin-wrapper">
+<p class="discover-header" data-lang-ko="왜 대부분의 포트폴리오는 실패할까? (그리고 나는 어떻게 바꿨나)" data-lang-en="WHY MOST PORTFOLIOS FAIL (AND HOW I FIXED IT)"></p>
+<div class="discover-content-left section-main-content hide-scrollbar" data-lang-ko="대부분의 포트폴리오는 껍데기만 예쁘고 깊이가 없거나(Figma, GitHub 링크만), 텍스트만 가득해 읽기 힘듭니다. 저는 “진짜 동작하는” 사이트, 즉 멀티페이지·모바일 반응형·다크모드·다국어 지원은 물론, 사용자가 진짜로 탐험할 수 있는 인터랙티브 경험을 만들고자 했습니다." data-lang-en="Most portfolios are either pretty shells with no depth (just Figma or GitHub links), or endless text dumps that are hard to engage with. I wanted to build a site that actually works: multi-page, mobile-responsive, supports dark mode, language switch, and offers a truly interactive experience—not just a static page.">
+</div>
+</div>
+</section>
+<section id="define" class="section-wrapper define-section">
+<div class="pin-wrapper">
+<div class="define-header" data-lang-ko="핵심 도전과제" data-lang-en="CORE CHALLENGE"></div>
+<div class="define-container section-main-content hide-scrollbar">
+<div class="define-box issue-box">
+<h4 data-lang-ko="핵심 문제" data-lang-en="Core Issue"></h4>
+<p data-lang-ko="대부분의 포트폴리오는 실제 문제 해결 과정을 보여주지 못합니다. 채용자는 결과만 보고, 내가 어떤 고민과 과정을 거쳤는지 알기 어렵죠. 저는 그 ‘과정’을 사용자에게 직접 보여주고, 체험하게 만들고 싶었습니다." data-lang-en="Most portfolios fail to communicate real problem-solving. Recruiters can't see your thinking, only the outcome. I wanted to make the process visible and let users actively interact with my work."></p>
+</div>
+<div class="define-main-text">
+<p data-lang-ko="이를 해결하기 위해 하이라이터 기능을 설계. 사용자가 선택한 정보는 로컬 스토리지에 저장됨. 이후 Connect 페이지에서 하이라이트한 내용을 한 번에 모아보고, 이를 기반으로 맞춤 메시지 초안까지 쉽게 만들 수 있습니다." data-lang-en="I designed a highlighter feature: users can mark and save any “meaning chunk” throughout the site. These are stored locally and can be reviewed/managed on the Connect page, where users can generate personalized message drafts to contact me, based on what they found interesting."></p>
+</div>
+<div class="define-box success-box">
+<h4 data-lang-ko="성공 지표" data-lang-en="Success Measure"></h4>
+<p data-lang-ko="성공의 기준은 단순히 “멋지다!”가 아니라, 방문자가 내 문제해결력과 사고방식, 그리고 실제 일하는 방식을 명확하게 이해하고, 자신만의 방식으로 쉽게 소통할 수 있도록 하는 것입니다." data-lang-en="Success means visitors leave with not just a good impression, but a clear sense of my process and mindset—and with tools to easily reach out, tailored to what resonated with them."></p>
+</div>
+</div>
+</div>
+</section>
+<section id="design-1" class="section-wrapper design-section-1">
+<div class="pin-wrapper">
+<div class="content-slide combined-header-intro">
+<div class="design-header-1-content">
+<div class="design-container">
+<div class="design-shadow-group">
+<span class="design-shadow" data-color="#FFD600">D</span>
+<span class="design-shadow" data-color="#FF7A29">E</span>
+<span class="design-shadow" data-color="#FFBCBC">S</span>
+<span class="design-shadow" data-color="#FFD600">I</span>
+<span class="design-shadow" data-color="#21D3F3">G</span>
+<span class="design-shadow" data-color="#16A56B">N</span>
+</div>
+<div class="design-main" data-lang-ko="DESIGN" data-lang-en="DESIGN"></div>
+</div>
+</div>
+<p class="section-intro-text" data-lang-ko="이 사이트를 그냥 포트폴리오가 아닌, 진짜 웹앱 프로젝트처럼 접근했습니다. 헤더, 푸터, AI 기능 등은 모두 모듈화해서 5개 페이지에 공통 적용했고, 온보딩 플로우로 처음 방문하는 사용자도 핵심 기능을 쉽게 익힐 수 있게 했습니다. 각 페이지마다 다른 인터랙션을 설계해, 매번 새로운 경험을 제공합니다." data-lang-en="I treated the site as a real web app project, not just a portfolio. Every component is modularized: header, footer, and AI features are shared across all five pages. The onboarding flow helps first-time users explore core features. Every page has its own interactions—making each visit unique and memorable."></p>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="와이어프레임에서 목업으로" data-lang-en="From Wireframe to Mockup"></h4>
+<p data-lang-ko="기본 구조와 사용자 흐름을 파악하기 위해 저사양 와이어프레임으로 작업을 시작했습니다. 이후 시각적 디자인 요소와 인터랙티브 컴포넌트를 통합하며 고사양 목업으로 빠르게 발전시켰습니다." data-lang-en="The journey began with low-fidelity wireframes to map out the basic structure and user flow. This quickly evolved into high-fidelity mockups, incorporating visual design elements and preparing for the interactive components."></p>
+</div>
+<div class="image-wrapper">
+<img src="./portfoliOh/portfoliowireframe.png" alt="Animated GIF showing a wireframe morphing into the final high-fidelity mockup">
+<span class="image-caption" data-lang-ko="와이어프레임이 최종 목업으로 변화하는 과정을 보여주는 모핑 GIF." data-lang-en="A morphing GIF that shows the evolution from wireframe to the final mockup."></span>
+</div>
+</div>
+<div class="content-slide image-text-left">
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioAnnotatedUI.gif" alt="GIF cycling through multiple pages to show consistent design language">
+<span class="image-caption" data-lang-ko="여러 페이지를 빠르게 전환하며 헤더, 폰트, 푸터의 일관성을 증명하는 GIF." data-lang-en="A GIF that proves visual consistency by cycling through multiple pages, highlighting the shared header, fonts, and footer."></span>
+</div>
+<div class="text-block">
+<h4 data-lang-ko="응집력 있는 시각적 언어 확립" data-lang-en="Establishing a Cohesive Visual Language"></h4>
+<p data-lang-ko="일관된 시각적 스타일을 확립하는 것이 중요했습니다. 전체 포트폴리오에 걸쳐 통일되고 매력적인 미학을 유지하기 위해 타이포그래피(제목은 Monda, 본문은 Albert Sans), 색상 팔레트, 일반 UI 원칙을 정의하는 포괄적인 스타일 가이드를 개발했습니다." data-lang-en="A consistent visual style was critical. I developed a comprehensive style guide, defining the typography (Monda for headings, Albert Sans for body), color palette, and general UI principles to ensure a unified and appealing aesthetic across the entire portfolio."></p>
+</div>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="사용자 안내를 위한 인터랙티브 디자인" data-lang-en="Interactive Design for User Guidance"></h4>
+<p data-lang-ko="클릭할 요소가 많은 사이트의 특성을 고려하여, 사용자가 다음 행동을 쉽게 인지할 수 있도록 커스텀 커서와 미세한 인터랙션을 설계했습니다. 이는 단순한 장식을 넘어, 사용자의 행동을 유도하는 기능적 역할을 합니다." data-lang-en="Considering the click-heavy nature of the site, I designed a custom cursor and micro-interactions to help users easily recognize their next action. This goes beyond mere decoration to serve a functional role in guiding user behavior."></p>
+</div>
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioCustomCursor.gif" alt="Storytelling GIF showing the problem of a small cursor and the solution of a custom cursor with micro-interactions">
+<span class="image-caption" data-lang-ko="일반 커서의 문제점과 이를 해결하는 커스텀 커서 및 마이크로 인터랙션을 대비시켜 보여주는 스토리텔링 GIF." data-lang-en="A storytelling GIF contrasting the problem of a standard cursor with the solution: a custom cursor and micro-interactions."></span>
+</div>
+</div>
+</section>
+<section id="design-2" class="section-wrapper design-section-2">
+<div class="pin-wrapper">
+<div class="design-header-2" data-lang-ko="시각적 요소 탐색" data-lang-en="VISUAL EXPLORATION"></div>
+<div class="gallery-carousel-container swiper">
+<div class="gallery-carousel swiper-wrapper">
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioHighlighter.gif" alt="Figma prototype GIF demonstrating the user flow of the highlighter feature">
+<span class="image-caption" data-lang-ko="핵심 기능인 '하이라이터'의 사용자 흐름을 설계하고 테스트하는 Figma 프로토타입 시연 GIF." data-lang-en="A GIF demonstrating the Figma prototype used to design and test the user flow of the core 'Highlighter' feature."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolio3d.gif" alt="Initial rendering test of 3D effects">
+<span class="image-caption" data-lang-ko="Three.js 3D 효과의 초기 렌더링 테스트 장면. 개발 과정의 진정성을 보여줍니다." data-lang-en="An early rendering test of the Three.js 3D effects, showing an authentic glimpse into the development process."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioDarkMode.gif" alt="Smooth transition between dark and light mode">
+<span class="image-caption" data-lang-ko="다크 모드와 라이트 모드 사이를 부드럽게 전환하는 애니메이션." data-lang-en="A smooth animated transition between dark and light modes."></span>
+</div>
+</div>
+</div>
+<!-- <div class="carousel-slide-content horizontal-two-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-two">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/333/fff?text=Before+%26+After:+Layout+Experiments" alt="Before and after comparison of layout experiments for content focus">
+<span class="image-caption" data-lang-ko="콘텐츠 집중도 향상을 위한 레이아웃 실험. Before & After로 디자인 의도를 명확히 보여줍니다." data-lang-en="Layout experiments for better content focus, shown as a Before & After to clarify design intent."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/3a3a3a/fff?text=GIF:+Dark+%26+Light+Mode+Transition" alt="Smooth transition between dark and light mode">
+<span class="image-caption" data-lang-ko="다크 모드와 라이트 모드 사이를 부드럽게 전환하는 애니메이션." data-lang-en="A smooth animated transition between dark and light modes."></span>
+</div>
+</div>
+</div> -->
+<!-- <div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioAiChatbot.gif" alt="Early design sketches and conversation flows for the AI chatbot">
+<span class="image-caption" data-lang-ko="'AI 챗봇'의 대화 흐름과 초기 UI. 보이지 않는 경험을 설계한 과정을 보여줍니다." data-lang-en="Designing the invisible: conversation flows and early UI sketches for the AI chatbot experience."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-three-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-three">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/555/fff?text=User+flow+for+core+interaction" alt="User flow diagram for the highlight-to-message feature">
+<span class="image-caption" data-lang-ko="핵심 기능(하이라이트→메시지 생성)의 사용자 흐름도." data-lang-en="User flow diagram for the core interaction path (highlight-to-message)."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/5a5a5a/fff?text=Moodboard+for+visual+direction" alt="Moodboard for visual direction">
+<span class="image-caption" data-lang-ko="프로젝트의 시각적 톤앤매너에 영감을 준 무드보드." data-lang-en="The curated moodboard that influenced the project's visual tone and aesthetic."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/666/fff?text=Early+Sketches" alt="Early hand-drawn sketches of the main page">
+<span class="image-caption" data-lang-ko="아이디어를 처음 구상했던 손 스케치. 생각의 시작을 보여줍니다." data-lang-en="Initial hand-drawn sketches, showing the beginning of the thought process."></span>
+</div>
+</div>
+</div> -->
+<div class="carousel-slide-content swiper-slide">
+<div class="content-slide carousel-inner-slide image-with-caption">
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioResponsive.gif" alt="Mobile responsive design mockup">
+<span class="image-caption" data-lang-ko="다양한 모바일 장치에서 최적의 경험을 제공하는 반응형 디자인." data-lang-en="The responsive design ensuring an optimal experience across mobile devices."></span>
+</div>
+</div>
+</div>
+</div>
+<div class="nav-button swiper-button-prev design-prev swiper-button-prev-design"></div>
+<div class="nav-button swiper-button-next design-next swiper-button-next-design"></div>
+<div class="swiper-pagination design-pagination"></div>
+</div>
+</section>
+<section id="deliver-1" class="section-wrapper deliver-section-1">
+<div class="pin-wrapper">
+<div class="content-slide overview-features-slide">
+<div class="text-block">
+<h4 data-lang-ko="개요: 호기심을 발견으로 이끌다" data-lang-en="Overview: Turning Curiosity into Discovery"></h4>
+<p data-lang-ko="HTML, CSS, JS(바닐라), GSAP, Three.js, 그리고 모듈형 컴포넌트로 처음부터 직접 개발. 상태관리를 활용해 언어/테마 전환을 즉시 지원하고, 하이라이터, AI, 온보딩 등 모든 인터랙티브 로직은 실제 앱과 같은 사용성을 제공하도록 직접 구현." data-lang-en="Built from scratch using HTML, CSS, JS (vanilla), GSAP, Three.js, and modular components. State management enables instant language/theme switching. All interactive logic—highlighter, AI, onboarding—is custom-coded for app-like fluidity."></p>
+</div>
+<div class="features-summary">
+<h4 data-lang-ko="주요 기능 및 기술 구현" data-lang-en="Key Features & Technical Implementation"></h4>
+<ul>
+<li data-lang-ko="<b>인터랙티브 하이라이터:</b> 사이트 내에서 원하는 내용을 하이라이트·저장(localStorage 활용)" data-lang-en="<b>Interactive Highlighter:</b> Users save key insights across the site, managed with localStorage."></li>
+<li data-lang-ko="<b>메시지 드래프트 생성기:</b> 하이라이트한 내용을 바탕으로 맞춤 메시지 초안 즉시 생성" data-lang-en="<b>Message Draft Generator:</b> Instantly create tailored contact messages from saved highlights."></li>
+<li data-lang-ko="<b>AI 어시스턴트:</b> 프로젝트 관련 Q&A가 가능한 챗봇" data-lang-en="<b>AI Assistant:</b> Context-aware chatbot for project Q&A."></li>
+<li data-lang-ko="<b>온보딩 플로우:</b> 최초 방문자 대상 온보딩(세션 기반)" data-lang-en="<b>Onboarding Flow:</b> Session-based onboarding for new users."></li>
+<li data-lang-ko="<b>모바일 반응형/다크라이트/다국어 지원:</b> 실사용 수준 UX" data-lang-en="<b>Mobile Responsive, Dark/Light, EN/KR Toggle:</b> Full real-world usability."></li>
+<li data-lang-ko="<b>모듈화 구조:</b> 5개 페이지 전체에 공통 UI/로직 적용" data-lang-en="<b>Modular App Structure:</b> Shared UI logic for all pages."></li>
+</ul>
+</div>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="인터랙티브 하이라이터 작동" data-lang-en="Interactive Highlighter in Action"></h4>
+<p data-lang-ko="사용자는 어떤 텍스트 블록에서든 핵심 아이디어를 강조할 수 있어 탐색을 더욱 능동적이고 개인화할 수 있습니다. 이 커스텀 바닐라 JS 모듈은 방문자가 콘텐츠와 직접 상호 작용하여 가장 관련성 높은 정보를 추출할 수 있도록 합니다." data-lang-en="Users can highlight key ideas in any text block, making exploration more active and personalized. This custom vanilla JS module empowers visitors to engage directly with the content, pulling out the information most relevant to them."></p>
+</div>
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioHighlighter2.gif" alt="GIF demonstrating the full functionality of the interactive highlighter, including persistence after refresh">
+<span class="image-caption" data-lang-ko="인터랙티브 하이라이터 기능 시연 GIF. 새로고침 후에도 하이라이트가 유지되는 모습(localStorage)까지 보여줍니다." data-lang-en="A GIF demonstrating the highlighter in action, including its persistence after a page refresh (thanks to localStorage)."></span>
+</div>
+</div>
+<div class="content-slide image-text-left">
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioMicroAnimation.gif" alt="GSAP animation code for scroll-triggered effects">
+<span class="image-caption" data-lang-ko="GSAP을 활용한 스크롤 트리거 애니메이션. 스크롤에 따라 요소들이 부드럽게 나타납니다." data-lang-en="GSAP-powered scroll-triggered animations, where elements fluidly appear on scroll."></span>
+</div>
+<div class="text-block">
+<h4 data-lang-ko="GSAP을 사용한 유동적인 마이크로 애니메이션" data-lang-en="Fluid Micro-Animations with GSAP"></h4>
+<p data-lang-ko="GSAP은 유동적인 마이크로 애니메이션과 매끄러운 페이지 전환을 만드는 데 광범위하게 사용되어 사용자 경험에 광택과 즐거움을 더합니다. 이러한 미묘한 움직임은 상호 작용을 직관적이고 반응적으로 느끼게 합니다." data-lang-en="GSAP was extensively used to create fluid micro-animations and seamless page transitions, adding a layer of polish and delight to the user experience. These subtle movements make the interactions feel intuitive and responsive."></p>
+</div>
+</div>
+<div class="content-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="성능 최적화: 핵심 결과물" data-lang-en="Performance Optimization: A Core Deliverable"></h4>
+<p data-lang-ko="복잡한 애니메이션과 AI 기능을 통합했음에도 불구하고 성능은 최우선 과제였습니다. 정기적인 Lighthouse 감사를 통해 사이트가 빠르고 효율적으로 유지되도록 보장하여 고품질 프론트엔드 엔지니어링에 대한 약속을 입증했습니다." data-lang-en="Despite integrating complex animations and AI features, performance was a top priority. Regular Lighthouse audits ensured the site remained fast and efficient, demonstrating a commitment to high-quality frontend engineering."></p>
+</div>
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioLighthouse.gif" alt="Lighthouse performance report showing a 97 score">
+<span class="image-caption" data-lang-ko="실제 97점을 기록한 Lighthouse 성능 보고서. 기술적 완성도를 증명합니다." data-lang-en="The Lighthouse report showcasing the site's high performance score of 97, proving technical excellence."></span>
+</div>
+</div>
+</section>
+<section id="deliver-2" class="section-wrapper deliver-section-2">
+<div class="pin-wrapper">
+<div class="deliver-header-2" data-lang-ko="작동 중인 기능" data-lang-en="FEATURES IN ACTION"></div>
+<div class="gallery-carousel-container swiper">
+<div class="gallery-carousel swiper-wrapper">
+<div class="carousel-slide-content image-text-right-container swiper-slide">
+<div class="content-slide carousel-inner-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="사용자 경험을 위한 커스텀 커서" data-lang-en="Custom Cursor for User Experience"></h4>
+<p data-lang-ko="인터랙션이 많은 이 사이트에서 사용자가 길을 잃지 않도록 직접 커서를 제작했습니다. 일반 커서보다 크고 명확하며, 클릭 가능한 요소 위에서는 모양이 변해 사용자의 다음 행동을 자연스럽게 유도합니다." data-lang-en="To guide users through this interaction-heavy site, I built a custom cursor. It's larger and clearer than the default, changing its shape over clickable elements to naturally guide the user's next action."></p>
+</div>
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioCustomCursor2.gif" alt="GIF of the custom cursor moving and interacting with elements">
+<span class="image-caption" data-lang-ko="사용자의 행동을 안내하는 커스텀 커서 시연 GIF." data-lang-en="A GIF demonstrating the custom cursor guiding user actions."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content image-text-right-container swiper-slide">
+<div class="content-slide carousel-inner-slide image-text-right">
+<div class="text-block">
+<h4 data-lang-ko="AI 챗봇: 실제 대화 시뮬레이션" data-lang-en="AI Chatbot: Simulating Real Conversations"></h4>
+<p data-lang-ko="내장된 AI 챗봇을 통해 방문객은 프로젝트나 기술에 대해 직접 질문할 수 있어 실제 인터뷰나 네트워킹 대화를 시뮬레이션합니다. 이 기능은 JSON 키워드 매칭을 활용하여 관련성 있고 동적인 응답을 제공합니다." data-lang-en="A built-in AI chatbot allows visitors to ask questions about projects or skills directly, simulating a real interview or networking conversation. This feature leverages JSON keyword matching to provide relevant and dynamic responses."></p>
+</div>
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioAiChatbot.gif" alt="Live demonstration of the AI chatbot feature (GIF)">
+<span class="image-caption" data-lang-ko="실시간 상호 작용에서 AI 챗봇을 보여주는 애니메이션 GIF." data-lang-en="Animated GIF showcasing the AI chatbot in real-time interaction."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content image-text-left-container swiper-slide">
+<div class="content-slide carousel-inner-slide image-text-left">
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioAiMessage.gif" alt="GIF showing the full journey from highlighting text to generating a message draft">
+<span class="image-caption" data-lang-ko="하이라이트한 내용이 연락 메시지 초안으로 자동 생성되는 전체 과정 시연 GIF." data-lang-en="GIF demonstrating the full journey: from highlighting content to auto-generating a contact message draft."></span>
+</div>
+<div class="text-block">
+<h4 data-lang-ko="AI 기반 메시지 초안" data-lang-en="AI-Powered Message Drafting"></h4>
+<p data-lang-ko="챗봇 외에도 이 사이트는 강조된 콘텐츠를 기반으로 스마트 연락 메시지 제안을 생성합니다. 이는 사용자가 자신감을 가지고 연락할 수 있도록 도와주어 개인화되고 효율적인 연결 방법을 제공합니다." data-lang-en="Beyond the chatbot, the site generates smart contact message suggestions based on highlighted content. This helps users reach out with confidence, providing a personalized and efficient way to connect."></p>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-two-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-two">
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioLanguageChange.gif" alt="GIF demonstrating the instant language switch between English and Korean">
+<span class="image-caption" data-lang-ko="버튼 클릭으로 즉시 적용되는 다국어(한/영) 전환 기능." data-lang-en="Instant language switching (EN/KR) with the click of a button."></span>
+</div>
+<div class="image-wrapper">
+<img src="./portfoliOh/portfolioCommonFolder.gif" alt="Diagram of the modular front-end architecture">
+<span class="image-caption" data-lang-ko="유지보수와 확장을 고려한 모듈형 프론트엔드 아키텍처." data-lang-en="An overview of the modular front-end architecture, designed for maintenance and scalability."></span>
+</div>
+</div>
+</div>
+<div class="carousel-slide-content horizontal-three-container swiper-slide">
+<div class="content-slide carousel-inner-slide horizontal-three">
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/666/fff?text=Git+Commit+History" alt="Screenshot of meaningful Git commit history">
+<span class="image-caption" data-lang-ko="기능 단위로 깔끔하게 관리된 Git 커밋 기록." data-lang-en="Clean Git commit history organized by features."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/777/fff?text=Accessibility+Contrast+Check" alt="Accessibility contrast check passing">
+<span class="image-caption" data-lang-ko="WCAG 기준을 충족하는 접근성 명도 대비 검사 결과." data-lang-en="Accessibility checks showing sufficient contrast ratios meeting WCAG standards."></span>
+</div>
+<div class="image-wrapper">
+<img src="https://placehold.co/800x600/888/fff?text=Automated+Deployment+Workflow" alt="Diagram of deployment process to Vercel/GitHub Pages">
+<span class="image-caption" data-lang-ko="GitHub Push를 통한 자동 배포 워크플로우." data-lang-en="Diagram illustrating the streamlined, automated deployment workflow via GitHub Push."></span>
+</div>
+</div>
+</div>
+</div>
+<div class="nav-button swiper-button-prev deliver-prev swiper-button-prev-deliver"></div>
+<div class="nav-button swiper-button-next deliver-next swiper-button-next-deliver"></div>
+<div class="swiper-pagination deliver-pagination"></div>
+</div>
+</div>
+</section>
+<section id="footer" class="section-wrapper footer-section">
+    <div class="logo-container">
+        <h3 data-lang-ko="이지 에어!" data-lang-en="EZ Air!"></h3>
+    </div>
+
+    <div class="bottom-nav-container">
+        <div class="nav-item prev-item">
+            <div class="nav-circle prev-circle">
+                <a href="NomadMarket.html"> <span class="arrow">←</span>
+                    <span class="nav-text hidden-nav-text" data-lang-ko="PREV" data-lang-en="PREV"></span>
+                </a>
+            </div>
+            <span class="project-title-under-circle" id="prev-project-name"></span>
+        </div>
+
+        <div class="nav-item next-item">
+            <div class="nav-circle next-circle">
+                <a href="EZAir.html"> <span class="arrow">→</span>
+                    <span class="nav-text hidden-nav-text" data-lang-ko="NEXT" data-lang-en="NEXT"></span>
+                </a>
+            </div>
+            <span class="project-title-under-circle" id="next-project-name"></span>
+        </div>
+    </div>
+
+    <div class="footer-bottom-credits">
+        <span class="footer-copyright" id="footer-copyright-text" 
+              data-lang-ko="© 2025. 이지 에어!" 
+              data-lang-en="© 2025. EZ Air!">
+        </span>
+        <span class="designer-name" id="footer-designer-name" 
+              data-lang-ko="디자인 by Oosu" 
+              data-lang-en="Designed by Oosu">
+        </span>
+    </div>
+</section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="../common/common.js"></script>
+<script src="../common/highlighter.js"></script>
+<script src="../common/navigation.js"></script>
+<script src="../common/theme-manager.js"></script>
+<script src="../common/ui-components.js"></script>
+<script src="../common/visual-effects.js"></script>
+
+<script src="js/project-detail-hero.js"></script>
+<script src="js/project-detail-project-details.js"></script>
+<script src="js/project-detail-discover.js"></script>
+<script src="js/project-detail-define.js"></script>
+<script src="js/project-detail-design.js"></script>
+<script src="js/project-detail-deliver.js"></script>
+<script src="js/project-detail-footer.js"></script>
+
+<script src="js/footer-directory.js"></script> <script src="js/project-detail.js"></script>
+</body>
+</html>
