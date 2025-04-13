@@ -1,0 +1,221 @@
+/* General/Utility Styles and Root Variables */
+
+:root {
+    /* Light Theme Colors (Default for Lab page) */
+    --light-bg: #ffffff;
+    --light-text: #000000;
+    --light-accent: #007bff;
+    --light-primary-color: #e5dfd3; /* Background for the new lab header */
+    --light-primary-content-color: #000000; /* Text/icon color for new lab header */
+    --light-primary-opacity-25: rgba(255, 255, 255, 0.25); /* Background blur/shadow */
+    --light-poster-text: #1a1a1a; /* Default text color for posters */
+    --light-book-binding-color: rgba(0, 0, 0, 0.7); /* Book binding color for light theme */
+    --light-poster-shadow: 8px 8px 12px rgba(0, 0, 0, 0.15), -6px -6px 10px rgba(0, 0, 0, 0.1);
+    --light-poster-hover-shadow: 12px 12px 18px rgba(34, 34, 34, 0.25), -8px -8px 14px rgba(0, 0, 0, 0.15);
+    --light-bg-slideshow-color: #ffffff; /* Background for the slideshow container */
+    --light-bg-slideshow-opacity: 0.5; /* Opacity for slideshow images in light theme */
+    --light-intro-text-color: #000000;; /* Typing text, Countdown, Scroll-down arrow in Light Intro */
+    --light-intro-button-color: transparent; /* Button background during Light Intro (transparent) */
+    --light-intro-button-text-color: #000000;; /* Button text/border during Light Intro (white) */
+
+    /* Dark Theme Colors (Inverted for Lab page) */
+    --dark-bg: #000000;
+    --dark-text: #ffffff;
+    --dark-accent: #007bff;
+    --dark-primary-color: #1a202c; /* Background for the new lab header in dark mode */
+    --dark-primary-content-color: #ffffff; /* Text/icon color for new lab header in dark mode */
+    --dark-primary-opacity-25: rgba(26, 32, 44, 0.25);
+    --dark-poster-text: #e0e0e0; /* Lighter text color for posters in dark theme */
+    --dark-book-binding-color: rgba(255, 255, 255, 0.7); /* Book binding color for dark theme */
+    --dark-poster-shadow: 8px 8px 12px rgba(255, 255, 255, 0.15), -6px -6px 10px rgba(255, 255, 255, 0.1);
+    --dark-poster-hover-shadow: 12px 12px 18px rgba(200, 200, 200, 0.25), -8px -8px 14px rgba(255, 255, 255, 0.15);
+    --dark-bg-slideshow-color: rgba(0, 0, 0, 0.8); /* Darker background for slideshow in dark mode to make images stand out */
+    --dark-bg-slideshow-opacity: 0.2; /* Opacity for slideshow images in dark mode */
+    --dark-intro-text-color: white; /* Typing text, Countdown, Scroll-down arrow in Dark Intro (black) */
+    --dark-intro-button-color: transparent; /* Button background during Dark Intro (transparent) */
+    --dark-intro-button-text-color: white; /* Button text/border during Dark Intro (black) */
+
+    /* Sizing variables */
+    --nav-header-height: 0px; /* Placeholder, common.css handles this */
+    --diagonal-handle-thickness: 15px;
+    --glass-blur: 8px;
+    --glass-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    --glass-radius: 8px;
+
+    /* Highlight and accent colors (these might remain consistent or be themed) */
+    --main-highlight-color: #000000;
+    --main-accent-color: #00000081;
+
+    --transition-duration: 0.3s; /* For theme transitions */
+}
+
+/* Light Theme: 페이지는 밝고, 헤더는 어둡게 */
+body[data-theme='light'] {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    --primary-color: var(--dark-primary-color);
+    --primary-content-color: var(--light-primary-content-color);
+
+    /* ▼▼▼ [추가] 라이트 모드일 때의 hover 상태를 정의합니다. ▼▼▼ */
+    --header-button-hover-bg: var(--light-text);   /* 검정색 배경 */
+    --header-button-hover-text: var(--dark-text);  /* 흰색 텍스트 */
+
+    --primary-opacity-25: var(--light-primary-opacity-25);
+    --poster-text-color: var(--light-poster-text);
+    --book-binding-color: var(--light-book-binding-color);
+    --poster-box-shadow: var(--light-poster-shadow);
+    --poster-hover-box-shadow: var(--light-poster-hover-shadow);
+    --bg-slideshow-color: var(--light-bg-slideshow-color);
+    --bg-slideshow-opacity: var(--light-bg-slideshow-opacity);
+    --intro-text-color: var(--light-intro-text-color);
+    --button-intro-color: var(--light-intro-button-color);
+    --button-intro-text-color: var(--light-intro-button-text-color);
+    --button-bg-color: var(--dark-primary-content-color);
+    --button-border-color: var(--dark-primary-content-color);
+    --button-text-color: var(--dark-primary-color);
+}
+
+/* Dark Theme: 페이지는 어둡고, 헤더는 밝게 */
+body[data-theme='dark'] {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    --primary-color: var(--light-primary-color);
+    --primary-content-color: var(--dark-primary-content-color);
+
+    /* ▼▼▼ [추가] 다크 모드일 때의 hover 상태를 정의합니다. ▼▼▼ */
+    --header-button-hover-bg: var(--dark-text);   /* 흰색 배경 */
+    --header-button-hover-text: var(--light-text);  /* 검정색 텍스트 */
+
+    --primary-opacity-25: rgba(26, 32, 44, 0.25);
+    --poster-text-color: var(--dark-poster-text);
+    --book-binding-color: var(--dark-book-binding-color);
+    --poster-box-shadow: var(--dark-poster-shadow);
+    --poster-hover-box-shadow: var(--dark-poster-hover-shadow);
+    --bg-slideshow-color: var(--dark-bg-slideshow-color);
+    --bg-slideshow-opacity: var(--dark-bg-slideshow-opacity);
+    --intro-text-color: var(--dark-intro-text-color);
+    --button-intro-color: var(--dark-intro-button-color);
+    --button-intro-text-color: var(--dark-intro-button-text-color);
+    --button-bg-color: var(--light-primary-content-color);
+    --button-border-color: var(--light-primary-content-color);
+    --button-text-color: var(--light-primary-color);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* --- Lab Header Styles --- */
+.lab-header {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    background-color: transparent;
+    transition: transform var(--transition-duration) ease, opacity var(--transition-duration) ease, visibility var(--transition-duration) ease;
+}
+
+.lab-header.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    background-color: transparent;
+}
+
+.lab-header:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    background-color: transparent;
+}
+
+.lab-header .header-inner {
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: transparent;
+}
+
+.lab-header .button-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-right: 1.5rem;
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* ▼▼▼ [수정] .lab-header .button을 .lab-header .project-type-btn으로 변경 ▼▼▼ */
+.lab-header .project-type-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: var(--primary-content-color);
+    background: transparent;
+    border: 1px solid var(--primary-content-color);
+    border-radius: 0.375rem;
+    text-decoration: none;
+    cursor: var(--cursor-grab2);
+    transition: background-color var(--transition-duration), color var(--transition-duration), border-color var(--transition-duration);
+}
+
+/* ▼▼▼ [수정] hover 선택자도 .project-type-btn:hover로 변경 ▼▼▼ */
+.lab-header .project-type-btn:hover {
+    background-color: var(--header-button-hover-bg);
+    color: var(--header-button-hover-text);
+    border-color: var(--header-button-hover-bg); /* 테두리 색상도 배경과 통일 */
+}
+
+/* ▼▼▼ [추가] .project-type-btn의 active 상태 스타일 ▼▼▼ */
+.lab-header .project-type-btn.active {
+    background-color: var(--header-button-hover-bg); /* hover와 동일한 배경 색상 사용 */
+    color: var(--header-button-hover-text); /* hover와 동일한 텍스트 색상 사용 */
+    border-color: var(--header-button-hover-bg); /* 테두리 색상도 활성 배경과 통일 */
+    cursor: default; /* 활성 상태에서는 커서 변경 */
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2); /* 은은한 내부 그림자 추가 */
+}
+
+.lab-header .theme-toggle {
+    padding: 0.5rem;
+    border: none;
+    background: none;
+    cursor: var(--cursor-grab2);
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    scale: 1.2;
+}
+
+.lab-header .theme-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    stroke: var(--primary-content-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform var(--transition-duration), opacity var(--transition-duration);
+}
+
+.lab-header .theme-icon.hidden {
+    transform: translate(-50%, -50%) rotate(-90deg);
+    opacity: 0;
+}
