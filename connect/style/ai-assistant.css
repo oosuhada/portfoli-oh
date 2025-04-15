@@ -1,0 +1,257 @@
+/* ==========================================================================
+   1. THEME COLOR VARIABLES (LIGHT & DARK)
+   ========================================================================== */
+/* Theme variables are now integrated into a central connect.css */
+
+/* ==========================================================================
+   2. MAIN CONTAINER & SECTION STYLES
+   ========================================================================== */
+
+#ai-assistant-section {
+    background-image: url('../img/Nebulae-dark.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    transition: background-color var(--transition-duration), color var(--transition-duration), border-color var(--transition-duration);
+    display: flex;
+    justify-content: center;
+    padding: 80px 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+body[data-theme="light"] #ai-assistant-section {
+    background-image: url('../img/Nebulae-bright.png');
+    background-color: var(--primary-bg);
+}
+
+.ai-assistant-layout-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 60px; /* ★★★ 기본 여백 (481px ~ 767px) 적용 ★★★ */
+    box-sizing: border-box;
+}
+
+.ai-assistant-column-left {
+    margin-bottom: 40px;
+}
+
+/* ==========================================================================
+   2.5. SECTION HEADER STYLES
+   ========================================================================== */
+
+.section-header {
+    text-align: center;
+    word-break: break-word;
+    margin-bottom: 30px;
+}
+
+.greeting-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0 0.5em;
+}
+
+#ai-assistant-greeting,
+#ai-assistant-greeting + h1 {
+    font-size: 2.5em;
+    color: var(--text-color);
+    font-weight: 700;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+#ai-assistant-sub-greeting {
+    font-size: 1.2em;
+    color: var(--subheading-color);
+    margin-top: 20px;
+    line-height: 1.7;
+}
+
+#connect-ai-insights-section {
+    margin-top: 60px;
+}
+
+
+/* ==========================================================================
+   3. AI ASSISTANT PANEL STYLES
+   ========================================================================== */
+
+.connect-ai-module h3 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--glass-border2); 
+    word-break: break-word;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.template-options-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.template-option h3 {
+    margin-top: 0;
+}
+
+.connect-ai-buttons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.connect-ai-buttons-grid button {
+    padding: 10px;
+    border: 1px solid var(--glass-border2); 
+    background-color: var(--primary-bg-opacity2); 
+    color: var(--text-color); /* ★ 수정됨 */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-align: center;
+    transition: all var(--transition-duration) ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    backdrop-filter: var(--glass-blur2); 
+    -webkit-backdrop-filter: var(--glass-blur2); 
+    box-shadow: 0 2px 8px var(--glass-shadow2); 
+    word-break: break-word;
+    min-width: 0;
+    min-height: 4rem; /* 버튼의 최소 높이를 지정합니다. (약 64px) */
+}
+.connect-ai-buttons-grid button.active {
+    background: var(--point-gradient2); 
+    color: var(--text-color);
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.connect-ai-output-box {
+    margin-top: 15px;
+    padding: 15px;
+    background: var(--primary-bg-opacity2); 
+    backdrop-filter: var(--glass-blur2); 
+    -webkit-backdrop-filter: var(--glass-blur2); 
+    border: 1px solid var(--glass-border2); 
+    border-radius: 5px;
+    min-height: 100px;
+    font-size: 0.9em;
+    color: var(--text-color);
+    white-space: pre-wrap;
+    line-height: 1.6;
+    transition: background-color var(--transition-duration), color var(--transition-duration), border-color var(--transition-duration);
+    box-shadow: 0 2px 8px var(--glass-shadow2); 
+    overflow-wrap: break-word;
+}
+.connect-ai-output-box strong { color: var(--text-color); font-weight: 700; }
+
+#connect-ai-generate-btn,
+#connect-ai-regenerate-btn,
+#connect-ai-go-to-postcard-btn {
+    width: 100%; padding: 10px; border: none; border-radius: 5px; cursor: pointer;
+    font-size: 1em; font-weight: bold; text-align: center;
+    transition: all var(--transition-duration) ease-out;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-top: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); box-sizing: border-box;
+}
+
+#connect-ai-generate-btn { background: var(--point-gradient2); color: var(--text-color); } 
+#connect-ai-generate-btn:hover { filter: brightness(1.15); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); }
+
+#connect-ai-post-generate-controls { display: flex; gap: 10px; width: 100%; box-sizing: border-box; }
+#connect-ai-post-generate-controls.hidden { display: none; }
+
+#connect-ai-regenerate-btn {
+    flex: 1; background-color: var(--primary-bg-opacity2); color: var(--text-color); 
+    border: 1px solid var(--glass-border2); backdrop-filter: var(--glass-blur2); -webkit-backdrop-filter: var(--glass-blur2); 
+    box-shadow: 0 2px 8px var(--glass-shadow2); min-width: 0; 
+}
+#connect-ai-regenerate-btn:hover { background-color: var(--secondary-hover-bg); transform: translateY(-2px); box-shadow: 0 4px 12px var(--glass-shadow2); } 
+
+#connect-ai-go-to-postcard-btn { flex: 2; background: var(--point-gradient2); color: var(--text-color); border: none; min-width: 0; } 
+#connect-ai-go-to-postcard-btn:hover { filter: brightness(1.15); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); }
+
+
+/* ==========================================================================
+   4. RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+
+@media (min-width: 600px) {
+    .template-options-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .template-option {
+        flex: 1;
+    }
+       #connect-ai-drafting-section {
+        /* 1100px 이상 화면에서만 상단에 100px의 여백을 줍니다. 원하는 값으로 조절하세요. */
+        margin-top: 50px; 
+    }
+}
+
+@media (min-width: 768px) {
+    .ai-assistant-layout-wrapper {
+        padding: 0 100px;
+    }
+}
+
+@media (min-width: 900px) {
+    .ai-assistant-layout-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: clamp(2.5rem, 5vw, 5rem);
+        padding: 0 clamp(2.5rem, 7.5vw, 5rem);
+    }
+
+    .ai-assistant-column-left {
+        flex: 1;
+        max-width: 350px;
+        margin-bottom: 0;
+        margin-left: 0;
+    }
+
+    .ai-assistant-column-right {
+        flex: 2;
+        max-width: 800px;
+        margin-top: 100px;
+        margin-right: 0;
+    }
+
+    .section-header {
+        text-align: left;
+    }
+    
+    .greeting-wrapper {
+        justify-content: flex-start;
+    }
+
+     #connect-ai-drafting-section {
+        /* 1100px 이상 화면에서만 상단에 100px의 여백을 줍니다. 원하는 값으로 조절하세요. */
+        margin-top: 50px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .ai-assistant-layout-wrapper {
+        padding: 0 40px;
+    }
+    .connect-ai-buttons-grid {
+        grid-template-columns: 1fr;
+    }
+}

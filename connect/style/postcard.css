@@ -1,0 +1,394 @@
+/* ==========================================================================
+   1. THEME COLOR VARIABLES (LIGHT & DARK) - POSTCARD SPECIFIC
+   ========================================================================== */
+
+:root {
+    --western-font: 'Caveat', cursive;
+    --eastern-font: 'Nanum Myeongjo', serif;
+}
+
+/* ==========================================================================
+   2. MAIN CONTAINER & SECTION STYLES
+   ========================================================================== */
+
+#postcard-section {
+    background-image: url('../img/Alfheim-dark.png');
+    background-color: var(--primary-bg);
+    background-size: cover;
+    background-position: center;
+    color: var(--text-color);
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding: 80px 0;
+}
+
+body[data-theme="light"] #postcard-section {
+    background-image: url('../img/Alfheim-bright.png');
+    background-color: var(--primary-bg);
+}
+
+.connect-postcard-layout-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 120px;
+}
+
+.connect-postcard-content {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   3. POSTCARD FLIP & ANIMATION STYLES
+   ========================================================================== */
+.postcard-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: 650px;
+    perspective: 1500px;
+    background-color: transparent;
+    transition: transform 1.5s ease-in-out, opacity 1s ease-in-out, max-width var(--transition-duration);
+}
+
+.postcard-flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform-style: preserve-3d;
+}
+
+.postcard-container.is-flipped .postcard-flipper {
+    transform: rotateY(180deg);
+}
+
+.postcard-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px var(--glass-shadow2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-bg-opacity2);
+    backdrop-filter: var(--glass-blur2);
+    -webkit-backdrop-filter: var(--glass-blur2);
+    border: 1px solid var(--glass-border2);
+}
+
+.postcard-front {
+    transform: rotateY(180deg);
+}
+
+.postcard-back {
+    transform: rotateY(0deg);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   4. POSTCARD HEADER & CONTENT STYLES
+   ========================================================================== */
+
+.section-header {
+    width: 100%;
+    text-align: center;
+    word-break: break-word;
+    margin-bottom: 30px;
+}
+
+#postcard-greeting {
+    font-size: 2.5em;
+}
+
+#postcard-sub-greeting {
+    font-size: 1.2em;
+    color: var(--subheading-color);
+    margin-top: 20px;
+    line-height: 1.7;
+}
+
+.connect-floating-menu {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    z-index: 10;
+    background-color: var(--primary-bg-opacity2);
+    backdrop-filter: var(--glass-blur2);
+    -webkit-backdrop-filter: var(--glass-blur2);
+    padding: 8px 12px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px var(--glass-shadow2);
+    border: 1px solid var(--glass-border2);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    transition: all var(--transition-duration);
+}
+
+.connect-writing-style-controls,
+.connect-language-controls-inline {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.connect-floating-menu button {
+    padding: 6px 10px;
+    border: 1px solid var(--glass-border2);
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: var(--secondary-bg);
+    color: var(--subheading-color);
+    font-size: 0.8em;
+    font-family: 'Poppins', sans-serif;
+    transition: all var(--transition-duration);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.connect-floating-menu button:hover {
+    border-color: var(--primary-accent);
+}
+
+.connect-floating-menu button.active {
+    background: var(--point-gradient2);
+    color: var(--text-color);
+    border-color: transparent;
+    font-weight: bold;
+}
+
+.postcard-image-container {
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.postcard-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.western-text {
+    font-family: var(--western-font), sans-serif;
+}
+
+.pen-cursor {
+    cursor: url('../img/pen.png') 0 32, auto;
+}
+
+.brush-cursor {
+    cursor: url('../img/brush.png') 0 32, auto;
+}
+
+/* 다크 모드에서만 별도 이미지 사용 */
+body[data-theme="dark"] .pen-cursor {
+    cursor: url('../img/pen2.png') 0 32, auto;
+}
+body[data-theme="dark"] .brush-cursor {
+    cursor: url('../img/brush2.png') 0 32, auto;
+}
+
+.form-container {
+    padding-top: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--subheading-color);
+    font-size: 0.95em;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-bottom: 1.5px solid var(--glass-border2);
+    border-radius: 0;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: var(--text-color);
+    transition: border-bottom-color var(--transition-duration) ease;
+    font-family: var(--western-font);
+    font-size: 1.3em;
+    line-height: 1.6;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+    outline: none;
+    border-bottom-color: var(--primary-accent);
+}
+
+.form-container input.invalid,
+.form-container textarea.invalid {
+    border-bottom-color: var(--error-color);
+    animation: shake 0.4s ease-in-out;
+}
+
+.error-message {
+    display: block;
+    margin-top: 4px;
+    margin-left: 0;
+    color: #e63a3a;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    opacity: 0;
+    transition: opacity 0.18s;
+    pointer-events: none;
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    bottom: -22px;
+    background: rgba(255,255,255,0.85);
+    padding: 3px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px 0 rgba(230,58,58,0.08);
+    z-index: 2;
+}
+body[data-theme="dark"] .error-message {
+    background: rgba(40, 0, 0, 0.90);
+    color: #ff6b6b;
+}
+.error-message.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.form-container textarea {
+    resize: none;
+    flex-grow: 1;
+}
+
+.send-button {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    background: var(--point-gradient2);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    margin-top: auto;
+}
+
+.send-button:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+
+@media (min-width: 768px) {
+    .connect-postcard-layout-wrapper {
+        padding: 0 100px;
+    }
+}
+
+@media (min-width: 900px) {
+    .connect-postcard-layout-wrapper {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        
+        /* gap 동적 값 설정:
+          - 최소 gap: 2.5rem (40px)
+          - 선호하는 gap: 뷰포트 너비의 5% (5vw)
+          - 최대 gap: 5rem (80px)
+        */
+        gap: clamp(2.5rem, 5vw, 5rem);
+        
+        /* 좌우 padding 동적 값 설정:
+          - 최소 padding: 2.5rem (40px)
+          - 선호하는 padding: 뷰포트 너비의 7.5% (7.5vw)
+          - 최대 padding: 7.5rem (120px)
+        */
+        padding: 0 clamp(2.5rem, 7.5vw, 5rem);
+    }
+
+    .section-header {
+        flex: 1;
+        max-width: 350px;
+        text-align: left;
+        margin-bottom: 0;
+        margin-top: 20px;
+    }
+
+    .connect-postcard-content {
+        flex: 2;
+        max-width: 900px;
+        justify-content: flex-start;
+    }
+    
+    .postcard-container {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .connect-postcard-layout-wrapper {
+        padding: 0 40px;
+    }
+    
+    .postcard-container {
+        height: 600px;
+    }
+    
+    .connect-floating-menu {
+        top: 10px;
+        right: 10px;
+    }
+
+    #postcard-greeting {
+        font-size: 1.8em;
+    }
+}

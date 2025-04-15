@@ -1,0 +1,410 @@
+/* hero.css */
+/* ==========================================================================
+   1. THEME COLOR VARIABLES (LIGHT & DARK) - HERO SECTION SPECIFIC
+   ========================================================================== */
+
+/* ✅ 이 변수들은 이제 connect.css에 통합되었습니다. 여기서는 제거합니다. */
+
+:root {
+    /* ✨ Hero Section Colors (Light Theme) */
+    --hero-text-color: #ffffff;
+    --hero-text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    --hero-overlay-background: rgba(0, 0, 0, 0.4);
+    --hero-input-background: rgba(255, 255, 255, 0.08);
+    --hero-input-placeholder-color: rgba(255, 255, 255, 0.7);
+    --hero-input-focus-outline: rgba(255, 255, 255, 0.4);
+    --hero-input-focus-background: rgba(255, 255, 255, 0.12);
+    --hero-button-background: rgba(0, 0, 0, 0.5);
+    --hero-button-hover-background: rgba(0, 0, 0, 0.3);
+    --hero-button-border-color: #ffffff;
+}
+
+body[data-theme="dark"] {
+    /* ✨ Hero Section Colors (Dark Theme) - Same for this design */
+    --hero-text-color: #ffffff;
+    --hero-text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    --hero-overlay-background: rgba(0, 0, 0, 0.4);
+    --hero-input-background: rgba(255, 255, 255, 0.08);
+    --hero-input-placeholder-color: rgba(255, 255, 255, 0.7);
+    --hero-input-focus-outline: rgba(255, 255, 255, 0.4);
+    --hero-input-focus-background: rgba(255, 255, 255, 0.12);
+    --hero-button-background: rgba(0, 0, 0, 0.5);
+    --hero-button-hover-background: rgba(0, 0, 0, 0.3);
+    --hero-button-border-color: #ffffff;
+}
+
+
+/* ==========================================================================
+   2. GLOBAL FONT (FOR HERO SECTION)
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap");
+
+body, button, input, textarea, ::placeholder {
+    font-family: "Roboto", sans-serif;
+}
+
+/* ==========================================================================
+   3. HERO SECTION STYLES
+   ========================================================================== */
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    /* ✅ background-image는 JS에서 동적으로 설정하므로 여기서 제거합니다. */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    padding: 0 16px;
+    box-sizing: border-box;
+    color: var(--hero-text-color);
+}
+
+/* Add a pseudo-element overlay to fix the JS background image issue */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--hero-overlay-background);
+    transition: background-color var(--transition-duration);
+    z-index: -1; /* Position below text content */
+    /* ✅ Add the grainy filter here */
+    /* filter: url(#grainy); */
+}
+
+/* Ensure all content inside hero section is above the overlay */
+.hero-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Weather Section */
+.weather-section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0rem;
+}
+
+.weather-section.hidden {
+    display: none;
+}
+
+.weather {
+    display: flex; /* ✅ 이 줄이 누락되어 있었네요. 추가했습니다. */
+    align-items: center;
+    padding: 11px;
+    background: var(--hero-button-background);
+    border-radius: 20px;
+    transition: background-color var(--transition-duration);
+}
+
+.weather .txt-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.weather .material-symbols-outlined {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    padding-bottom: 4px;
+    font-variation-settings: "FILL" 0, "wght" 100, "GRAD" 0, "opsz" 48;
+}
+
+.weather__txt {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.weather__txt + .weather__txt {
+    margin-left: 4px;
+}
+
+/* Main Content (Forms, Clock, Greeting) */
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.signin-form.hidden {
+    display: none;
+}
+
+.question {
+    margin: 2rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    font-weight: 400;
+    text-shadow: var(--hero-text-shadow);
+}
+
+.input--username {
+    max-width: 360px;
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 18px;
+    padding: 14px 20px 12px 20px;
+    border: none;
+    border-radius: 24px;
+    font-size: 1.5rem;
+    background: var(--hero-input-background);
+    color: var(--hero-text-color);
+    box-shadow: 0 2px 16px 0 rgba(30,40,110,0.09);
+    transition: all 0.2s;
+    outline: 2px solid transparent;
+}
+
+.input--username:focus {
+    outline: 2px solid var(--hero-input-focus-outline);
+    background: var(--hero-input-focus-background);
+    box-shadow: 0 4px 24px 0 rgba(40,100,220,0.13);
+}
+
+.input--username::placeholder {
+    color: var(--hero-input-placeholder-color);
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.input--username.invalid {
+    outline: 2px solid #a32929;
+    background: rgba(255,0,0,0.09);
+    animation: shake 0.3s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* autofill 스타일은 테마 적용이 매우 까다롭지만, 최선을 다해 적용 */
+body[data-theme="dark"] .input--username:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px var(--hero-input-background) inset !important;
+    -webkit-text-fill-color: var(--hero-text-color) !important;
+}
+
+body[data-theme="light"] .input--username:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px var(--hero-input-background) inset !important;
+    -webkit-text-fill-color: var(--hero-text-color) !important;
+}
+
+.btn--signin, .btn--signout {
+    margin-top: 2rem;
+    padding: 10px 24px;
+    border: 1px solid var(--hero-button-border-color);
+    border-radius: 40px;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+    background: var(--hero-button-background);
+    color: var(--hero-text-color);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn--signin:hover, .btn--signin:focus,
+.btn--signout:hover, .btn--signout:focus {
+    background-color: var(--hero-button-hover-background);
+}
+
+.home-wrap {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.home-wrap.hidden {
+    display: none;
+}
+
+.clock {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.time {
+    margin-right: 4px;
+    font-size: 4rem;
+    line-height: 1.3;
+    font-weight: 100;
+    text-shadow: var(--hero-text-shadow);
+}
+
+.midday {
+    padding-bottom: 4px;
+    font-size: 3.2rem;
+    line-height: 1.3;
+    font-weight: 100;
+    text-shadow: var(--hero-text-shadow);
+}
+
+.greeting {
+    margin-top: 16px;
+    font-size: 2.2rem;
+    line-height: 1.5;
+    font-weight: 700;
+    text-shadow: var(--hero-text-shadow);
+}
+
+/* Quote Section */
+.quote-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0rem 2rem 2rem 2rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.quote-section.hidden {
+    display: none;
+}
+
+.quote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+    text-shadow: var(--hero-text-shadow);
+}
+
+.quote q {
+    margin-bottom: 8px;
+    padding: 0 4rem;
+}
+
+.home-wrap > form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.error-message {
+    display: block;
+    margin-top: 4px;
+    margin-left: 8px;
+    color: #e63a3a;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    opacity: 0;
+    transition: opacity 0.18s;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.error-message.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Keyframes for animations */
+@keyframes bounce-left {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+/* ==========================================================================
+   4. RESPONSIVE MEDIA QUERIES (HERO SECTION)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .question {
+        font-size: 1.4rem;
+    }
+    .time {
+        font-size: 3rem;
+    }
+    .midday {
+        font-size: 2.5rem;
+    }
+    .greeting {
+        font-size: 1.8rem;
+    }
+    .quote q {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .question {
+        font-size: 1.2rem;
+        margin: 1.5rem;
+    }
+    .input--username {
+        font-size: 1.2rem;
+        padding: 10px 15px;
+    }
+    .btn--signin, .btn--signout {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+    }
+    .time {
+        font-size: 2.5rem;
+    }
+    .midday {
+        font-size: 2rem;
+    }
+    .greeting {
+        font-size: 1.5rem;
+    }
+    .weather__txt {
+        font-size: 1rem;
+    }
+    .weather .material-symbols-outlined {
+        width: 20px;
+        height: 20px;
+    }
+    .scroll-down-arrow {
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%) !important; /* Center on mobile */
+    }
+    @keyframes bounce-left { /* Adjust for centered arrow */
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        40% {
+            transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+            transform: translateX(-50%) translateY(-5px);
+        }
+    }
+}

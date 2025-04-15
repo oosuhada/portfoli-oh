@@ -1,0 +1,400 @@
+/* connect.css */
+/* ==========================================================================
+   1. THEME COLOR VARIABLES (LIGHT & DARK) - GLOBAL
+   ========================================================================== */
+:root {
+    /* Font & Transition */
+    --western-font: 'Caveat', cursive;
+    --eastern-font: 'Nanum Myeongjo', serif;
+    --transition-duration: 0.3s;
+    
+    /* Light Theme Colors */
+    --background-primary: #fafafb;
+    --background-panel: transparent;
+    --background-card: #ffffff;
+    --background-footer: #ffffff;
+    --background-tag: #f0f0f0;
+    --background-ai-output: #fafafb;
+    --background-floating-menu: rgba(255, 255, 255, 0.97);
+    --background-button-hover: #e9e9e9;
+    --hero-overlay-bg: rgba(0, 0, 0, 0.4);
+
+    --text-primary: #172b4d; /* Dark blue/grey for text on light background */
+    --text-secondary: #5e6c84;
+    --text-on-accent: #ffffff;
+
+    --border-color: #e1e1e1;
+    --border-color-input: #ccc;
+    
+    --accent-primary: #0052cc;
+    --accent-primary-darker: #0065ff;
+    --accent-primary-hover: #2684ff;
+    --accent-secondary-bg: #e6f7ff;
+
+    --button-primary-bg: #444;
+    --button-primary-hover-bg: #222;
+    --social-icon-color: #444;
+
+    /* Highlight Colors (Remain the same for both themes) */
+    --highlight-yellow: rgba(255, 226, 107, 0.7);
+    --highlight-pink: rgba(255, 164, 211, 0.6);
+    --highlight-orange: rgba(255, 159, 67, 0.6);
+    --highlight-green: rgba(130, 212, 167, 0.7);
+    --highlight-blue: rgba(137, 196, 244, 0.7);
+    --highlight-gray: rgba(204, 204, 204, 0.8);
+
+    /* --- Scroll Arrow Styles - Light Theme --- */
+    --scroll-arrow-opacity-hero: 0.15; 
+    --scroll-arrow-filter-hero: none; /* Hero 섹션 배경이 어두우므로 필터 없음 */
+    
+    --scroll-arrow-opacity-other: 0.6;
+    --scroll-arrow-filter-other: drop-shadow(0 0 5px rgba(157, 157, 157, 0.8)); /* 라이트 모드에서 짙은 검은색 그림자 */
+}
+
+body[data-theme="dark"] {
+    /* Dark Theme Colors */
+    --background-primary: #1a1a1a;
+    --background-panel: transparent;
+    --background-card: #2c2c2c;
+    --background-footer: #000000;
+    --background-tag: #3a3a3a;
+    --background-ai-output: #252525;
+    --background-floating-menu: rgba(40, 40, 40, 0.97);
+    --background-button-hover: #4a4a4a;
+    --hero-overlay-bg: rgba(0, 0, 0, 0.5);
+
+    --text-primary: #f5f5f5;
+    --text-secondary: #a0a0a0;
+    --text-on-accent: #ffffff;
+
+    --border-color: #444444;
+    --border-color-input: #555;
+
+    --accent-primary: #4a90e2;
+    --accent-primary-darker: #5aa1f2;
+    --accent-primary-hover: #6cb2f2;
+    --accent-secondary-bg: #304a69;
+    
+    --button-primary-bg: #a0a0a0;
+    --button-primary-hover-bg: #f0f0f0;
+    --social-icon-color: #a0a0a0;
+
+    /* --- Scroll Arrow Styles - Dark Theme --- */
+    --scroll-arrow-opacity-hero: 0.2;
+    --scroll-arrow-filter-hero: invert(100%) brightness(200%) contrast(100%) drop-shadow(0 0 5px rgba(255,255,255,0.8)); /* 흰색 반전 후 밝은 흰색 그림자 */
+
+    --scroll-arrow-opacity-other: 0.4;
+    --scroll-arrow-filter-other: invert(100%) brightness(200%) contrast(100%) drop-shadow(0 0 5px rgba(255,255,255,0.8)); /* 흰색 반전 후 밝은 흰색 그림자 */
+}
+
+/* ==========================================================================
+   이 페이지 전용으로 사용할 새로운 변수 세트
+   ========================================================================== */
+
+:root {
+    /* --- 페이지 전용: 라이트 모드 --- */
+    --glass-blur2: blur(1px);
+    --primary-bg-opacity2: #ffffff2c;
+    --glass-border2: rgba(255, 255, 255, 0.3);
+    --glass-shadow2: rgba(165, 165, 165, 0.1);
+    --point-gradient2: linear-gradient(90deg, #1986fa77, #10c2a180);
+}
+
+body[data-theme="dark"] {
+    /* --- 페이지 전용: 다크 모드 --- */
+    --glass-blur2: blur(1px);
+    --primary-bg-opacity2: #00000049;
+    --glass-border2: rgba(255, 255, 255, 0.1);
+    --glass-shadow2: rgba(0, 0, 0, 0.4);
+    --point-gradient2: linear-gradient(90deg, #1986fa77, #10c2a180);
+}
+
+/* ==========================================================================
+   GLOBAL STYLES & RIGHT WHITESPACE FIX
+   ========================================================================== */
+
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: var(--background-primary) !important;
+    color: var(--text-primary) !important;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================================================
+   CONNECT SECTIONS COMMON STYLES
+   ========================================================================== */
+.connect-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    
+    background-color: transparent;
+    background-image: none;
+    border-bottom: none;
+    color: var(--text-primary);
+}
+
+/* --- Scroll Down Arrow Styles (Centralized) --- */
+.scroll-down-arrow {
+    position: absolute;
+    bottom: 80px;
+    left: 25px;
+    transform: none;
+    animation: bounce-left 2s infinite;
+    font-size: 2.5rem;
+    text-shadow: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Styles for the image inside the arrow container */
+.scroll-down-arrow .custom-scroll-arrow {
+    width: 100%;
+    height: 100%;
+    transition: opacity var(--transition-duration), filter var(--transition-duration);
+}
+
+/* Hero Section Arrow Specifics - 이미지에 직접 opacity와 filter 적용 */
+.scroll-down-arrow[data-scroll-target="#highlight-hub-section"] .custom-scroll-arrow {
+    opacity: var(--scroll-arrow-opacity-hero);
+    filter: var(--scroll-arrow-filter-hero);
+}
+
+/* Hub Section Arrow Specifics - 이미지에 직접 opacity와 filter 적용 (누락 복구) */
+.scroll-down-arrow.hub-arrow .custom-scroll-arrow {
+    opacity: var(--scroll-arrow-opacity-other);
+    filter: var(--scroll-arrow-filter-other);
+}
+
+/* AI Assistant Section Specifics - 이미지에 직접 opacity와 filter 적용 */
+.scroll-down-arrow.ai-assistant-arrow .custom-scroll-arrow {
+    opacity: var(--scroll-arrow-opacity-other);
+    filter: var(--scroll-arrow-filter-other);
+}
+
+.scroll-down-arrow.hidden {
+    display: none;
+}
+
+/* --- Scroll Up Arrow Styles --- */
+.scroll-up-arrow {
+    position: absolute;
+    top: 80px;
+    right: 25px;
+    transform: none;
+    animation: bounce-right 2s infinite;
+    font-size: 2.5rem;
+    text-shadow: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.scroll-up-arrow .custom-scroll-arrow-up {
+    width: 100%;
+    height: 100%;
+    transform: rotate(180deg); /* 180도 회전하여 위로 향하도록 */
+    transition: opacity var(--transition-duration), filter var(--transition-duration), transform var(--transition-duration);
+}
+
+/* 모든 위 화살표 이미지에 직접 opacity와 filter 적용 */
+.scroll-up-arrow .custom-scroll-arrow-up {
+    opacity: var(--scroll-arrow-opacity-other);
+    filter: var(--scroll-arrow-filter-other);
+}
+
+
+/* ==========================================================================
+   FIXED HEADER STYLES
+   ========================================================================== */
+
+.connect-page-header {
+    position: fixed; top: 10px; z-index: 999; width: 100%; background-color: transparent;
+    transition: transform var(--transition-duration) ease, opacity var(--transition-duration) ease, visibility var(--transition-duration) ease;
+}
+.connect-page-header.hidden { opacity: 0; visibility: hidden; transform: translateY(-100%); }
+.connect-page-header:not(.hidden) { opacity: 1; visibility: visible; transform: translateY(0); }
+.connect-page-header .header-inner { margin: 0 auto; display: flex; justify-content: flex-end; align-items: center; padding: 0rem; }
+.connect-page-header .button-group { display: flex; align-items: center; gap: 1rem;   margin-right: 1rem;}
+.connect-page-header .button {
+    display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; font-size: 0.875rem;
+    border-radius: 0.375rem; text-decoration: none; cursor: pointer;
+    transition: background-color var(--transition-duration), color var(--transition-duration), border-color var(--transition-duration);
+}
+.connect-page-header .theme-toggle { padding: 0.5rem; border: none; background: none; cursor: pointer; position: relative; width: 2rem; height: 2rem; scale: 1.2;}
+.connect-page-header .theme-icon {
+    width: 1.25rem; height: 1.25rem; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); transition: transform var(--transition-duration), opacity var(--transition-duration);
+}
+.connect-page-header .theme-icon.hidden { transform: translate(-50%, -50%) rotate(-90deg); opacity: 0; }
+
+/* Light Theme Header Button Styles */
+body[data-theme="light"] .connect-page-header .button { color: #333; background: var(--primary-bg-opacity); border: 1px solid #333; }
+body[data-theme="light"] .connect-page-header .button:hover { background-color: #333; color: #fff; border-color: #333; }
+body[data-theme="light"] .connect-page-header .theme-icon { stroke: #333; }
+
+/* Dark Theme Header Button Styles */
+body[data-theme="dark"] .connect-page-header .button { color: #eee; background: var(--primary-bg-opacity); border: 1px solid #eee; }
+body[data-theme="dark"] .connect-page-header .button:hover { background-color: #eee; color: #111; border-color: #eee; }
+body[data-theme="dark"] .connect-page-header .theme-icon { stroke: #eee; }
+
+/* ==========================================================================
+   FOOTER STYLES (MODIFIED)
+   ========================================================================== */
+footer {
+    background-color: var(--background-footer);
+}
+
+
+/* ==========================================================================
+   GLOBAL RESPONSIVE MEDIA QUERIES (connect.css 통합)
+   ========================================================================== */
+
+/* Keyframes for animations */
+@keyframes bounce-left {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(-5px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+@keyframes fallToFooter3DAnimation { 
+    0% { opacity: 1; transform: translateY(0) translateX(0) translateZ(0) rotateX(0deg) rotateY(0deg) scale(1); } 
+    100% { opacity: 0; transform: translateY(calc(100vh - 280px)) translateX(calc(10vw + 30px)) translateZ(-150px) rotateX(80deg) rotateY(100deg) scale(0.1); } 
+}
+@keyframes star-twinkle {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+/* 새로운 애니메이션 Keyframes 추가 */
+@keyframes bounce-right {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px); /* 위로 튀어 오르는 동작 */
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+
+@media (max-width: 900px) {
+    .connect-page-header .button-group {
+        margin-right: 0.5rem;
+    }
+    .connect-page-header .button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    .connect-page-header .theme-toggle {
+        width: 1.8rem;
+        height: 1.8rem;
+        scale: 1.1;
+    }
+    .connect-section {
+        padding: 40px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .connect-page-header .button-group {
+        gap: 0.5rem;
+    }
+    .connect-page-header .button {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+    }
+    .connect-page-header .theme-toggle {
+        scale: 1;
+    }
+    .connect-section {
+        padding: 30px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* 기존 scroll-down-arrow에 대한 미디어 쿼리 유지 */
+    .scroll-down-arrow {
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%) !important;
+    }
+    @keyframes bounce-left {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        40% {
+            transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+            transform: translateX(-50%) translateY(-5px);
+        }
+    }
+
+    /* 새로 추가된 scroll-up-arrow에 대한 미디어 쿼리 */
+    .scroll-up-arrow {
+        top: 40px; /* 모바일에서 상단 여백 조정 */
+        right: 50%; /* 오른쪽에서 중앙으로 */
+        transform: translateX(50%) !important; /* X축 중앙 정렬을 위한 조정 */
+    }
+    @keyframes bounce-right {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateX(50%) translateY(0);
+        }
+        40% {
+            transform: translateX(50%) translateY(-10px);
+        }
+        60% {
+            transform: translateX(50%) translateY(-5px);
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .footer-row, .connect-footer {
+        display: none !important;
+    }
+    .connect-postcard-layout-wrapper{
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .connect-writing-style-controls {
+        display: none !important;
+    }
+}
