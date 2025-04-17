@@ -1,0 +1,694 @@
+/*
+  Global Styles & Basic Setup
+*/
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  overflow: hidden; /* Added to prevent scroll during preloader */
+  background-color: #f8f8f8; /* Default body background */
+}
+
+html, body {
+  cursor: var(--cursor-default);
+}
+
+/* Light Mode Variables (Default on .container) */
+:root {
+  --bg-color-light: #f8f8f8;
+    --text-color-light: #333;
+    --intro-text-color-light: #333; /* Specific for intro text */
+    --chatbox-border-light: #aaa;
+    --chatbox-button-bg-light: #333; /* CHANGED: Now matches dark mode background */
+    --chatbox-button-text-light: #ffffff; /* CHANGED: Now matches dark mode text */
+    --strong-bg-light: transparent;
+    --strong-text-light: inherit;
+    --heading-main-color-light: #333;
+    --replay-text-color-light: inherit;
+    --replay-text-shadow-light: none;
+    --texture-background-image-light: url('../img/introbackground.png'); /* Ensure this path is correct */
+    --dark-mode-toggle-wrapper-bg-light: rgba(0, 0, 0, 0.1);
+    --dark-mode-toggle-wrapper-hover-bg-light: rgba(0, 0, 0, 0.3);
+    --wish-heading-part1-color-light: #666;
+    --wish-heading-part2-color-light: #666;
+}
+
+/* Dark Mode Variables applied to .container.dark-theme */
+.container.dark-theme {
+    --bg-color-dark: #1a1a1a;
+    --text-color-dark: #f8f8f8;
+    --intro-text-color-dark: #f0f0f0;
+    --chatbox-border-dark: #888;
+    --chatbox-button-bg-dark: #555;
+    --chatbox-button-text-dark: #ffffff;
+    --strong-bg-dark: #f8f8f8;
+    --strong-text-dark: #1a1a1a;
+    --heading-main-color-dark: #f8f8f8;
+    --replay-text-color-dark: #f8f8f8;
+    --replay-text-shadow-dark: none; /* REMOVED GLOW: No text shadow in dark mode */
+    --texture-background-image-dark: url('../img/introbackground0.png'); /* Placeholder for dark texture */
+    --dark-mode-toggle-wrapper-bg-dark: rgba(255, 255, 255, 0.1);
+    --dark-mode-toggle-wrapper-hover-bg-dark: rgba(255, 255, 255, 0.3);
+    /* Apply dark theme variables to greeting elements */
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    background-image: var(--texture-background-image-dark);
+    transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease;
+}
+
+/* Apply variables to specific elements within the greeting container */
+.container {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    background-image: var(--texture-background-image-light);
+    transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease; /* Ensure smooth transitions */
+}
+
+/* Updated styles for dark mode toggle wrapper and container */
+#darkModeToggleWrapper {
+    position: fixed;
+    top: 10px; /* Adjusted position for larger size */
+    right: 10px; /* Adjusted position for larger size */
+    width: 120px; /* Significantly larger clickable area */
+    height: 120px; /* Significantly larger clickable area */
+    cursor: var(--cursor-grab);
+    z-index: 1000; /* Ensure it's above other content */
+    display: flex; /* To center the Lottie inside */
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Circular hit area */
+    background-color: var(--dark-mode-toggle-wrapper-bg-light); /* Use CSS variable for background */
+    transition: background-color 0.3s ease;
+    overflow: visible;
+}
+
+#darkModeToggleWrapper:hover {
+    background-color: var(--dark-mode-toggle-wrapper-hover-bg-light); /* Use CSS variable for hover background */
+}
+
+#darkModeToggleContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+  opacity: 1;
+  transform: scale(2); /* 2배 확대 (원하는 배율로 조정 가능) */
+  transform-origin: center; /* 중심 기준으로 확대 */
+  cursor: var(--cursor-grab);
+}
+
+/* Define keyframes for the shake animation */
+@keyframes scaleThenWiggle {
+  0%   { transform: scale(2) rotate(0deg); }
+  10%  { transform: scale(1.8) rotate(0deg); }   /* 스케일 축소 */
+  20%  { transform: scale(2.4) rotate(0deg); }   /* 스케일 확대 */
+  30%  { transform: scale(1.9) rotate(0deg); }   /* 스케일 축소 */
+  40%  { transform: scale(2.3) rotate(0deg); }   /* 스케일 확대 */
+  50%  { transform: scale(2) rotate(0deg); }     /* 원래대로 */
+  60%  { transform: scale(2) rotate(-10deg); }
+  70%  { transform: scale(2) rotate(10deg); }
+  80%  { transform: scale(2) rotate(-5deg); }
+  90%  { transform: scale(2) rotate(5deg); }
+  100% { transform: scale(2) rotate(0deg); }     /* 종료 */
+}
+
+/* Apply animations on hover of the wrapper */
+#darkModeToggleWrapper:hover #darkModeToggleContainer {
+  animation: scaleThenWiggle 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.container .intro-greeting,
+.container .intro-text-wrapper,
+.container .product-statement p,
+.container .idea-statements p,
+.container .chatbox-section .text-box p,
+.container .idea-statements-continued p,
+.container .final-message-section p,
+.container .wish-message h5 {
+    color: var(--text-color-light); /* Default to light text color */
+    transition: color 0.5s ease;
+}
+.container.dark-theme .intro-greeting,
+.container.dark-theme .intro-text-wrapper,
+.container.dark-theme .product-statement p,
+.container.dark-theme .idea-statements p,
+.container.dark-theme .chatbox-section .text-box p,
+.container.dark-theme .idea-statements-continued p,
+.container.dark-theme .final-message-section p,
+.container.dark-theme .wish-message h5 {
+    color: var(--text-color-dark); /* Apply dark text color */
+}
+
+
+.container.dark-theme .chatbox-section .text-box {
+    border-color: var(--chatbox-border-dark);
+}
+
+.container.dark-theme .text-box .fake-btn {
+    background-color: var(--chatbox-button-bg-dark) !important; /* Use !important if needed to override JS */
+    color: var(--chatbox-button-text-dark);
+}
+
+.container.dark-theme .idea-3 strong {
+    background-color: var(--strong-bg-dark);
+    color: var(--strong-text-dark);
+}
+
+.container.dark-theme .heading-main {
+    color: var(--heading-main-color-dark);
+}
+
+/* --- MODIFIED SECTION --- */
+.container.dark-theme .heading-main .heading-part1 {
+    color: var(--wish-heading-part1-color-dark); /* Apply bright color for "Your Story" */
+}
+
+.container.dark-theme .heading-main .heading-part2 {
+    color: var(--wish-heading-part2-color-dark); /* Apply bright color for "My Design!" */
+}
+/* --- END MODIFIED SECTION --- */
+
+.container.dark-theme #replay {
+    color: var(--replay-text-color-dark);
+    text-shadow: var(--replay-text-shadow-dark); /* This will now be 'none' in dark mode */
+}
+
+.container.dark-theme #darkModeToggleWrapper {
+    background-color: var(--dark-mode-toggle-wrapper-bg-dark);
+}
+.container.dark-theme #darkModeToggleWrapper:hover {
+    background-color: var(--dark-mode-toggle-wrapper-hover-bg-dark);
+}
+
+
+/*
+  Container for Preloader Content
+*/
+.container {
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+  text-align: center;
+  visibility: hidden;
+  position: relative;
+  overflow: hidden;
+  /* background-color will be overridden by .texture-background */
+}
+
+/* NEW: Texture Background for preloaderContainer */
+.texture-background {
+  background-size: cover;
+  background-position: center;
+  opacity: 1; /* Initially visible */
+  transition: opacity 0.5s ease, background-image 0.5s ease; /* Added background-image transition */
+}
+
+
+/*
+  General positioning for most content sections within the container.
+  Specific sections like final-message-section, controls, blank-interlude
+  will have their own explicit positioning.
+*/
+.container > div:not(.final-message-section):not(.controls):not(.blank-interlude):not(.uxui-design-section):not(.idea-6):not(#darkModeToggleWrapper) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10rem;
+}
+
+/*
+  Intro Section
+  Corresponds to: "greeting", "name", "greetingText"
+*/
+.intro-section {
+  margin-top: 12vw;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.intro-greeting { /* Corresponds to "greeting" */
+  font-size: 3rem;
+  font-weight: 600;
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.intro-section > img { /* If there's an image directly in intro-section */
+  vertical-align: middle;
+  margin-bottom: 10px;
+  max-width: 100%;
+  height: auto;
+}
+
+.intro-text-wrapper {
+  display: inline-block; /* Change to inline-block */
+  font-size: 1.4rem;
+  font-weight: lighter;
+  margin-top: 4vw; /* This will now be respected */
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.intro-text { /* Corresponds to "greetingText" */
+  display: inline; /* Keep the spans inline */
+}
+
+/*
+  Product Statement Section
+  Corresponds to: "text1"
+*/
+.product-statement {
+  margin-top: 12vw;
+  font-size: 3rem;
+  margin-left: 20vw;
+  margin-right: 20vw;
+}
+
+/*
+  Idea Statements Section (Part 1 & 2)
+  Corresponds to: "text2", "text3"
+*/
+.idea-statements p {
+  margin-top: 12vw;
+  font-size: 2rem; /* Increased font size */
+  position: absolute;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  left: 0;
+  right: 0;
+}
+
+/*
+  Chatbox Section
+  Corresponds to: "textInChatBox", "sendButtonLabel"
+*/
+.chatbox-section {
+  position: absolute; /* Specific positioning for chatbox */
+  left: 0;
+  right: 0;
+  top: 20vh; /* Will be animated by JS */
+  z-index: 1;
+  margin-top: 12vw; /* Ensure it aligns with general flow */
+}
+
+.chatbox-section .text-box {
+  width: 600px;
+  margin: 0 auto;
+  border: 3px solid var(--chatbox-border-light); /* Use variable */
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+  transition: border-color 0.5s ease;
+}
+
+.text-box p {
+  margin: 0;
+  text-align: left;
+}
+
+.text-box span {
+  visibility: hidden;
+}
+
+.text-box .fake-btn {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  color: var(--chatbox-button-text-light); /* Use variable */
+  background-color: var(--chatbox-button-bg-light); /* Use variable */
+  padding: 5px 8px; 
+  border-radius: 3px;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/*
+  Idea Statements Section (Continued)
+  Corresponds to: "text4", "text4Adjective", "text5Entry", "text5Content", "smiley", "bigTextPart1", "bigTextPart2"
+*/
+.idea-statements-continued p {
+    margin-top: 12vw;
+  /* font-size: 2rem; */ /* This was commented out, keep as is or uncomment if needed */
+  position: absolute;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  left: 0;
+  right: 0;
+}
+
+.idea-3, .idea-4 { /* Corresponds to "text4", "text4Adjective", "text5Entry" */
+  font-size: 2rem;
+}
+
+.idea-3 strong { /* Corresponds to "text4Adjective" */
+  padding: 3px 5px;
+  border-radius: 3px;
+  display: inline-block;
+  background-color: var(--strong-bg-light);
+  color: var(--strong-text-light);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.idea-5 { /* Corresponds to "text5Content", "smiley" */
+  font-size: 3rem;
+  /* Ensure these are visible by default, GSAP will animate from opacity: 0 */
+  opacity: 1; /* Make sure the parent is visible */
+}
+
+.idea-5 span,
+.idea-6 span,
+.heading-main span {
+  display: inline-block;
+}
+
+
+/* This targets the 'story' text content part 2 and the smiley specifically for initial visibility */
+/* REMOVED: Initial opacity: 0 from here. Let GSAP handle the 'from' animation. */
+/* .idea-5 [data-node-name='text5ContentPart1'], */
+/* .idea-5 [data-node-name='text5ContentPart2'], */
+/* .idea-5 .smiley { */
+/* opacity: 0; */ /* Start hidden for staggered appearance */
+/* } */
+
+.idea-6 {
+  position: absolute;
+  margin-top: clamp(1rem, calc(4rem - 2vw), 8rem) !important;
+  left: 0;
+  right: 0;
+}
+
+.idea-6 span { /* Corresponds to "bigTextPart1", "bigTextPart2" */
+  font-size: 24vw;
+  /* NEW: Apply Anton font here */
+  font-family: "Anton", sans-serif;
+}
+
+/*
+  UXUI Design Section (formerly Image with Wish Section)
+  Corresponds to: "imagePath", "wishHeadingPart1", "wishHeadingPart2", "wishText"
+*/
+.uxui-design-section {
+  position: absolute;
+  z-index: 2;
+  /* 화면이 커질수록 top이 줄어들고, 화면이 작아질수록 top이 늘어나게 설정 */
+  /*
+    예시 설명:
+    calc(15% - 2vw)는 기본적으로 top을 15%에서 시작하되,
+    뷰포트 너비가 1vw 증가할 때마다 top이 0.02%씩 줄어들게 합니다.
+
+    clamp(10%, calc(15% - 2vw), 30%)
+    - 최소 top: 10% (화면이 아주 클 때)
+    - 기본 계산: calc(15% - 2vw) (화면 크기에 따라 동적 조절)
+    - 최대 top: 30% (화면이 아주 작을 때)
+
+    이 값들은 필요에 따라 조정해 주세요.
+    (예: 10% 20% 30% -> 5% 15% 25% 등으로)
+  */
+  top: clamp(0%, calc(15% - 2vw), 40%);
+  margin-top: 0; /* 이전에 설정한 margin-top: 0은 유지 */
+  left: 0;
+  right: 0;
+}
+
+.uxui-design-section img {
+  display: inline-block;
+  max-width: 45%;
+  height: auto;
+}
+
+.image-path{
+ margin-top: 4rem;
+}
+
+.lightbulb {
+    display:none;
+}
+
+.wish-message {
+  /* Positioning for the wish text relative to the image section */
+}
+
+.heading-gap {
+  /* Placeholder for spacing */
+}
+
+.heading-main { /* Corresponds to "wishHeadingPart1", "wishHeadingPart2" */
+  font-size: 4em;
+  margin: 0;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding-top: 10px;
+  color: var(--heading-main-color-light); /* Use variable */
+  font-family: "Anton", sans-serif;
+  transition: color 0.5s ease;
+}
+
+.heading-main .heading-part1 {
+  color: var(--wish-heading-part1-color-light); /* Use variable for part1 */
+}
+.heading-main .heading-part2 {
+  color: var(--wish-heading-part2-color-light); /* Use variable for part2 */
+}
+
+
+.wish-message h5 { /* Corresponds to "wishText" */
+  font-weight: lighter;
+  font-size: 2rem;
+  /* margin: 10px 0 0; */
+}
+
+/*
+  Final Message Section
+  Corresponds to: "outroText", "replayText", "outroSmiley"
+*/
+.final-message-section {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50vh; /* Adjust this value as needed to position it correctly */
+  z-index: 2;
+}
+
+.final-message-section p {
+  font-size: 2rem;
+  font-weight: lighter;
+  margin: 10px 0;
+    opacity: 0;
+  visibility: hidden; /* 요소가 공간을 차지하지 않고 이벤트에 반응하지 않도록 */
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+#replay { /* Corresponds to "replayText" */
+  z-index: 3;
+  cursor: var(--cursor-grab);
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--replay-text-color-light);
+  text-shadow: var(--replay-text-shadow-light);
+}
+
+/*
+  Playback Controls (Fixed Position)
+*/
+.controls {
+ left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 10; /* Ensure controls are on top */
+  padding: 10px;
+  display: flex;
+  flex-direction: column; /* Arrange buttons vertically */
+  align-items: center; /* Center items horizontally within the column */
+  cursor: var(--cursor-grab);
+}
+
+.controls button {
+  background-color: #5555556d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: var(--cursor-grab);
+}
+
+.controls button:last-child {
+  margin-bottom: 0;
+}
+
+.controls button:hover {
+  background-color: #777;
+  transform: scale(1.05);
+}
+
+.controls button:active {
+  transform: 0.95s;
+}
+
+.controls .handle {
+  width: 100%;
+  height: 20px;
+  cursor: var(--cursor-grabbing);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  border-radius: 5px 5px 0 0;
+  color: rgba(0, 0, 0, 0.4);  /* Color for the handle dots */
+  font-size: 1.5rem; /* Make dots more visible */
+}
+
+#skipBtn {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: var(--cursor-grab);
+  font-size: 1.2rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#skipBtn:hover {
+  background-color: #c9302c;
+  transform: scale(1.05);
+}
+
+#skipBtn:active {
+  transform: scale(0.95);
+}
+
+/*
+  Animated Background Elements
+*/
+.baloons-animate {
+  width: 100vw;
+  height: 100vh;
+  position: fixed; /* Fixed position so they fill the viewport */
+  top: 0;
+  left: 0;
+  pointer-events: none; /* Crucial: Allow clicks through to the underlying content */
+  z-index: 0; /* Default z-index, will be managed by JS during animation */
+}
+
+.baloons img {
+  display: inline-block;
+  position: absolute;
+  /* Removed initial transforms, let GSAP handle positioning */
+}
+
+.baloons img:nth-child(even) {
+  left: -10%;
+}
+
+.baloons img:nth-child(odd) {
+  right: -10%;
+}
+
+.baloons img:nth-child(3n + 0) {
+  left: 30%;
+}
+
+/* NEW: Canvas styles */
+.circles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0; /* Behind other content, will be adjusted by JS */
+  pointer-events: none; /* Ensure it doesn't block interaction */
+  display: block; /* Ensures no extra spacing */
+}
+
+/*
+  Blank Interlude Screen
+*/
+.blank-interlude {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-color-light); /* Match container background */
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Ensure it's not visible initially */
+  z-index: 4; /* Higher than final-message-section, lower than controls */
+  transition: background-color 0.5s ease;
+}
+
+/*
+  Responsive Adjustments for Smaller Screens
+*/
+@media screen and (max-width: 500px) {
+  .container {
+    width: 90%;
+  }
+
+  .chatbox-section .text-box {
+    width: 90%;
+  }
+
+  .text-box .fake-btn {
+    right: 5px;
+    bottom: -38px;
+  }
+
+  .idea-5 span {
+    display: block;
+  }
+
+  .idea-6 span {
+    font-size: 10rem;
+  }
+
+  .uxui-design-section .lightbulb {
+    width: 50px;
+    top: -20px;
+  }
+
+  .uxui-design-section img {
+  max-width: 80%;
+}
+  .heading-main {
+    font-size: 2.2em;
+  }
+
+  .wish-message h5 {
+    font-size: 1.4rem;
+  }
+
+  .heading-gap {
+    height: 20px;
+  }
+
+  .final-message-section p {
+    font-size: 1.5rem;
+    font-weight: lighter;
+  }
+
+  #skipBtn {
+    /* width: 50px;
+    height: 50px; */
+    font-size: 1.5rem;
+  }
+
+  .container > div:not(.final-message-section):not(.controls):not(.blank-interlude):not(#darkModeToggleWrapper) {
+  top: 12rem;
+}
+
+.idea-6 span { /* Corresponds to "bigTextPart1", "bigText2" */
+  font-size: 20vw;
+}
+}

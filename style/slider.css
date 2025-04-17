@@ -1,0 +1,689 @@
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Higher than preloader container to ensure initial loading text is visible */
+  font-family: 'Do Hyeon', sans-serif;
+  transition: opacity 0.5s ease; /* Added for fade out */
+}
+
+.loading-text {
+  font-size: 2rem;
+  animation: fade 1s ease-in-out infinite alternate;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes popBounce {
+    0%   { transform: scale(1);}
+    10%  { transform: scale(1.12);}
+    20%  { transform: scale(0.97);}
+    30%  { transform: scale(1.07);}
+    50% { transform: scale(1);}
+}
+#inboxIconContainer {
+    position: fixed;
+    top: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    z-index: 1000;
+    border-radius: 50%;
+    position: fixed;
+    cursor: var(--cursor-grab);
+    transition: background-color 0.3s ease;
+        animation: popBounce 2.5s cubic-bezier(0.42,0,0.58,1);
+    animation-iteration-count: infinite;
+}
+#inboxCircle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background-color: rgba(113, 113, 113, 0.405);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#inboxIconContainer:hover {
+
+}
+#inboxIconContainer:hover #inboxCircle {
+    background-color: rgba(70, 120, 200, 0.62);  /* 원하는 색상으로 변경 */
+}
+
+/* === 풍선 Balloons (Ink Styled) === */
+.balloon {
+  position: fixed;
+  bottom: -140px; /* Initial position for GSAP animation */
+  width: 30px; /* Base width, JS can vary */
+  height: 42px; /* Base height, JS can vary */
+  border-radius: 18px 18px 26px 26px / 15px 15px 34px 34px; /* Original shape */
+  box-shadow: 0 8px 20px 0 #0002;
+  z-index: 9;
+  pointer-events: auto;
+  opacity: 0.8; /* Base opacity, JS can vary */
+  transition: filter 0.2s;
+  filter: url(#classicWetInk); /* Apply Ink Filter */
+  cursor: var(--cursor-grab);
+  /* Background color will be set by JavaScript to an achromatic color */
+}
+
+.fast-text-balloon {
+  font-family: "Work Sans", sans-serif;
+  letter-spacing: 0.03em;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff; /* Text color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 69px;
+  height: 69px;
+  z-index: 9999; /* Higher z-index */
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+  cursor: var(--cursor-grab);
+}
+
+/* 테두리 번짐 효과를 위한 가상 요소 */
+.fast-text-balloon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background-color: var(--before-bg, #1a1a1a); /* Use CSS variable, with a fallback */
+  transform: scale(1.08);
+  filter: url(#classicWetInk);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.balloon.pop {
+  animation: balloon-pop 0.6s cubic-bezier(.7, -0.5, .7, 2.2);
+  opacity: 0 !important;
+  z-index: 99;
+}
+
+@keyframes balloon-pop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.18);
+    opacity: 0.8;
+  }
+  80% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1.33);
+    opacity: 0;
+  }
+}
+
+/* === Internal Ink Splash Effect (for inside balloons) === */
+.ink-splash {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0.7;
+  pointer-events: none;
+  animation: splash-effect 0.6s cubic-bezier(.4, 0, .2, 1);
+  z-index: 1;
+  filter: blur(0.5px);
+}
+
+@keyframes splash-effect {
+  0% {
+    transform: scale(0);
+    opacity: 0.7;
+    filter: blur(0.5px);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(2.5px);
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+
+@keyframes ink-splash-fade-blur {
+  0% {
+    opacity: 0.85;
+    transform: scale(1);
+    filter: blur(0.5px);
+  }
+  40% {
+    opacity: 0.28;
+    transform: scale(2.2);
+    filter: blur(2.5px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.7);
+    filter: blur(8px);
+  }
+}
+
+/* === External "먹물" Confetti Particle Styles === */
+.confetti-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10001;
+  opacity: 1;
+  will-change: transform, opacity;
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Font Declarations */
+@font-face {
+  font-family: 'Hiragino Kaku Gothic Std';
+  src: local('Hiragino Kaku Gothic Std');
+  unicode-range: U+3000-9FFF, U+ff??;
+}
+.font-anton {
+  font-family: 'Anton', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+.font-dohyeon {
+  font-family: 'Do Hyeon', sans-serif;
+}
+.font-hiragino {
+  font-family: 'Hiragino Kaku Gothic Std', 'MS Gothic', 'Yu Gothic', sans-serif;
+}
+
+/* ================== 슬라이드 Y축 고정, 중앙정렬 ================== */
+.slider-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background: url('https://grainy-gradients.vercel.app/noise.svg'),
+    url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.99;
+  mix-blend-mode: overlay;
+}
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* Initially hidden by main.js */
+  display: none;
+}
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.6s cubic-bezier(0.63, 0, 0.7, 1),
+    opacity 0.6s cubic-bezier(0.63, 0, 0.7, 1);
+  opacity: 0;
+  visibility: hidden;
+  /* The main slide no longer holds a background image directly */
+   background-color: #000;
+}
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* New: Dynamically added background layers for cross-fade */
+.slide-bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* 이미지 반복 방지를 위해 추가 */
+    opacity: 0;
+    z-index: 0;
+    will-change: opacity; /* Hint for hardware acceleration */
+}
+
+/* Gradient pseudo-element */
+.slide::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 1;
+  opacity: var(--pseudo-opacity, 1);
+  transition: opacity 0.5s ease;
+}
+
+.slide-content {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  z-index: 2; /* Ensure content is above the pseudo-element and bg layers */
+}
+
+/* slide-title 최소 높이로 baseline 정렬 (폰트차이에도 Y축 고정) */
+.slide-title {
+  min-height: 110px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 6rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: var(--cursor-grab);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  padding: 50px 20px 20px 20px;
+}
+#slide3 .slide-title,
+#slide9 .slide-title {
+  font-size: 7.2rem;
+  min-height: 130px;
+  align-items: flex-end;
+  /* margin-bottom: 0.1em; */ /* Removed this to rely on padding for precise control */
+  padding-bottom: 12px; /* Adjusted padding for better vertical alignment with Korean text */
+}
+.welcome-banner-link {
+  position: absolute; /* fixed 대신 slide 내부 하단 기준 배치 */
+  bottom: 60px; /* 하단에서 적절한 간격 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 3;
+}
+
+.slide-padding1{
+  height: 1.5rem;
+}
+.slide-padding2{
+  height: 3rem;
+}
+
+/* ================== 슬라이드 배경 ================== */
+/* Gradients are now applied to the ::before pseudo-element */
+#slide1::before {
+  background-image: linear-gradient(135deg, #adb0b0, #e1e1e1);
+}
+#slide2::before {
+  background-image: linear-gradient(135deg, #adb0b0, #ffdec2);
+}
+#slide3::before {
+  background-image: linear-gradient(135deg, #d279ee, #f8c390);
+}
+#slide4::before {
+  background-image: linear-gradient(135deg, #f78fad, #fdeb82);
+}
+#slide5::before {
+  background-image: linear-gradient(135deg, #6de195, #c4e759);
+}
+#slide6::before {
+  background-image: linear-gradient(135deg, #41c7af, #54e38e);
+}
+#slide7::before {
+  background-image: linear-gradient(135deg, #5583ee, #41d8dd);
+}
+#slide8::before {
+  background-image: linear-gradient(135deg, #6cacff, #8debff);
+}
+#slide9::before {
+  background-image: linear-gradient(135deg, #a16bfe, #deb0df);
+}
+#slide10::before {
+  background-image: linear-gradient(135deg, #bc3d2f, #a16bfe);
+}
+
+
+/* slide-title existing hover styles */
+#slide1 .slide-title:hover {
+  color: #161616;
+}
+
+#slide1 .slide-title:hover::before {
+  transform: scale(1.15);
+  opacity: 0.55;
+  filter: url(#lightTextInk) blur(6px);
+}
+#slide2 .slide-title:hover {
+  letter-spacing: 8px;
+  color: #ff8c42;
+  transform: translateY(-5px);
+}
+/* Re-added missing #slide3 hover style */
+#slide3 .slide-title:hover {
+  transform: perspective(500px) rotateX(50deg);
+  color: #fff;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+#slide4 .slide-title:hover {
+  transform: scale(1.1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(
+    to right,
+    #e43970 25%,
+    #c21d54 50%,
+    #db0567 75%,
+    #f63e72 100%
+  );
+  color: transparent;
+  text-shadow: 0 1px 10px #fff, 0 2px 4px #c21d54cc, 0 0px 2px #db056799;
+  font-weight: 900;
+}
+#slide5 .slide-title:hover {
+  transform: skewX(-10deg);
+  color: #2c5e1a;
+  text-shadow: 2px 2px 0 #c4e759, 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+#slide6 .slide-title:hover {
+  letter-spacing: -2px;
+  color: #155d47;
+  transform: scale(0.95);
+  font-weight: 900;
+}
+#slide7 .slide-title:hover {
+  transform: translateY(-10px);
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  color: #41d8dd;
+}
+#slide8 .slide-title:hover {
+  transform: scale(1.05);
+}
+#slide8 .slide-title:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: white;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+#slide9 .slide-title:hover {
+  text-shadow: 3px 3px 0 #a16bfe, 6px 6px 0 rgba(0, 0, 0, 0.2);
+  transform: translate(-3px, -3px);
+  color: white;
+}
+#slide10 .slide-title:hover {
+  transform: scale(1.1);
+  animation: glowing 1.5s infinite alternate;
+}
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #bc3d2f,
+      0 0 20px #bc3d2f;
+  }
+  100% {
+    text-shadow: 0 0 10px #fff, 0 0 15px #a16bfe, 0 0 20px #a16bfe,
+      0 0 25px #a16bfe;
+  }
+}
+
+/* Corrected #slide8::after rule for proper targeting - if it was meant to be for hover */
+/* If this was intended to be part of the hover for slide8 title, it should be nested under it. */
+/* Assuming the original intent was to be a standalone rule that applies on hover. */
+#slide8 .slide-title:hover::after { /* This rule was duplicated and slightly different in original input */
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 33.33%;
+  width: 33.33%;
+  height: 5px;
+  background: white;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+
+/* ================== Welcome Banner ================== */
+.welcome-banner-link {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+.welcome-banner {
+  font-family: 'Anton', 'Do Hyeon', sans-serif;
+  font-size: 1.2rem;
+  color: #fff; /* Default to white for most cases */
+  padding: 0.6em 2em;
+  border-radius: 2em;
+  text-align: center;
+  letter-spacing: 0.08em;
+  background: var(--welcome-bg, #222);
+  /* box-shadow: var(--neon-box, 0 0 24px 4px #ffcaf7, 0 0 8px #ffffff48); */
+  text-shadow: var(--neon-text, 0 0 7px #949494, 0 0 10px #ffffff, 1px 1px 2px #222);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  transition: background 0.5s, color 0.5s, box-shadow 0.5s, text-shadow 0.5s,
+    transform 0.3s cubic-bezier(0.5, 1.7, 0.6, 0.85);
+  min-width: 280px;
+  cursor: var(--cursor-grab);
+}
+.welcome-banner[data-hovered="true"]::after {
+  content: 'Learn more';
+  color: #fff !important;
+  font-size: 1.15em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  z-index: 10;
+  animation: fadeinBanner 0.23s;
+  pointer-events: none;
+}
+.welcome-banner[data-hovered="true"] {
+  transform: scale(1);
+  box-shadow: 0 0 38px 10px #fff7, 0 0 24px 8px var(--banner-hover-fg, #fff);
+}
+.welcome-banner[data-hovered="true"] span {
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+@keyframes fadeinBanner {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 슬라이드별 배경 및 텍스트/hover 컬러 변수 */
+#slide1 .welcome-banner {
+  --welcome-bg: #adb0b0;
+  --banner-fg: #212121;
+  --banner-hover-fg: #4b4b4b;
+}
+#slide2 .welcome-banner {
+  --welcome-bg: #ffdec2;
+  --banner-fg: #444;
+  --banner-hover-fg: #ff8c42;
+}
+#slide3 .welcome-banner {
+  --welcome-bg: #d279ee;
+  --banner-fg: #fff;
+  --banner-hover-fg: #d279ee;
+}
+#slide4 .welcome-banner {
+  --welcome-bg: linear-gradient(45deg, #f78fad, #fdd090);
+  color: #fff; /* Changed to white */
+  --banner-hover-fg: #f78fad;
+
+  --neon-box: 0 0 28px 9px rgba(252, 174, 140, 0.6), 0 0 8px #fde68c;
+  --neon-text: 0 0 12px #f78fad, 0 0 16px #fdd090;
+}
+#slide5 .welcome-banner {
+  --welcome-bg: #6de195;
+  --banner-fg: #193c2e;
+  --banner-hover-fg: #6de195;
+}
+#slide6 .welcome-banner {
+  --welcome-bg: #41c7af;
+  --banner-fg: #fff;
+  --banner-hover-fg: #41c7af;
+}
+#slide7 .welcome-banner {
+  --welcome-bg: #5583ee;
+  --banner-fg: #fff;
+  --banner-hover-fg: #5583ee;
+}
+#slide8 .welcome-banner {
+  --welcome-bg: #6cacff;
+  --banner-fg: #222;
+  --banner-hover-fg: #6cacff;
+}
+#slide9 .welcome-banner {
+  --welcome-bg: #a16bfe;
+  --banner-fg: #fff;
+  --banner-hover-fg: #a16bfe;
+}
+#slide10 .welcome-banner {
+  --welcome-bg: linear-gradient(90deg, #a16bfeb4, #bc3d2feb);
+  --neon-box: 0 0 34px 10px #bc3d2faa, 0 0 18px 7px #a16bfeb4, 0 0 24px 0 #fff2;
+  --neon-text: 0 0 12px #bc3d2faa, 0 0 18px #a16bfeb4;
+  --banner-hover-fg: #e9dffa5b;
+}
+/* Navigation Buttons */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: transparent;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: var(--cursor-grab);
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.63, 0, 0.7, 1);
+  transition: opacity 0.5s ease;
+  outline: none;
+  opacity: 0;
+}
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+.prev {
+  left: 20px;
+}
+.next {
+  right: 20px;
+}
+/* Page Indicator */
+.page-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 10px 14px;
+  border-radius: 12px;
+  opacity: 0;
+}
+
+/* MODIFIED: Mobile Responsive Styles */
+@media (max-width: 600px) {
+  /* Make the content area flexible to allow vertical centering */
+  .slide-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Hide the fixed padding divs that interfere with flex centering */
+  .slide-padding1, .slide-padding2 {
+      display: none;
+  }
+
+  .slide-title {
+    font-size: 3rem;
+    /* Add horizontal padding to avoid overlapping with nav buttons */
+    padding-left: 75px;
+    padding-right: 75px;
+    /* Reset properties that interfere with centering */
+    min-height: auto;
+    align-items: center; /* Center text vertically within its box */
+    flex-grow: 0;
+    padding: 30px 45px 45px 38px;
+  }
+
+  #slide3 .slide-title, #slide9 .slide-title{
+    font-size: 4rem;
+    min-height: 0;
+    padding: 32px 40px 40px 38px;
+  }
+  /* Reposition the banner link from the bottom of the screen */
+  .welcome-banner-link {
+    bottom: 100px;
+  }
+
+  /* Adjust the banner itself */
+  .welcome-banner {
+    font-size: 0.98rem;
+    /* padding: 0.38em 1em; */
+    min-width: 180px;
+    /* Remove margin-top which pushes it up from the bottom */
+    margin-top: 0;
+  }
+}
