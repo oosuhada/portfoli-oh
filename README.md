@@ -70,6 +70,16 @@ python3 -m http.server 8080
 
 Then open `http://localhost:8080`.
 
-## Topics
+## Architecture & Topics / 아키텍처 및 주제
 
-[`creative-coding`](https://github.com/topics/creative-coding) · [`css`](https://github.com/topics/css) · [`frontend`](https://github.com/topics/frontend) · [`frontend-lab`](https://github.com/topics/frontend-lab) · [`html`](https://github.com/topics/html) · [`interactive-web`](https://github.com/topics/interactive-web) · [`javascript`](https://github.com/topics/javascript) · [`portfolio`](https://github.com/topics/portfolio) · [`threejs`](https://github.com/topics/threejs) · [`webgl`](https://github.com/topics/webgl) · [`animation`](https://github.com/topics/animation) · [`responsive-design`](https://github.com/topics/responsive-design) · [`ui-design`](https://github.com/topics/ui-design) · [`frontend-development`](https://github.com/topics/frontend-development) · [`web-design`](https://github.com/topics/web-design) · [`portfolio-website`](https://github.com/topics/portfolio-website)
+**Architecture / 아키텍처**<br>
+[`static-site-architecture`](https://github.com/topics/static-site-architecture) · [`client-side-rendering`](https://github.com/topics/client-side-rendering) · [`responsive-design-system`](https://github.com/topics/responsive-design-system) · [`webgl-rendering`](https://github.com/topics/webgl-rendering) · [`animation-pipeline`](https://github.com/topics/animation-pipeline) · [`progressive-enhancement`](https://github.com/topics/progressive-enhancement)
+
+**Core technologies / 핵심 기술**<br>
+[`threejs`](https://github.com/topics/threejs) · [`webgl`](https://github.com/topics/webgl)
+
+**Project context / 프로젝트 맥락**<br>
+[`animation`](https://github.com/topics/animation) · [`creative-coding`](https://github.com/topics/creative-coding) · [`frontend`](https://github.com/topics/frontend) · [`frontend-development`](https://github.com/topics/frontend-development) · [`frontend-lab`](https://github.com/topics/frontend-lab) · [`interactive-web`](https://github.com/topics/interactive-web) · [`portfolio`](https://github.com/topics/portfolio) · [`portfolio-website`](https://github.com/topics/portfolio-website) · [`responsive-design`](https://github.com/topics/responsive-design) · [`ui-design`](https://github.com/topics/ui-design) · [`web-design`](https://github.com/topics/web-design)
+
+**Implementation stack / 구현 스택**<br>
+[`css`](https://github.com/topics/css) · [`html`](https://github.com/topics/html) · [`javascript`](https://github.com/topics/javascript)
